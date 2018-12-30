@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/ed_02.dir/main.cpp.o CMakeFiles/ed_02.dir/src/Matriz.cpp.o CMakeFiles/ed_02.dir/src/MatrizQuad.cpp.o CMakeFiles/ed_02.dir/src/MatrizTSup.cpp.o CMakeFiles/ed_02.dir/src/MatrizDiag.cpp.o CMakeFiles/ed_02.dir/src/MatrizCol.cpp.o CMakeFiles/ed_02.dir/src/MatrizLin.cpp.o  -o ed_02 
