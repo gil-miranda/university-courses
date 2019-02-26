@@ -4,48 +4,45 @@
 ## @github: mirandagil
 ## @page: www.gilmiranda.me
 ## @class of functions: ROOTFINDING METHODS
-## @last update: 10/09/2018
-## -- Computação Cientifica 2018.2 @ UFRJ --
+## @last update: 26/02/2019
 
 ### - BISSECTION - ###
 
     ### - BASIC BISSECTION STEPPER - ###
 def bissection_step(f, a, b):
-    if (f(a)*f(b)) > 0:
-        print('ERRO! O dado intervalo [' + str(a)+','+str(b)+'] não contém uma raíz.')
-        return (a,b)
-    else:
-        m = (a+b)/2
-        if(f(m) == 0):
-            return (m,m)
-        elif (f(a)*f(m) < 0):
-            return (a,m)
-        elif (f(m)*f(b) < 0):
-            return (m,b)
+    z = (a+b)/2
+    if(f(z) == 0):
+        return (z,z)
+    elif (f(a)*f(z) < 0):
+        return (a,z)
+    elif (f(z)*f(b) < 0):
+        return (z,b)
 
     ### - BASIC RECURSIVE BISSECTION - ###
     ### - dependency: bissection_step from rootfinding - ###
 def bissection(f,a,b,tol=1e-6,count=0,retsteps=False):
-    if (abs(b-a) <= tol):
-        if (f((b+a)/2)) < f(b) and f((b+a)/2) < f(a):
+    if f(a)*f(b) > 0:
+         raise ValueError('Non-opposite signs for bissection')
+    if f(a) == 0:
+        if (retsteps):
+            return (a,count)
+        else:
+            return a
+    elif f(b) == 0:
+        if (retsteps):
+            return (b,count)
+        else:
+            return b
+    else:
+        if (abs(b-a) <= tol):
             if (retsteps):
                 return ((b+a)/2,count)
             else:
                 return (b+a)/2
-        elif (f(b)<f(a)):
-            if (retsteps):
-                return (b,count)
-            else:
-                return b
         else:
-            if (retsteps):
-                return (a,count)
-            else:
-                return a
-    else:
-        a, b = bissection_step(f, a, b)
-        count += 1
-        return bissection(f, a, b, tol, count, retsteps)
+            a, b = bissection_step(f, a, b)
+            count += 1
+            return bissecao(f, a, b, tol, count, retsteps)
 
 
 # ------------------------------------------------------------------------------------ #
