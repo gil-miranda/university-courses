@@ -1,0 +1,10 @@
+# Codes to set-up a test
+import binomial
+b = binomial.binomial()
+b.set_Sf((160,0.75))
+b.set_k(20)
+b.set_Ts(5)
+b.set_factors()
+b.set_riskneutral()
+b.discretize()
+b.set_Vf(b.call)
