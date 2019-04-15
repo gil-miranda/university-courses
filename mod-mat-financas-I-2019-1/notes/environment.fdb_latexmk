@@ -1,0 +1,9 @@
+# Fdb version 3
+["pdflatex"] 1554849897 "environment.tex" "environment.pdf" "environment" 1554849897
+  "/usr/share/texmf-dist/web2c/texmf.cnf" 1550406775 33301 a3134070eacafb10b1f371612ce2650d ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1554849484 7919195 c8e904bcf1aad6796f0a647c243f61de ""
+  "environment.aux" 1554849175 8 a94a2480d3289e625eea47cd1b285758 ""
+  "environment.tex" 1554849525 209 21d320ed6d988ac024e0d5bac3e90b2a ""
+  (generated)
+  "environment.log"
+  "environment.pdf"
