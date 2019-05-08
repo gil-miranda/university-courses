@@ -1,0 +1,500 @@
+\documentclass[
+	% -- opções da classe memoir --
+	11pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel.
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	]{abntex2}
+
+  \usepackage{lmodern}			% Usa a fonte Latin Modern
+  \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+  \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+  \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+  \usepackage{color}				% Controle das cores
+  \usepackage{graphicx}			% Inclusão de gráficos
+  \usepackage{microtype} 			% para melhorias de justificação
+  % ---
+  \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics
+                         % to support a larger range
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{mathrsfs}
+    \usepackage{fancyvrb}
+    \usepackage{fvextra}
+
+        % Colors for the hyperref package
+        \definecolor{urlcolor}{rgb}{0,.145,.698}
+        \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+        \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+        % ANSI colors
+        \definecolor{ansi-black}{HTML}{3E424D}
+        \definecolor{ansi-black-intense}{HTML}{282C36}
+        \definecolor{ansi-red}{HTML}{E75C58}
+        \definecolor{ansi-red-intense}{HTML}{B22B31}
+        \definecolor{ansi-green}{HTML}{00A250}
+        \definecolor{ansi-green-intense}{HTML}{007427}
+        \definecolor{ansi-yellow}{HTML}{DDB62B}
+        \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+        \definecolor{ansi-blue}{HTML}{208FFB}
+        \definecolor{ansi-blue-intense}{HTML}{0065CA}
+        \definecolor{ansi-magenta}{HTML}{D160C4}
+        \definecolor{ansi-magenta-intense}{HTML}{A03196}
+        \definecolor{ansi-cyan}{HTML}{60C6C8}
+        \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+        \definecolor{ansi-white}{HTML}{C5C1B4}
+        \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+        \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+        \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+        % Pygments definitions
+
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+\let\PY@ul=\relax \let\PY@tc=\relax%
+\let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+\PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+\PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+  % ---
+  % Pacotes adicionais, usados no anexo do modelo de folha de identificação
+  % ---
+  \usepackage{multicol}
+  \usepackage{multirow}
+  % ---
+
+  % ---
+  % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+  % ---
+  \usepackage{lipsum}				% para geração de dummy text
+  % ---
+
+  % ---
+  % Pacotes de citações
+  % ---
+  \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+  \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+  % ---
+  % CONFIGURAÇÕES DE PACOTES
+  % ---
+
+  % ---
+  % Configurações do pacote backref
+  % Usado sem a opção hyperpageref de backref
+  \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+  % Texto padrão antes do número das páginas
+  \renewcommand{\backref}{}
+  % Define os textos da citação
+  \renewcommand*{\backrefalt}[4]{
+  	\ifcase #1 %
+  		Nenhuma citação no texto.%
+  	\or
+  		Citado na página #2.%
+  	\else
+  		Citado #1 vezes nas páginas #2.%
+  	\fi}%
+  % ---
+
+  % ---
+  % Informações de dados para CAPA e FOLHA DE ROSTO
+  % ---
+  \titulo{Projeto I\\Modelagem Matemática em Finanças I \\O Modelo Binomial}
+  \autor{Gil Sales M. Neto \& João Victor de Fonseca}
+  \local{Brasil}
+  \data{Maio, 2019}
+  \instituicao{%
+    Universidade Federal do Rio de Janeiro
+    \par
+    Instituto de Matemática
+    \par
+    Bacharelado em Matemática Aplicada}
+  \tipotrabalho{Relatório técnico}
+  % O preambulo deve conter o tipo do trabalho, o objetivo,
+  % o nome da instituição e a área de concentração
+  \preambulo{}
+  % ---
+
+  % ---
+  % Configurações de aparência do PDF final
+
+  % alterando o aspecto da cor azul
+  \definecolor{blue}{RGB}{41,5,195}
+
+  % informações do PDF
+  \makeatletter
+  \hypersetup{
+       	%pagebackref=true,
+  		pdftitle={\@title},
+  		pdfauthor={\@author},
+      	pdfsubject={\imprimirpreambulo},
+  	    pdfcreator={LaTeX with abnTeX2},
+  		pdfkeywords={abnt}{latex}{abntex}{abntex2}{relatório técnico},
+  		colorlinks=true,       		% false: boxed links; true: colored links
+      	linkcolor=blue,          	% color of internal links
+      	citecolor=blue,        		% color of links to bibliography
+      	filecolor=magenta,      		% color of file links
+  		urlcolor=blue,
+  		bookmarksdepth=4
+  }
+  \makeatother
+  % ---
+
+  % ---
+  % Espaçamentos entre linhas e parágrafos
+  % ---
+
+  % O tamanho do parágrafo é dado por:
+  \setlength{\parindent}{1.3cm}
+
+  % Controle do espaçamento entre um parágrafo e outro:
+  \setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+  % ---
+  % compila o indice
+  % ---
+  \makeindex
+  % ---
+
+  % ----
+  % Início do documento
+  % ----
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+% ---
+% inserir o sumario
+% ---
+\contentsname
+\tableofcontents*
+\cleardoublepage
+
+\chapter{Os Algoritmos}
+Esta seção tem como objetivo apresentar todos os códigos utilizados nas simulações.
+\section{Simulação do modelo binomial}
+
+Utilizamos a linguagem {\color{green}Python3} para a implementação do algoritmo que simula os caminhos da ação
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Função para simular os valores da ação dados os parametros}
+    \PY{k}{def} \PY{n+nf}{binomial}\PY{p}{(}\PY{n}{S0}\PY{p}{,} \PY{n}{T}\PY{p}{,} \PY{n}{dt}\PY{p}{,} \PY{n}{u}\PY{p}{,} \PY{n}{d}\PY{p}{,} \PY{n}{p}\PY{p}{)}\PY{p}{:}
+        \PY{n}{Si} \PY{o}{=} \PY{n}{S0}
+        \PY{n}{S} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n}{t} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{T}\PY{p}{,}\PY{n}{dt}\PY{p}{)}
+        \PY{k}{for} \PY{n}{ti} \PY{o+ow}{in} \PY{n}{t}\PY{p}{:}
+            \PY{n}{rnd} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{rand}\PY{p}{(}\PY{p}{)}
+            \PY{k}{if} \PY{n}{rnd} \PY{o}{\PYZlt{}} \PY{n}{p}\PY{p}{:}
+                \PY{n}{Si} \PY{o}{*}\PY{o}{=} \PY{n}{u}
+            \PY{k}{else}\PY{p}{:}
+                \PY{n}{Si} \PY{o}{*}\PY{o}{=} \PY{n}{d}
+            \PY{n}{S}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{Si}\PY{p}{)}
+        \PY{k}{return} \PY{n}{S}
+\end{Verbatim}
+Esse algoritmo tem depedência do pacote {\color{red}Numpy} do Python, e os gráficos foram plotados com o pacote {\color{red}MatPlotLib.pyplot}
+\newpage
+\section{Plotando o gráfico da questão 1}
+Foram plotados dois gráficos, os quais seguem os códigos\\
+\\
+\subsection{Plot usual}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{In [2]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Definição dos parametros}
+         \PY{n}{T} \PY{o}{=} \PY{l+m+mi}{20}
+         \PY{n}{dt} \PY{o}{=} \PY{l+m+mf}{0.5}
+         \PY{n}{S0} \PY{o}{=} \PY{l+m+mi}{8}
+         \PY{n}{u} \PY{o}{=} \PY{l+m+mf}{1.1}
+         \PY{n}{d} \PY{o}{=} \PY{l+m+mf}{0.8}
+         \PY{n}{p} \PY{o}{=} \PY{l+m+mf}{0.65}
+
+         \PY{c+c1}{\PYZsh{}\PYZsh{} Construção da lista de valores da ação pelo tempo}
+         \PY{n}{x} \PY{o}{=} \PY{p}{[}\PY{n}{binomial}\PY{p}{(}\PY{n}{S0}\PY{p}{,} \PY{n}{T}\PY{p}{,} \PY{n}{dt}\PY{p}{,} \PY{n}{u}\PY{p}{,} \PY{n}{d}\PY{p}{,} \PY{n}{p}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}\PY{p}{]}
+
+         \PY{c+c1}{\PYZsh{}\PYZsh{} Inserir o valor inicial em cada lista}
+         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}\PY{p}{:}
+             \PY{n}{x}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{insert}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{S0}\PY{p}{)}
+
+         \PY{c+c1}{\PYZsh{}\PYZsh{} Discretização do tempo}
+         \PY{n}{ts} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{41}\PY{p}{)}
+
+         \PY{c+c1}{\PYZsh{}\PYZsh{} Plot do gráfico}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{ts}\PY{p}{,}\PY{n}{x}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZob{}0:.5f\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Simulação com 20 caminhos de valor da ação}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{title}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Valor final}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{loc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{upper center}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{fancybox}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{shadow}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{ncol}\PY{o}{=}\PY{l+m+mi}{7}\PY{p}{,} \PY{n}{bbox\PYZus{}to\PYZus{}anchor}\PY{o}{=}\PY{p}{(}\PY{l+m+mf}{0.5}\PY{p}{,}\PY{l+m+mf}{1.05}\PY{p}{)}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Tempo}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Valor da Ação.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\newpage
+\subsection{Plot com escala Log em Y}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{In [3]:} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+        \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}\PY{p}{:}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{semilogy}\PY{p}{(}\PY{n}{ts}\PY{p}{,}\PY{n}{x}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZob{}0:.5f\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{title}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Valor final}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{loc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{upper center}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{fancybox}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{shadow}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{ncol}\PY{o}{=}\PY{l+m+mi}{7}\PY{p}{,} \PY{n}{bbox\PYZus{}to\PYZus{}anchor}\PY{o}{=}\PY{p}{(}\PY{l+m+mf}{0.5}\PY{p}{,}\PY{l+m+mf}{1.05}\PY{p}{)}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Caminhos de valor da ação}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\section{Boxplots da questão 2}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}30}]:} \PY{n}{vs} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n}{med\PYZus{}1} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n}{vf} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{p}{[}\PY{l+m+mi}{250}\PY{p}{,}\PY{l+m+mi}{500}\PY{p}{,}\PY{l+m+mi}{1000}\PY{p}{,}\PY{l+m+mi}{2000}\PY{p}{]}\PY{p}{:}
+            \PY{n}{vs}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{n}{binomial}\PY{p}{(}\PY{n}{S0}\PY{p}{,} \PY{n}{T}\PY{p}{,} \PY{n}{dt}\PY{p}{,} \PY{n}{u}\PY{p}{,} \PY{n}{d}\PY{p}{,} \PY{n}{p}\PY{p}{)}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{j}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{boxplot}\PY{p}{(}\PY{n}{vs}\PY{p}{,}\PY{n}{showfliers}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Boxplot com simulações}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Número de caminhos executados na simulação}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{250}\PY{p}{,}\PY{l+m+mi}{500}\PY{p}{,}\PY{l+m+mi}{1000}\PY{p}{,}\PY{l+m+mi}{2000}\PY{p}{]}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\section{Boxplots da questão 3}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}83}]:} \PY{n}{u\PYZus{}n} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{u}\PY{p}{)}
+         \PY{n}{d\PYZus{}n} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{d}\PY{p}{)}
+         \PY{n}{dt\PYZus{}n} \PY{o}{=} \PY{n}{dt}\PY{o}{/}\PY{l+m+mi}{2}
+
+         \PY{n}{vs} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{p}{[}\PY{l+m+mi}{250}\PY{p}{,}\PY{l+m+mi}{500}\PY{p}{,}\PY{l+m+mi}{1000}\PY{p}{,}\PY{l+m+mi}{2000}\PY{p}{]}\PY{p}{:}
+             \PY{n}{vs}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{n}{binomial}\PY{p}{(}\PY{n}{S0}\PY{p}{,} \PY{n}{T}\PY{p}{,} \PY{n}{dt\PYZus{}n}\PY{p}{,} \PY{n}{u\PYZus{}n}\PY{p}{,} \PY{n}{d\PYZus{}n}\PY{p}{,} \PY{n}{p}\PY{p}{)}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{j}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+
+         \PY{n}{plt}\PY{o}{.}\PY{n}{boxplot}\PY{p}{(}\PY{n}{vs}\PY{p}{,}\PY{n}{showfliers}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Boxplot com simulações}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Valores das ações ao tempo final}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Número de caminhos executados na simulação}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{250}\PY{p}{,}\PY{l+m+mi}{500}\PY{p}{,}\PY{l+m+mi}{1000}\PY{p}{,}\PY{l+m+mi}{2000}\PY{p}{]}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\chapter{Questão 1}
+Foi pedido para fixar os parametros $T = 20$ e $\Delta t = 0.5$ e escolher os outros, nossos parâmetros então ficaram:
+\begin{itemize}
+  \item $T = 20$
+  \item $\Delta t = 0.5$
+  \item $u = 1.1$
+  \item $d = 0.8$
+  \item $p = 0.65$
+\end{itemize}
+Como estamos tratando de um modelo binomial que lida com exponenciais, faz-se necessário também visualizar os valores com escala log.
+\subsection{Plot com escala comum}
+  \begin{figure}[h]
+    \hspace*{-2cm}
+    \adjustimage{max size={1.2\linewidth}{1.3\paperheight}}{fig1.png}
+  \end{figure}
+\subsection{Plot com escala log}
+\begin{figure}[h]
+  \hspace*{-2cm}
+  \adjustimage{max size={1.2\linewidth}{1.3\paperheight}}{fig2.png}
+\end{figure}
+
+\chapter{Questão 2}
+Foi pedido um boxplot para 250,500,1000,2000 caminhos de valor de ação
+\begin{figure}[h]
+  \adjustimage{max size={1.5\linewidth}{1.5\paperheight}}{fig3.png}
+\end{figure}
+
+\chapter{Questão 3}
+Foi pedido um mesmo boxplot, mas com novos parametros, que ficaram:
+\begin{itemize}
+  \item $T = 20$
+  \item $\Delta t = 0.25$
+  \item $u = \sqrt(1.1)$
+  \item $d = \sqrt(0.8)$
+  \item $p = 0.65$
+\end{itemize}
+\begin{figure}[h]
+  \adjustimage{max size={1.5\linewidth}{1.5\paperheight}}{fig3.png}
+\end{figure}
+
+\chapter{Questão 4}
+A média esperada da binomial pode ser dada pela seguinte fórmula:
+$$E[X] = (p\cdot u + q\cdot d)^n \cdot S_0$$
+onde $q = (1-p), n = T$, e os outros são os parametros do algoritmo\\
+A média do conjunto de dados é obtida pela média aritmetica, utilizando o método {\color{red} mean} do numpy.
+
+\subsection{Valor esperado para o primeiro caso}
+\begin{align*}
+  E[X] &= (0.65 \cdot 1.1 + 0.35 \cdot 0.8)^{20} \cdot 8\\
+  &\approx (0.995)^{20} \cdot 8\\
+  &\approx (0.904) \cdot 8\\
+  &\approx 7.237
+\end{align*}
+\subsection{Valor esperado para o segundo caso}
+\begin{align*}
+  E[X] &= (0.65 \cdot 1.049 + 0.35 \cdot 0.894)^{20} \cdot 8\\
+  &\approx (0.994)^{20} \cdot 8\\
+  &\approx (0.900) \cdot 8\\
+  &\approx 7.2
+\end{align*}
+
+\subsection{Média dos valores para o primeiro caso}
+250 ações: 7.229332844074394
+500 ações: 6.576994633671657
+1000 ações: 6.659109025949532
+2000 ações: 6.508780520361858
+
+\subsection{Média dos valores para o segundo caso}
+250 ações: 5.320103652152599
+500 ações: 5.152399440097309
+1000 ações: 5.410913075158868
+2000 ações: 5.238002583867098
+
+\subsection{Conclusão}
+falta escrever
+
+\chapter{Questão 5}
+Plotar gráfico do erro e concluir sobre
+\end{document}
