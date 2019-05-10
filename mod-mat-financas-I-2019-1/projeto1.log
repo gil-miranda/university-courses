@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.5.4)  8 MAY 2019 12:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.5.4)  8 MAY 2019 21:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -967,13 +967,13 @@ File: uni-global.def 2013/05/13 UCS: Unicode global data
 \uc@temptokena=\toks39
 )
 
-./projeto1.tex:46: LaTeX Error: Option clash for package inputenc.
+./projeto1.tex:47: LaTeX Error: Option clash for package inputenc.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.46     \usepackage
+l.47     \usepackage
                     {fancyvrb} % verbatim replacement that allows latex
 The package inputenc has already been loaded with options:
   [utf8]
@@ -1018,13 +1018,13 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)+ FMi change
 \LT@p@ftn=\toks40
 )
 
-./projeto1.tex:56: LaTeX Error: Option clash for package enumitem.
+./projeto1.tex:57: LaTeX Error: Option clash for package enumitem.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.56     \usepackage
+l.57     \usepackage
                     [normalem]{ulem} % ulem is needed to support strikethrou...
 The package enumitem has already been loaded with options:
   []
@@ -1330,7 +1330,7 @@ LaTeX Info: Redefining \newblock on input line 591.
 LaTeX Info: Redefining \cite on input line 618.
 \ABCItoken=\toks43
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 268.
+Package hyperref Info: Option `colorlinks' set `true' on input line 271.
 \projeto1@idxfile=\write5
 \openout5 = `projeto1.idx'.
 
@@ -1339,32 +1339,32 @@ Writing index file projeto1.idx
 (./projeto1.aux)
 \openout1 = `projeto1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 291.
-LaTeX Font Info:    ... okay on input line 291.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 291.
-LaTeX Font Info:    ... okay on input line 291.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 291.
-LaTeX Font Info:    ... okay on input line 291.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 291.
-LaTeX Font Info:    ... okay on input line 291.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 291.
-LaTeX Font Info:    ... okay on input line 291.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 291.
-LaTeX Font Info:    ... okay on input line 291.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 291.
-LaTeX Font Info:    ... okay on input line 291.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 291.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 291.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 294.
+LaTeX Font Info:    ... okay on input line 294.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 294.
+LaTeX Font Info:    ... okay on input line 294.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 294.
+LaTeX Font Info:    ... okay on input line 294.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 294.
+LaTeX Font Info:    ... okay on input line 294.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 294.
+LaTeX Font Info:    ... okay on input line 294.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 294.
+LaTeX Font Info:    ... okay on input line 294.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 294.
+LaTeX Font Info:    ... okay on input line 294.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 294.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 294.
  (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 291.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 291.
+LaTeX Font Info:    ... okay on input line 294.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 294.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 \AtBeginShipoutBox=\box95
-Package hyperref Info: Link coloring ON on input line 291.
+Package hyperref Info: Link coloring ON on input line 294.
  (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -1374,13 +1374,13 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 291.
-LaTeX Info: Redefining \ref on input line 291.
-LaTeX Info: Redefining \pageref on input line 291.
-LaTeX Info: Redefining \nameref on input line 291.
-LaTeX Info: Redefining \degres on input line 291.
-LaTeX Info: Redefining \dots on input line 291.
-LaTeX Info: Redefining \up on input line 291.
+LaTeX Info: Redefining \nameref on input line 294.
+LaTeX Info: Redefining \ref on input line 294.
+LaTeX Info: Redefining \pageref on input line 294.
+LaTeX Info: Redefining \nameref on input line 294.
+LaTeX Info: Redefining \degres on input line 294.
+LaTeX Info: Redefining \dots on input line 294.
+LaTeX Info: Redefining \up on input line 294.
 \myptabbox=\box96
 \myptabboxwidth=\skip280
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -1408,7 +1408,7 @@ Package grfext Info: Graphics extension search list:
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \microtypecontext on input line 291.
+LaTeX Info: Redefining \microtypecontext on input line 294.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1465,7 +1465,7 @@ Package caption Info: End \AtBeginDocument code.
 (/usr/share/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 319.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 322.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1515,7 +1515,7 @@ LaTeX Font Info:    Try loading font information for U+rsfs on input line 6.
  (/usr/share/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )) [2]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 329.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 332.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1525,45 +1525,93 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 
 
-./projeto1.tex:330: Package xcolor Error: Undefined color `incolor'.
+./projeto1.tex:333: Package xcolor Error: Undefined color `incolor'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.330 ...os valores da aÃ§Ã£o dados os parametros}
+l.333 ...os valores da aÃ§Ã£o dados os parametros}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-./projeto1.tex:330: Package xcolor Error: Undefined color `incolor'.
+./projeto1.tex:333: Package xcolor Error: Undefined color `incolor'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.330 ...os valores da aÃ§Ã£o dados os parametros}
+l.333 ...os valores da aÃ§Ã£o dados os parametros}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 331.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 334.
 [3
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 347--349
+Underfull \hbox (badness 10000) in paragraph at lines 350--352
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--349
+Underfull \hbox (badness 10000) in paragraph at lines 350--352
 
  []
 
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 373.
+
+./projeto1.tex:354: Package xcolor Error: Undefined color `incolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.354 ...Zsh{}\PYZsh{} DefiniÃ§Ã£o dos parametros}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./projeto1.tex:354: Package xcolor Error: Undefined color `incolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.354 ...Zsh{}\PYZsh{} DefiniÃ§Ã£o dos parametros}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./projeto1.tex:354: Package xcolor Error: Undefined color `incolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.354 ...Zsh{}\PYZsh{} DefiniÃ§Ã£o dos parametros}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./projeto1.tex:354: Package xcolor Error: Undefined color `incolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.354 ...Zsh{}\PYZsh{} DefiniÃ§Ã£o dos parametros}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 376.
 (/usr/share/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1575,139 +1623,259 @@ Package microtype Info: Character `texttrademark ' is missing
 (microtype)             in font `TS1/lmtt/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 374.
+(Font)              <7> on input line 377.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 374.
+(Font)              <5> on input line 377.
  [4]
 
-./projeto1.tex:392: Package xcolor Error: Undefined color `incolor'.
+./projeto1.tex:386: Package xcolor Error: Undefined color `incolor'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.392 ...} \PY{n}{vs} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+l.386 ...PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-./projeto1.tex:392: Package xcolor Error: Undefined color `incolor'.
+./projeto1.tex:386: Package xcolor Error: Undefined color `incolor'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.392 ...} \PY{n}{vs} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+l.386 ...PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-./projeto1.tex:405: Package xcolor Error: Undefined color `incolor'.
+./projeto1.tex:386: Package xcolor Error: Undefined color `incolor'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.405 ....}\PY{n}{sqrt}\PY{p}{(}\PY{n}{u}\PY{p}{)}
+l.386 ...PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-./projeto1.tex:405: Package xcolor Error: Undefined color `incolor'.
+./projeto1.tex:386: Package xcolor Error: Undefined color `incolor'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.405 ....}\PY{n}{sqrt}\PY{p}{(}\PY{n}{u}\PY{p}{)}
+l.386 ...PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[5] [6]
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 425.
+
+./projeto1.tex:396: Package xcolor Error: Undefined color `incolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.396 ...p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}\PY{p}{]}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./projeto1.tex:396: Package xcolor Error: Undefined color `incolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.396 ...p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{]}\PY{p}{]}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./projeto1.tex:407: Package xcolor Error: Undefined color `incolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.407 ....}\PY{n}{sqrt}\PY{p}{(}\PY{n}{u}\PY{p}{)}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./projeto1.tex:407: Package xcolor Error: Undefined color `incolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.407 ....}\PY{n}{sqrt}\PY{p}{(}\PY{n}{u}\PY{p}{)}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./projeto1.tex:423: Package xcolor Error: Undefined color `incolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.423 ...sh{} FunÃ§Ã£o para calcular a esperanÃ§a}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./projeto1.tex:423: Package xcolor Error: Undefined color `incolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.423 ...sh{} FunÃ§Ã£o para calcular a esperanÃ§a}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[5]
+
+./projeto1.tex:430: Package xcolor Error: Undefined color `incolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.430 ...mi}{2000}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./projeto1.tex:430: Package xcolor Error: Undefined color `incolor'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.430 ...mi}{2000}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[6]
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 456.
  (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<fig1.png, id=81, 1171.37625pt x 613.29124pt>
+<fig1.png, id=89, 1171.37625pt x 613.29124pt>
 File: fig1.png Graphic file (type png)
 <use fig1.png>
-Package pdftex.def Info: fig1.png  used on input line 435.
+Package pdftex.def Info: fig1.png  used on input line 466.
 (pdftex.def)             Requested size: 1171.3734pt x 613.28973pt.
 
-Overfull \hbox (29.18663pt too wide) in paragraph at lines 434--436
-[]|  [] 
+Overfull \hbox (41.83424pt too wide) in paragraph at lines 466--467
+[][] 
  []
 
-<fig2.png, id=83, 1163.34625pt x 599.23875pt>
+<fig2.png, id=91, 1180.41pt x 599.23875pt>
 File: fig2.png Graphic file (type png)
 <use fig2.png>
-Package pdftex.def Info: fig2.png  used on input line 440.
-(pdftex.def)             Requested size: 1163.34343pt x 599.23729pt.
+Package pdftex.def Info: fig2.png  used on input line 470.
+(pdftex.def)             Requested size: 1180.40714pt x 599.23729pt.
 
-Overfull \hbox (29.18967pt too wide) in paragraph at lines 439--441
-[]|  [] 
+Overfull \hbox (41.8162pt too wide) in paragraph at lines 470--471
+[][] 
  []
 
 [7
 
  <./fig1.png>] [8 <./fig2.png>]
-<fig3.png, id=100, 373.395pt x 280.04625pt>
+<fig3.png, id=109, 373.395pt x 280.04625pt>
 File: fig3.png Graphic file (type png)
 <use fig3.png>
-Package pdftex.def Info: fig3.png  used on input line 446.
+Package pdftex.def Info: fig3.png  used on input line 476.
 (pdftex.def)             Requested size: 373.39409pt x 280.04555pt.
  [9
 
  <./fig3.png>]
-File: fig3.png Graphic file (type png)
-<use fig3.png>
-Package pdftex.def Info: fig3.png  used on input line 459.
-(pdftex.def)             Requested size: 373.39409pt x 280.04555pt.
- [10
+./projeto1.tex:486: Missing } inserted.
+<inserted text> 
+                }
+l.486   \item \(d = \sqrt{\frac{110}{120}\)
+                                           }
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-]
-Overfull \hbox (41.44266pt too wide) in paragraph at lines 484--488
-[]\T1/lmr/m/n/10.95 (-20) 250 ações: 7.229332844074394 500 ações: 6.576994633671657 1000 ações: 6.659109025949532
- []
+./projeto1.tex:486: Extra }, or forgotten \endgroup.
+l.486   \item \(d = \sqrt{\frac{110}{120}\)}
+                                            
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
+<fig4.png, id=116, 397.485pt x 280.04625pt>
+File: fig4.png Graphic file (type png)
+<use fig4.png>
+Package pdftex.def Info: fig4.png  used on input line 490.
+(pdftex.def)             Requested size: 397.48402pt x 280.04555pt.
+[10
 
-Overfull \hbox (41.44266pt too wide) in paragraph at lines 490--494
-[]\T1/lmr/m/n/10.95 (-20) 250 ações: 5.320103652152599 500 ações: 5.152399440097309 1000 ações: 5.410913075158868
- []
+ <./fig4.png>] [11
 
-[11
+] [12]
+<fig5.png, id=134, 390.45876pt x 280.04625pt>
+File: fig5.png Graphic file (type png)
+<use fig5.png>
+Package pdftex.def Info: fig5.png  used on input line 544.
+(pdftex.def)             Requested size: 390.4578pt x 280.04555pt.
+ [13
 
-] [12] [13
-
-]
+ <./fig5.png>]
+<fig6.png, id=142, 421.575pt x 280.04625pt>
+File: fig6.png Graphic file (type png)
+<use fig6.png>
+Package pdftex.def Info: fig6.png  used on input line 551.
+(pdftex.def)             Requested size: 421.57396pt x 280.04555pt.
+ [14 <./fig6.png>]
 \tf@toc=\write6
 \openout6 = `projeto1.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 500.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 500.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 553.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 553.
  (./projeto1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 500.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 500.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 500.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 553.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 553.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 553.
  ) 
 Here is how much of TeX's memory you used:
- 29844 strings out of 492616
- 497640 string characters out of 6135178
+ 29867 strings out of 492616
+ 497922 string characters out of 6135178
  811244 words of memory out of 5000000
- 33306 multiletter control sequences out of 15000+600000
+ 33322 multiletter control sequences out of 15000+600000
  583615 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,10n,63p,915b,568s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr
+ 43i,10n,63p,915b,572s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr
 /share/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on projeto1.pdf (13 pages, 517424 bytes).
+Output written on projeto1.pdf (14 pages, 587373 bytes).
 PDF statistics:
- 263 PDF objects out of 1000 (max. 8388607)
- 223 compressed objects within 3 object streams
- 39 named destinations out of 1000 (max. 500000)
- 18096 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 296 PDF objects out of 1000 (max. 8388607)
+ 249 compressed objects within 3 object streams
+ 46 named destinations out of 1000 (max. 500000)
+ 18143 words of extra memory for PDF output out of 20736 (max. 10000000)
 

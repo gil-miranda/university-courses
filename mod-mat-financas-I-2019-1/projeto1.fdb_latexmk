@@ -1,10 +1,10 @@
 # Fdb version 3
-["makeindex projeto1.idx"] 1557324008 "projeto1.idx" "projeto1.ind" "projeto1" 1557328392
-  "projeto1.idx" 1557328391 0 d41d8cd98f00b204e9800998ecf8427e ""
+["makeindex projeto1.idx"] 1557360190 "projeto1.idx" "projeto1.ind" "projeto1" 1557361575
+  "projeto1.idx" 1557361497 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
   "projeto1.ind"
   "projeto1.ilg"
-["pdflatex"] 1557328391 "projeto1.tex" "projeto1.pdf" "projeto1" 1557328392
+["pdflatex"] 1557361496 "projeto1.tex" "projeto1.pdf" "projeto1" 1557361575
   "/dev/null" 1557311209 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1550406775 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1550406775 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -201,16 +201,19 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1550406775 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1557323951 3100712 2e4ebd0701d199081df207106829b113 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1556981594 7919195 efdf6829444625fa9ffe15bb24dc74ff ""
-  "fig1.png" 1557324840 160081 c22601c3e79fe2d2f34044ddef5f3acf ""
-  "fig2.png" 1557324840 167663 1c9fd088d8cc6970570245e016ebc1ce ""
-  "fig3.png" 1557324840 7406 728340d2f453c61db2723dc0bca5eba6 ""
-  "projeto1.aux" 1557328392 6796 222a592fc6921c34977b62050100e57a ""
-  "projeto1.ind" 1557324008 0 d41d8cd98f00b204e9800998ecf8427e "makeindex projeto1.idx"
-  "projeto1.tex" 1557328390 27234 f1a8e898ce64f3af450b5fe42400f3ba ""
-  "projeto1.toc" 1557328392 2608 dee73f6e55c551326efb2fc9f59d735b ""
+  "fig1.png" 1557358392 183977 6d77fb8671217a75c1c13363c8e44268 ""
+  "fig2.png" 1557358392 201505 1d95ed7a55ce8725e5442608277dcfc0 ""
+  "fig3.png" 1557358392 9331 8ce3780e7a5d4d57ac612c7a6694839f ""
+  "fig4.png" 1557358392 12544 e274c36247861783536037656f950e90 ""
+  "fig5.png" 1557358392 15644 c7cb46db3ddcb20b05965435a0bd230c ""
+  "fig6.png" 1557358392 13516 66e9cf281681e40ac5b044d41b061d1f ""
+  "projeto1.aux" 1557361497 7953 085b8d6b5f1c108290fb79c99824ec00 ""
+  "projeto1.ind" 1557360190 0 d41d8cd98f00b204e9800998ecf8427e "makeindex projeto1.idx"
+  "projeto1.tex" 1557361575 31292 c5bb1816324d1fe1755191d1b843be35 ""
+  "projeto1.toc" 1557361497 3051 a1346309f332af647c9028369721a1c2 ""
   (generated)
-  "projeto1.idx"
   "projeto1.log"
-  "projeto1.aux"
-  "projeto1.toc"
   "projeto1.pdf"
+  "projeto1.aux"
+  "projeto1.idx"
+  "projeto1.toc"
