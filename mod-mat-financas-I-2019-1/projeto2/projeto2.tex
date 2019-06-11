@@ -1,0 +1,790 @@
+\documentclass[
+	% -- opções da classe memoir --
+	11pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel.
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	]{abntex2}
+
+  \usepackage{lmodern}			% Usa a fonte Latin Modern
+  \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+  \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+  \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+  \usepackage{color}				% Controle das cores
+  \usepackage{graphicx}			% Inclusão de gráficos
+  \usepackage{microtype} 			% para melhorias de justificação
+  % ---
+  \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+		\usepackage{booktabs}
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics
+                         % to support a larger range
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{mathrsfs}
+    \usepackage{fancyvrb}
+    \usepackage{fvextra}
+
+        % Colors for the hyperref package
+        \definecolor{urlcolor}{rgb}{0,.145,.698}
+        \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+        \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+        % ANSI colors
+        \definecolor{ansi-black}{HTML}{3E424D}
+        \definecolor{ansi-black-intense}{HTML}{282C36}
+        \definecolor{ansi-red}{HTML}{E75C58}
+        \definecolor{ansi-red-intense}{HTML}{B22B31}
+        \definecolor{ansi-green}{HTML}{00A250}
+        \definecolor{ansi-green-intense}{HTML}{007427}
+        \definecolor{ansi-yellow}{HTML}{DDB62B}
+        \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+        \definecolor{ansi-blue}{HTML}{208FFB}
+        \definecolor{ansi-blue-intense}{HTML}{0065CA}
+        \definecolor{ansi-magenta}{HTML}{D160C4}
+        \definecolor{ansi-magenta-intense}{HTML}{A03196}
+        \definecolor{ansi-cyan}{HTML}{60C6C8}
+        \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+        \definecolor{ansi-white}{HTML}{C5C1B4}
+        \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+        \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+        \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+        % Pygments definitions
+
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+\let\PY@ul=\relax \let\PY@tc=\relax%
+\let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+\PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+\PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+  % ---
+  % Pacotes adicionais, usados no anexo do modelo de folha de identificação
+  % ---
+  \usepackage{multicol}
+  \usepackage{multirow}
+  % ---
+
+  % ---
+  % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+  % ---
+  \usepackage{lipsum}				% para geração de dummy text
+  % ---
+
+  % ---
+  % Pacotes de citações
+  % ---
+  \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+  \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+  % ---
+  % CONFIGURAÇÕES DE PACOTES
+  % ---
+
+  % ---
+  % Configurações do pacote backref
+  % Usado sem a opção hyperpageref de backref
+  \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+  % Texto padrão antes do número das páginas
+  \renewcommand{\backref}{}
+  % Define os textos da citação
+  \renewcommand*{\backrefalt}[4]{
+  	\ifcase #1 %
+  		Nenhuma citação no texto.%
+  	\or
+  		Citado na página #2.%
+  	\else
+  		Citado #1 vezes nas páginas #2.%
+  	\fi}%
+  % ---
+
+  % ---
+  % Informações de dados para CAPA e FOLHA DE ROSTO
+  % ---
+  \titulo{Projeto 2\\MAE001 - Modelagem Mat. em Finanças I \\Valor de Contrato e Discretização do Modelo Binomial e\\Metódo de Monte Carlo}
+  \autor{Gil Sales M. Neto \& João Victor de Fonseca}
+  \local{Brasil}
+  \data{Junho, 2019}
+  \instituicao{%
+    Universidade Federal do Rio de Janeiro
+    \par
+    Instituto de Matemática
+    \par
+    Bacharelado em Matemática Aplicada
+		\par
+		Prof.: Marco Cabral}
+  \tipotrabalho{Relatório técnico}
+  % O preambulo deve conter o tipo do trabalho, o objetivo,
+  % o nome da instituição e a área de concentração
+  \preambulo{}
+  % ---
+
+  % ---
+  % Configurações de aparência do PDF final
+
+  % alterando o aspecto da cor azul
+  \definecolor{blue}{RGB}{41,5,195}
+
+  % informações do PDF
+  \makeatletter
+  \hypersetup{
+       	%pagebackref=true,
+  		pdftitle={\@title},
+  		pdfauthor={\@author},
+      	pdfsubject={\imprimirpreambulo},
+  	    pdfcreator={LaTeX with abnTeX2},
+  		pdfkeywords={abnt}{latex}{abntex}{abntex2}{relatório técnico},
+  		colorlinks=true,       		% false: boxed links; true: colored links
+      	linkcolor=blue,          	% color of internal links
+      	citecolor=blue,        		% color of links to bibliography
+      	filecolor=magenta,      		% color of file links
+  		urlcolor=blue,
+  		bookmarksdepth=4
+  }
+  \makeatother
+  % ---
+
+  % ---
+  % Espaçamentos entre linhas e parágrafos
+  % ---
+
+  % O tamanho do parágrafo é dado por:
+  \setlength{\parindent}{1.3cm}
+
+  % Controle do espaçamento entre um parágrafo e outro:
+  \setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+  % ---
+  % compila o indice
+  % ---
+  \makeindex
+  % ---
+
+  % ----
+  % Início do documento
+  % ----
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+% ---
+% inserir o sumario
+% ---
+
+\tableofcontents*
+\cleardoublepage
+
+\chapter{Os Algoritmos}
+Esta seção tem como objetivo apresentar todos os códigos utilizados nas simulações.
+\section{O modelo e valores de contrato}
+
+Utilizamos a linguagem {\color{green}Python3} para a implementação do algoritmo que discretiza o modelo binomial e calcula os valores de contrato.
+
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Entradas:}
+        \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} s0 \PYZhy{}\PYZgt{} valor inicial}
+        \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} sf \PYZhy{}\PYZgt{} array com 2 valores finais sf[0] = heads, sf[1] = tails}
+        \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} t \PYZhy{}\PYZgt{} fração a ser dividida do tempo}
+        \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} probs \PYZhy{}\PYZgt{} array com ptil e qtil}
+        \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} r \PYZhy{}\PYZgt{} taxa de juros}
+        \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} k \PYZhy{}\PYZgt{} valor de payoff do contrato}
+        \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} tipo \PYZhy{}\PYZgt{} tipo do contrato: 0 = call, 1 = put}
+        \PY{k}{def} \PY{n+nf}{binomial}\PY{p}{(}\PY{n}{s0}\PY{p}{,}\PY{n}{sf}\PY{p}{,}\PY{n}{t}\PY{p}{,}\PY{n}{probs}\PY{p}{,}\PY{n}{r}\PY{p}{,}\PY{n}{k}\PY{p}{,}\PY{n}{tipo}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{:}
+            \PY{c+c1}{\PYZsh{} definindo u e d e neutra\PYZhy{}riscos}
+            \PY{n}{u} \PY{o}{=} \PY{n}{sf}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{/}\PY{n}{s0}
+            \PY{n}{d} \PY{o}{=} \PY{n}{sf}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{/}\PY{n}{s0}
+            \PY{n}{p\PYZus{}til} \PY{o}{=} \PY{n}{probs}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+            \PY{n}{q\PYZus{}til} \PY{o}{=} \PY{n}{probs}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+            \PY{n}{t\PYZus{}int} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{t}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+
+            \PY{c+c1}{\PYZsh{} esperança e desvio padrão do modelo}
+            \PY{n}{mi} \PY{o}{=} \PY{n}{p\PYZus{}til}\PY{o}{*}\PY{n}{u} \PY{o}{+} \PY{n}{q\PYZus{}til} \PY{o}{*} \PY{n}{d}
+            \PY{n}{sig} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{p\PYZus{}til}\PY{o}{*}\PY{n}{q\PYZus{}til}\PY{o}{*}\PY{p}{(}\PY{n}{u}\PY{o}{\PYZhy{}}\PY{n}{d}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+
+            \PY{c+c1}{\PYZsh{} discretizando ainda mais o tempo para garantir não arbitragem}
+            \PY{n}{M0} \PY{o}{=} \PY{l+m+mi}{1}\PY{o}{+}\PY{p}{(}\PY{n}{sig}\PY{o}{/}\PY{n}{mi}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}
+            \PY{n}{M1} \PY{o}{=} \PY{p}{(}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{+}\PY{n}{r}\PY{p}{)}\PY{o}{/}\PY{n}{mi}\PY{p}{)}
+            \PY{k}{while} \PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{M1}\PY{o}{*}\PY{o}{*}\PY{n}{t}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{p}{(}\PY{n}{M0}\PY{o}{*}\PY{o}{*}\PY{n}{t}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:} \PY{n}{t} \PY{o}{=} \PY{n}{t}\PY{o}{/}\PY{l+m+mi}{2}
+
+            \PY{c+c1}{\PYZsh{} esperança e desvio padrão discretizados}
+            \PY{n}{mi\PYZus{}t} \PY{o}{=} \PY{n}{mi}\PY{o}{*}\PY{o}{*}\PY{n}{t}
+            \PY{n}{sig\PYZus{}t} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{p}{(}\PY{n}{mi}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{+} \PY{n}{sig}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{n}{t} \PY{o}{\PYZhy{}} \PY{p}{(}\PY{n}{mi}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{n}{t}\PY{p}{)}
+            \PY{c+c1}{\PYZsh{} up \PYZam{} down \PYZam{} taxa de juros discretizados}
+            \PY{n}{u\PYZus{}disc} \PY{o}{=} \PY{n}{mi\PYZus{}t} \PY{o}{+} \PY{n}{sig\PYZus{}t}
+            \PY{n}{d\PYZus{}disc} \PY{o}{=} \PY{n}{mi\PYZus{}t} \PY{o}{\PYZhy{}} \PY{n}{sig\PYZus{}t}
+            \PY{n}{r\PYZus{}disc} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{1}\PY{o}{+}\PY{n}{r}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{n}{t} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}
+
+            \PY{c+c1}{\PYZsh{} garantia de não arbitragem}
+            \PY{k}{assert}\PY{p}{(}\PY{n}{d\PYZus{}disc} \PY{o}{\PYZlt{}} \PY{l+m+mi}{1}\PY{o}{+}\PY{n}{r\PYZus{}disc} \PY{o+ow}{and} \PY{l+m+mi}{1}\PY{o}{+}\PY{n}{r\PYZus{}disc} \PY{o}{\PYZlt{}}  \PY{n}{u\PYZus{}disc}\PY{p}{)}
+
+            \PY{c+c1}{\PYZsh{} gerando os valores finais da ação}
+            \PY{n}{Sf} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+            \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{t\PYZus{}int}\PY{p}{)}\PY{p}{:}
+                \PY{n}{Sf}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{s0}\PY{o}{*}\PY{n}{u\PYZus{}disc}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{n}{t\PYZus{}int}\PY{o}{\PYZhy{}}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{*}\PY{n}{d\PYZus{}disc}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{)}
+
+            \PY{c+c1}{\PYZsh{} gerando os valores finais do contrato com payoff}
+            \PY{k}{def} \PY{n+nf}{payoff}\PY{p}{(}\PY{n}{s}\PY{p}{)}\PY{p}{:}
+                \PY{c+c1}{\PYZsh{}\PYZsh{} Faz um call}
+                \PY{k}{if} \PY{n}{tipo} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{:}
+                    \PY{n}{aux} \PY{o}{=} \PY{p}{[}\PY{n}{i} \PY{o}{\PYZhy{}} \PY{n}{k} \PY{k}{if} \PY{n}{i} \PY{o}{\PYZgt{}} \PY{n}{k} \PY{k}{else} \PY{l+m+mi}{0} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{Sf}\PY{p}{]}
+                \PY{c+c1}{\PYZsh{}\PYZsh{} Faz um put}
+                \PY{k}{else}\PY{p}{:}
+                    \PY{n}{aux} \PY{o}{=} \PY{p}{[}\PY{n}{k} \PY{o}{\PYZhy{}} \PY{n}{i} \PY{k}{if} \PY{n}{k} \PY{o}{\PYZgt{}} \PY{n}{i} \PY{k}{else} \PY{l+m+mi}{0} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{Sf}\PY{p}{]}
+                \PY{k}{return} \PY{n}{aux}
+
+            \PY{c+c1}{\PYZsh{} metódo para calcular v\PYZus{}\PYZob{}n\PYZhy{}1\PYZcb{} a partir de v\PYZus{}\PYZob{}n\PYZcb{}(H) e v\PYZus{}\PYZob{}n\PYZcb{}(T)}
+            \PY{k}{def} \PY{n+nf}{vprev}\PY{p}{(}\PY{n}{v\PYZus{}h}\PY{p}{,}\PY{n}{v\PYZus{}t}\PY{p}{)}\PY{p}{:}
+                \PY{n}{v\PYZus{}p} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{1}\PY{o}{/}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{+}\PY{n}{r\PYZus{}disc}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{p}{(}\PY{n}{p\PYZus{}til}\PY{o}{*}\PY{n}{v\PYZus{}h} \PY{o}{+} \PY{n}{q\PYZus{}til}\PY{o}{*}\PY{n}{v\PYZus{}t}\PY{p}{)}
+                \PY{k}{return} \PY{p}{(}\PY{n}{v\PYZus{}p}\PY{p}{)}
+
+            \PY{c+c1}{\PYZsh{} Criando array de Valores do contrato}
+            \PY{n}{Vf} \PY{o}{=} \PY{n}{payoff}\PY{p}{(}\PY{n}{Sf}\PY{p}{)}
+            \PY{n}{Vs} \PY{o}{=} \PY{p}{[}\PY{n}{Vf}\PY{p}{]}
+
+            \PY{c+c1}{\PYZsh{} percorrendo e preenchendo os valores de V até V\PYZus{}0}
+            \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{t\PYZus{}int}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                \PY{n}{aux} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+                \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Vs}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                    \PY{n}{aux}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{vprev}\PY{p}{(}\PY{n}{Vs}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,}\PY{n}{Vs}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+                \PY{n}{Vs}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{aux}\PY{p}{)}
+
+            \PY{c+c1}{\PYZsh{} retorna Todos os valores de contrato e os valores finais da ação}
+            \PY{k}{return} \PY{n}{Vs}\PY{p}{,}\PY{n}{Sf}
+\end{Verbatim}
+
+Esse algoritmo tem depedência do pacote {\color{red}Numpy} do Python, e os gráficos foram plotados com o pacote {\color{red}MatPlotLib.pyplot}
+\newpage
+\subsection{Chamando o metódo }
+\subsubsection{European Call}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{n}{binomial}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{8}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{4}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+\end{Verbatim}
+
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}11}]:} [[4.979032264304619, 0.5807356147419425, 0, 0],
+          [2.629051909806835, 0.27461291734574655, 0.0],
+          [1.3730583228186053, 0.12985643115181125],
+          [0.7106845088072969]]
+\end{Verbatim}
+  \subsubsection{European Put}
+    \begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{In [{12}]:} \PY{n}{binomial}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{8}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{4}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+\end{Verbatim}
+
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}12}]:} [[0, 0, 1.8789949589546282, 3.2545898715395354],
+          [0.0, 0.8885218578953032, 2.427522388772923],
+          [0.4201560457601976, 1.5680605106848662],
+          [0.9401695625695541]]
+\end{Verbatim}
+\newpage
+\subsection{Plots dos gráficos}
+\subsubsection{Preparando os valores em $2^{12}$ momentos}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{vs\PYZus{}call} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\PY{n}{vs\PYZus{}put} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\PY{k}{for} \PY{n}{n} \PY{o+ow}{in} 		 \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{13}\PY{p}{)}\PY{p}{:}
+    \PY{n}{vs\PYZus{}call}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{binomial}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{8}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{*}\PY{o}{*}\PY{n}{n}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+    \PY{n}{vs\PYZus{}put}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{binomial}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{8}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{*}\PY{o}{*}\PY{n}{n}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+\subsubsection{Plot European Call}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{n}{ns} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{,}\PY{l+m+mi}{12}\PY{p}{)}
+\PY{n}{lbls} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZdl{}2\PYZca{}}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{i}\PY{p}{)} \PY{o}{+} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZcb{}\PYZdl{}}\PY{l+s+s1}{\PYZsq{}} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{13}\PY{p}{)}\PY{p}{]}
+\PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{ns}\PY{p}{,}\PY{n}{vs\PYZus{}call}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Modelo discretizado \PYZhy{} Contrato Call}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n}{ns}\PY{p}{,}\PY{n}{labels}\PY{o}{=}\PY{n}{lbls}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{yticks}\PY{p}{(}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Quantidade de tempos}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Valor \PYZdl{}}\PY{l+s+si}{\PYZob{}V\PYZus{}0\PYZcb{}}\PY{l+s+s1}{\PYZdl{} do contrato}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\subsubsection{Plot European Put}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{ns}\PY{p}{,}\PY{n}{vs\PYZus{}put}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Modelo discretizado \PYZhy{} Contrato Put}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n}{ns}\PY{p}{,}\PY{n}{labels}\PY{o}{=}\PY{n}{lbls}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{yticks}\PY{p}{(}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Quantidade de tempos}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Valor \PYZdl{}}\PY{l+s+si}{\PYZob{}V\PYZus{}0\PYZcb{}}\PY{l+s+s1}{\PYZdl{} do contrato}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\section{Atividade 2}
+\subsection{O algoritmo de Monte Carlo}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{k}{def} \PY{n+nf}{path\PYZus{}values}\PY{p}{(}\PY{n}{s0}\PY{p}{,} \PY{n}{t}\PY{p}{,} \PY{n}{u}\PY{p}{,} \PY{n}{d}\PY{p}{,} \PY{n}{probs}\PY{p}{)}\PY{p}{:}
+            \PY{n}{Si} \PY{o}{=} \PY{n}{s0}
+            \PY{n}{S} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+
+            \PY{c+c1}{\PYZsh{} definindo u e d e neutra\PYZhy{}riscos}
+            \PY{n}{p\PYZus{}til} \PY{o}{=} \PY{n}{probs}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+            \PY{n}{q\PYZus{}til} \PY{o}{=} \PY{n}{probs}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+            \PY{n}{t\PYZus{}int} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{t}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+
+            \PY{c+c1}{\PYZsh{} esperança e desvio padrão do modelo}
+            \PY{n}{mi} \PY{o}{=} \PY{n}{p\PYZus{}til}\PY{o}{*}\PY{n}{u} \PY{o}{+} \PY{n}{q\PYZus{}til} \PY{o}{*} \PY{n}{d}
+            \PY{n}{sig} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{p\PYZus{}til}\PY{o}{*}\PY{n}{q\PYZus{}til}\PY{o}{*}\PY{p}{(}\PY{n}{u}\PY{o}{\PYZhy{}}\PY{n}{d}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+
+            \PY{c+c1}{\PYZsh{} esperança e desvio padrão discretizados}
+            \PY{n}{mi\PYZus{}t} \PY{o}{=} \PY{n}{mi}\PY{o}{*}\PY{o}{*}\PY{n}{t}
+            \PY{n}{sig\PYZus{}t} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{p}{(}\PY{n}{mi}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{+} \PY{n}{sig}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{n}{t} \PY{o}{\PYZhy{}} \PY{p}{(}\PY{n}{mi}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{n}{t}\PY{p}{)}
+            \PY{c+c1}{\PYZsh{} up \PYZam{} down \PYZam{} taxa de juros discretizados}
+            \PY{n}{u\PYZus{}disc} \PY{o}{=} \PY{n}{mi\PYZus{}t} \PY{o}{+} \PY{n}{sig\PYZus{}t}
+            \PY{n}{d\PYZus{}disc} \PY{o}{=} \PY{n}{mi\PYZus{}t} \PY{o}{\PYZhy{}} \PY{n}{sig\PYZus{}t}
+
+            \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{t\PYZus{}int}\PY{p}{)}\PY{p}{:}
+                \PY{n}{rnd} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{rand}\PY{p}{(}\PY{p}{)}
+                \PY{k}{if} \PY{n}{rnd} \PY{o}{\PYZlt{}} \PY{n}{p\PYZus{}til}\PY{p}{:}
+                    \PY{n}{Si} \PY{o}{*}\PY{o}{=} \PY{n}{u\PYZus{}disc}
+                \PY{k}{else}\PY{p}{:}
+                    \PY{n}{Si} \PY{o}{*}\PY{o}{=} \PY{n}{d\PYZus{}disc}
+                \PY{n}{S}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{Si}\PY{p}{)}
+            \PY{k}{return} \PY{n}{S}
+
+        \PY{k}{def} \PY{n+nf}{monte\PYZus{}carlo}\PY{p}{(}\PY{n}{s}\PY{p}{,}\PY{n}{k}\PY{p}{,}\PY{n}{tipo}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{:}
+            \PY{k}{def} \PY{n+nf}{payoff}\PY{p}{(}\PY{n}{s}\PY{p}{)}\PY{p}{:}
+            \PY{c+c1}{\PYZsh{}\PYZsh{} Faz um call}
+                \PY{k}{if} \PY{n}{tipo} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{:}
+                     \PY{n}{aux} \PY{o}{=} \PY{p}{[}\PY{n}{i} \PY{o}{\PYZhy{}} \PY{n}{k} \PY{k}{if} \PY{n}{i} \PY{o}{\PYZgt{}} \PY{n}{k} \PY{k}{else} \PY{l+m+mi}{0} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{s}\PY{p}{]}
+                \PY{c+c1}{\PYZsh{}\PYZsh{} Faz um put}
+                \PY{k}{else}\PY{p}{:}
+                     \PY{n}{aux} \PY{o}{=} \PY{p}{[}\PY{n}{k} \PY{o}{\PYZhy{}} \PY{n}{i} \PY{k}{if} \PY{n}{k} \PY{o}{\PYZgt{}} \PY{n}{i} \PY{k}{else} \PY{l+m+mi}{0} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{s}\PY{p}{]}
+                \PY{k}{return} \PY{n}{aux}
+            \PY{k}{return} \PY{n}{payoff}\PY{p}{(}\PY{n}{s}\PY{p}{)}
+\end{Verbatim}
+
+\subsection{Rodando com t = 1/4 - Call}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Exemplo de Monte Carlo com t = 1/4 Call}
+		\PY{n}{vs\PYZus{}mc\PYZus{}call} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+		\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{5000}\PY{p}{)}\PY{p}{:}
+				\PY{n}{vs\PYZus{}mc\PYZus{}call}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{monte\PYZus{}carlo}\PY{p}{(}\PY{n}{path\PYZus{}values}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)}
+		\PY{n}{v0\PYZus{}mc\PYZus{}call} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{i}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{vs\PYZus{}mc\PYZus{}call}\PY{p}{]}\PY{p}{)}
+		\PY{n+nb}{print}\PY{p}{(}\PY{n}{v0\PYZus{}mc\PYZus{}call}\PY{p}{)}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+0.7034103415047368
+
+\end{Verbatim}
+
+\subsection{Rodando com t = 1/4 - Put}
+
+    \begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Exemplo de Monte Carlo com t = 1/4 Put}
+         \PY{n}{vs\PYZus{}mc\PYZus{}put} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{5000}\PY{p}{)}\PY{p}{:}
+             \PY{n}{vs\PYZus{}mc\PYZus{}put}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{monte\PYZus{}carlo}\PY{p}{(}\PY{n}{path\PYZus{}values}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+         \PY{n}{v0\PYZus{}mc\PYZus{}put} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{i}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{vs\PYZus{}mc\PYZus{}put}\PY{p}{]}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{v0\PYZus{}mc\PYZus{}put}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+1.0787617878550155
+
+    \end{Verbatim}
+
+\subsection{Gráficos de comparação}
+\subsubsection{Preparando os dados}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{n}{vs\PYZus{}mc\PYZus{}call} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{n}{vs\PYZus{}mc\PYZus{}put} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{n}{v0\PYZus{}mc\PYZus{}call} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{n}{v0\PYZus{}mc\PYZus{}put} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{13}\PY{p}{)}\PY{p}{:}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10000}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{vs\PYZus{}mc\PYZus{}put}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{monte\PYZus{}carlo}\PY{p}{(}\PY{n}{path\PYZus{}values}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{*}\PY{o}{*}\PY{n}{n}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+                 \PY{n}{vs\PYZus{}mc\PYZus{}call}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{monte\PYZus{}carlo}\PY{p}{(}\PY{n}{path\PYZus{}values}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{o}{*}\PY{o}{*}\PY{n}{n}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)}
+             \PY{n}{v0\PYZus{}mc\PYZus{}call}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{i}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{vs\PYZus{}mc\PYZus{}call}\PY{p}{]}\PY{p}{)}
+             \PY{n}{v0\PYZus{}mc\PYZus{}put}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{i}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{vs\PYZus{}mc\PYZus{}put}\PY{p}{]}\PY{p}{)}
+         \PY{n}{v0\PYZus{}med\PYZus{}mc\PYZus{}call} \PY{o}{=} \PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{i}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{v0\PYZus{}mc\PYZus{}call}\PY{p}{]}
+         \PY{n}{v0\PYZus{}med\PYZus{}mc\PYZus{}put} \PY{o}{=} \PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{i}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{v0\PYZus{}mc\PYZus{}put}\PY{p}{]}
+\end{Verbatim}
+
+\subsubsection{Plot dos valores $V_0$ para Monte Carlo Call}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{ns}\PY{p}{,}\PY{n}{v0\PYZus{}med\PYZus{}mc\PYZus{}call}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Monte Carlo \PYZhy{} Contrato Call}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n}{ns}\PY{p}{,}\PY{n}{labels}\PY{o}{=}\PY{n}{lbls}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{yticks}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Quantidade de tempos}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Valor \PYZdl{}}\PY{l+s+si}{\PYZob{}V\PYZus{}0\PYZcb{}}\PY{l+s+s1}{\PYZdl{} do contrato}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\subsubsection{Erro entre Binomial e Monte Carlo}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{n}{erro\PYZus{}call} \PY{o}{=} \PY{p}{[}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{n}{j}\PY{p}{)} \PY{k}{for} \PY{p}{(}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{)} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{v0\PYZus{}med\PYZus{}mc\PYZus{}call}\PY{p}{,}\PY{n}{vs\PYZus{}call}\PY{p}{)}\PY{p}{]}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{loglog}\PY{p}{(}\PY{n}{ns}\PY{p}{,}\PY{n}{erro\PYZus{}call}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Erro Monte Carlo e Binomial \PYZhy{} European Call}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n}{ns}\PY{p}{,}\PY{n}{labels}\PY{o}{=}\PY{n}{lbls}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{yticks}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Quantidade de tempos}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Valor \PYZdl{}}\PY{l+s+si}{\PYZob{}V\PYZus{}0\PYZcb{}}\PY{l+s+s1}{\PYZdl{} do contrato}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\subsubsection{Plot dos valores \(V_0\) para Monte Carlo Put}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{ns}\PY{p}{,}\PY{n}{v0\PYZus{}med\PYZus{}mc\PYZus{}put}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Monte Carlo \PYZhy{} Contrato Put}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n}{ns}\PY{p}{,}\PY{n}{labels}\PY{o}{=}\PY{n}{lbls}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{yticks}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Quantidade de tempos}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Valor \PYZdl{}}\PY{l+s+si}{\PYZob{}V\PYZus{}0\PYZcb{}}\PY{l+s+s1}{\PYZdl{} do contrato}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\subsubsection{Erro entre Binomial e Monte Carlo}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{n}{erro\PYZus{}put} \PY{o}{=} \PY{p}{[}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{n}{j}\PY{p}{)} \PY{k}{for} \PY{p}{(}\PY{n}{i}\PY{p}{,}\PY{n}{j}\PY{p}{)} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{v0\PYZus{}med\PYZus{}mc\PYZus{}put}\PY{p}{,}\PY{n}{vs\PYZus{}put}\PY{p}{)}\PY{p}{]}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{loglog}\PY{p}{(}\PY{n}{ns}\PY{p}{,}\PY{n}{erro\PYZus{}put}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Erro Monte Carlo e Binomial \PYZhy{} European Put}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n}{ns}\PY{p}{,}\PY{n}{labels}\PY{o}{=}\PY{n}{lbls}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{yticks}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Quantidade de tempos}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Valor \PYZdl{}}\PY{l+s+si}{\PYZob{}V\PYZus{}0\PYZcb{}}\PY{l+s+s1}{\PYZdl{} do contrato}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+
+\section{Atividade 3}
+\subsection{Monte Carlo com Call Asiático path dependent}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}32}]:} \PY{k}{def}  \PY{n+nf}{path\PYZus{}values}\PY{p}{(}\PY{n}{s0}\PY{p}{,}\PY{n}{t}\PY{p}{,} \PY{n}{u}\PY{p}{,} \PY{n}{d}\PY{p}{,} \PY{n}{probs}\PY{p}{)}\PY{p}{:}
+	\PY{n}{Si} \PY{o}{=} \PY{n}{s0}
+	\PY{n}{S} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+	\PY{c+c1}{\PYZsh{} definindo u e d e neutra\PYZhy{}riscos}
+	\PY{n}{p\PYZus{}til} \PY{o}{=} \PY{n}{probs}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+	\PY{n}{q\PYZus{}til} \PY{o}{=} \PY{n}{probs}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+	\PY{n}{t\PYZus{}int} \PY{o}{=} \PY{n+nb}{int}\PY{p}{(}\PY{n}{t}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+
+	\PY{c+c1}{\PYZsh{} esperança e desvio padrão do modelo}
+	\PY{n}{mi} \PY{o}{=} \PY{n}{p\PYZus{}til}\PY{o}{*}\PY{n}{u} \PY{o}{+} \PY{n}{q\PYZus{}til} \PY{o}{*} \PY{n}{d}
+	\PY{n}{sig} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{p\PYZus{}til}\PY{o}{*}\PY{n}{q\PYZus{}til}\PY{o}{*}\PY{p}{(}\PY{n}{u}\PY{o}{\PYZhy{}}\PY{n}{d}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+
+	\PY{c+c1}{\PYZsh{} esperança e desvio padrão discretizados}
+	\PY{n}{mi\PYZus{}t} \PY{o}{=} \PY{n}{mi}\PY{o}{*}\PY{o}{*}\PY{n}{t}
+	\PY{n}{sig\PYZus{}t} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{p}{(}\PY{n}{mi}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{+} \PY{n}{sig}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{n}{t} \PY{o}{\PYZhy{}} \PY{p}{(}\PY{n}{mi}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{n}{t}\PY{p}{)}
+	\PY{c+c1}{\PYZsh{} up \PYZam{} down \PYZam{} taxa de juros discretizados}
+	\PY{n}{u\PYZus{}disc} \PY{o}{=} \PY{n}{mi\PYZus{}t} \PY{o}{+} \PY{n}{sig\PYZus{}t}
+	\PY{n}{d\PYZus{}disc} \PY{o}{=} \PY{n}{mi\PYZus{}t} \PY{o}{\PYZhy{}} \PY{n}{sig\PYZus{}t}
+
+	\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{t\PYZus{}int}\PY{p}{)}\PY{p}{:}
+			\PY{n}{rnd} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{rand}\PY{p}{(}\PY{p}{)}
+			\PY{k}{if} \PY{n}{rnd} \PY{o}{\PYZlt{}} \PY{n}{p\PYZus{}til}\PY{p}{:}
+					\PY{n}{Si} \PY{o}{*}\PY{o}{=} \PY{n}{u\PYZus{}disc}
+			\PY{k}{else}\PY{p}{:}
+					\PY{n}{Si} \PY{o}{*}\PY{o}{=} \PY{n}{d\PYZus{}disc}
+			\PY{n}{S}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{Si}\PY{p}{)}
+	\PY{k}{return} \PY{n}{S}
+
+	\PY{k}{def} \PY{n+nf}{monte\PYZus{}carlo\PYZus{}asian}\PY{p}{(}\PY{n}{s}\PY{p}{,}\PY{n}{k}\PY{p}{,}\PY{n}{tipo}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{:}
+			\PY{k}{def} \PY{n+nf}{payoff}\PY{p}{(}\PY{n}{s}\PY{p}{)}\PY{p}{:}
+					\PY{n}{soma} \PY{o}{=} \PY{n+nb}{sum}\PY{p}{(}\PY{n}{s}\PY{p}{)}
+					\PY{c+c1}{\PYZsh{}print(soma)}
+					\PY{c+c1}{\PYZsh{}\PYZsh{} Faz um call}
+					\PY{k}{if} \PY{n}{tipo} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{:}
+							 \PY{n}{aux} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s}\PY{p}{)}\PY{o}{*}\PY{p}{(}\PY{n}{soma}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{k} \PY{k}{if} \PY{p}{(}\PY{l+m+mi}{1}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{s}\PY{p}{)}\PY{o}{*}\PY{p}{(}\PY{n}{soma}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZgt{}} \PY{n}{k} \PY{k}{else} \PY{l+m+mi}{0} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{s}\PY{p}{]}
+					\PY{k}{return} \PY{n}{aux}
+			\PY{k}{return} \PY{n}{payoff}\PY{p}{(}\PY{n}{s}\PY{p}{)}
+\end{Verbatim}
+\subsection{Gerando dados para o gráfico}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}61}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Exemplo de Monte Carlo com path dependent}
+         \PY{n}{vs\PYZus{}mc\PYZus{}call} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{n}{ts} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{20000}\PY{p}{,}\PY{l+m+mi}{50}\PY{p}{)}
+         \PY{n}{v0s} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n}{ts}\PY{p}{:}
+             \PY{c+c1}{\PYZsh{}aux = []}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{int}\PY{p}{(}\PY{n}{j}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{vs\PYZus{}mc\PYZus{}call}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{monte\PYZus{}carlo\PYZus{}asian}\PY{p}{(}\PY{n}{path\PYZus{}values}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)}
+             \PY{n}{v0\PYZus{}mc\PYZus{}call} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{i}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{vs\PYZus{}mc\PYZus{}call}\PY{p}{]}\PY{p}{)}
+             \PY{n}{v0s}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{v0\PYZus{}mc\PYZus{}call}\PY{p}{)}
+\end{Verbatim}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+[0.4375963652392393, 0.5430647987100987, 0.5659954994665015, 0.5887257301647619, 0.6063966674512364, 0.6007000475802122, 0.59761603881015, 0.5999644474723044, 0.5976725740468002, 0.603708748419119, 0.5977466652728642, 0.5996175339288562, 0.6020554644317307, 0.602865690827988, 0.6024661399474587, 0.6000492886401212, 0.5983613964338844, 0.5979717109927528, 0.5975483331239534, 0.5959104950513261, 0.5963203347462082, 0.596151614168296, 0.5956277630799244, 0.5966015807360663, 0.595932506843876, 0.5955148715654366, 0.597069574112133, 0.5962722420278928, 0.5948332512707466, 0.5938287254192948, 0.5933789118258452, 0.5939371717689256, 0.5926664383095693, 0.5926750699858094, 0.5927138671174984, 0.5921893638611629, 0.5916076288860549, 0.5921668737877549, 0.5917103705536981, 0.5919960225949764, 0.5930161021609842, 0.5936357141924494, 0.5938755724718722, 0.5936678269710457, 0.5940933579439398, 0.593703826512015, 0.5937905229117144, 0.5936783432336281, 0.593402765992101, 0.5933350639634067]
+\end{Verbatim}
+
+\subsection{Plotando o gráfico}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}66}]:} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{ts}\PY{p}{,}\PY{n}{v0s}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Convergência de Monte Carlo para Contratos que dependem do caminho}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Nº de simulações de caminho}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Valor de \PYZdl{}V\PYZus{}0\PYZdl{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+
+
+
+\chapter{Atividade 1}
+Foi pedido para escolher dois exemplos de contrato europeu, um put e um call, os modelos escolhidos foram:
+\begin{itemize}
+	\item Exemplo 1.1.1 - página 3
+		\subitem S(0) = 4
+		\subitem u = 2
+		\subitem d = 1/2
+		\subitem r = 1/4
+		\subitem k = 5
+		\subitem European Call
+	\item Exemplo 1.3.1 - página 15
+		\subitem S(0) = 4
+		\subitem u = 2
+		\subitem d = 1/2
+		\subitem r = 1/4
+		\subitem k = 5
+		\subitem European Put
+\end{itemize}
+\newpage
+Os modelos foram discretizados em \(\Delta t = 1/4 \) e seus valores de contrato seguem:
+\subsection{European Call}
+\begin{tabular}{ll}
+	\toprule
+\multicolumn{1}{c}{Contrato no tempo} & Valor do contrato \\
+\midrule
+V (HHH) & 4.98 \\
+V (HHT) = V (HTH) & 0.58 \\
+V (HTT) = V (THH) & 0 \\
+V (TTT) & 0 \\
+V (HH) & 2.63 \\
+V (HT) = V (TH) & 0.28 \\
+V (TT) & 0 \\
+V (H) & 1.37 \\
+V (T) & 0.13 \\
+V_0 & 0.71
+\end{tabular}
+\(V_0 = 1.20\) no livro.
+\subsection{European Put}
+\begin{tabular}{ll}
+	\toprule
+\multicolumn{1}{c}{Contrato no tempo} & Valor do contrato \\
+\midrule
+V(HHH) & 0 \\
+V(HHT) = V(HTH) & 0 \\
+V(HTT) = V(THH) & 1.88 \\
+V(TTT) & 3.25 \\
+V(HH) & 0 \\
+V(HT) = V(TH) & 0.89 \\
+V(TT) & 2.43 \\
+V(H) & 0.42 \\
+V(T) & 1.57 \\
+V_0 & 0.94
+\end{tabular}
+\(V_0 = 0.864\) no livro.
+
+
+\subsection{Gráficos de \(V_0\) em função do número de valores finais}
+Foi gerado um gráfico para cada modelo de contrato, com discretização do tempo em \(2^k, k = 1,\dots, 12\) plotando o valor inicial \(V_0\) de cada contrato em função da quantidade de tempos
+\newpage
+\subsubsection{European Call}
+\begin{figure}[h]
+	\adjustimage{max size={0.9\linewidth}{1\paperheight}}{fig1_call.png}
+\end{figure}
+\subsubsection{European Put}
+\begin{figure}[h]
+	\adjustimage{max size={0.9\linewidth}{1\paperheight}}{fig1_put.png}
+\end{figure}
+
+
+\chapter{Atividade 2}
+\section{Gráficos dos valores de contrato com Monte Carlo}
+\subsection{European Call}
+\begin{figure}[h]
+	\adjustimage{max size={1\linewidth}{1\paperheight}}{mc_call.png}
+\end{figure}
+\newpage
+\subsection{European Put}
+\begin{figure}[h]
+	\adjustimage{max size={1\linewidth}{1\paperheight}}{mc_put.png}
+\end{figure}
+\newpage
+\section{Gráficos de Comparação de erro entre Binomial e Monte Carlo}
+
+\subsection{European Call}
+
+\begin{figure}[h]
+	\adjustimage{max size={1\linewidth}{1\paperheight}}{erro_call.png}
+\end{figure}
+\newpage
+\subsection{European Put}
+
+\begin{figure}[h]
+	\adjustimage{max size={1\linewidth}{1\paperheight}}{erro_put.png}
+\end{figure}
+
+
+\chapter{Atividade 3}
+Foi usado o modelo de Call Asiático do exercício 1.8 página 22 - Shreve e geramos um gráfico da convergência do metódo para essa opção, plotando valor \(V_0\) por números de simulações, de 100 a 20000
+\begin{figure}[h]
+	\adjustimage{max size={1\linewidth}{1\paperheight}}{asian.png}
+\end{figure}
+\end{document}
