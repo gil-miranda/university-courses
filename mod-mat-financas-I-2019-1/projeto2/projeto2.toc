@@ -1,0 +1,45 @@
+\changetocdepth {4}
+\babel@toc {brazil}{}
+\babel@toc {brazil}{}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Os Algoritmos}}{4}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}O modelo e valores de contrato}{4}{section.1.1}% 
+\contentsline {subsection}{\numberline {1.1.1}Chamando o met\IeC {\'o}do }{7}{subsection.1.1.1}% 
+\contentsline {subsubsection}{\numberline {1.1.1.1}European Call}{7}{subsubsection.1.1.1.1}% 
+\contentsline {subsubsection}{\numberline {1.1.1.2}European Put}{7}{subsubsection.1.1.1.2}% 
+\contentsline {subsection}{\numberline {1.1.2}Plots dos gr\IeC {\'a}ficos}{8}{subsection.1.1.2}% 
+\contentsline {subsubsection}{\numberline {1.1.2.1}Preparando os valores em $2^{12}$ momentos}{8}{subsubsection.1.1.2.1}% 
+\contentsline {subsubsection}{\numberline {1.1.2.2}Plot European Call}{8}{subsubsection.1.1.2.2}% 
+\contentsline {subsubsection}{\numberline {1.1.2.3}Plot European Put}{8}{subsubsection.1.1.2.3}% 
+\contentsline {section}{\numberline {1.2}Atividade 2}{9}{section.1.2}% 
+\contentsline {subsection}{\numberline {1.2.1}O algoritmo de Monte Carlo}{9}{subsection.1.2.1}% 
+\contentsline {subsection}{\numberline {1.2.2}Rodando com t = 1/4 - Call}{10}{subsection.1.2.2}% 
+\contentsline {subsection}{\numberline {1.2.3}Rodando com t = 1/4 - Put}{10}{subsection.1.2.3}% 
+\contentsline {subsection}{\numberline {1.2.4}Gr\IeC {\'a}ficos de compara\IeC {\c c}\IeC {\~a}o}{10}{subsection.1.2.4}% 
+\contentsline {subsubsection}{\numberline {1.2.4.1}Preparando os dados}{10}{subsubsection.1.2.4.1}% 
+\contentsline {subsubsection}{\numberline {1.2.4.2}Plot dos valores $V_0$ para Monte Carlo Call}{11}{subsubsection.1.2.4.2}% 
+\contentsline {subsubsection}{\numberline {1.2.4.3}Erro entre Binomial e Monte Carlo}{11}{subsubsection.1.2.4.3}% 
+\contentsline {subsubsection}{\numberline {1.2.4.4}Plot dos valores \(V_0\) para Monte Carlo Put}{12}{subsubsection.1.2.4.4}% 
+\contentsline {subsubsection}{\numberline {1.2.4.5}Erro entre Binomial e Monte Carlo}{12}{subsubsection.1.2.4.5}% 
+\contentsline {section}{\numberline {1.3}Atividade 3}{12}{section.1.3}% 
+\contentsline {subsection}{\numberline {1.3.1}Monte Carlo com Call Asi\IeC {\'a}tico path dependent}{12}{subsection.1.3.1}% 
+\contentsline {subsection}{\numberline {1.3.2}Gerando dados para o gr\IeC {\'a}fico}{14}{subsection.1.3.2}% 
+\contentsline {subsection}{\numberline {1.3.3}Plotando o gr\IeC {\'a}fico}{14}{subsection.1.3.3}% 
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Atividade 1}}{16}{chapter.2}% 
+\contentsline {subsection}{\numberline {2.0.1}European Call}{17}{subsection.2.0.1}% 
+\contentsline {subsection}{\numberline {2.0.2}European Put}{17}{subsection.2.0.2}% 
+\contentsline {subsection}{\numberline {2.0.3}Gr\IeC {\'a}ficos de \(V_0\) em fun\IeC {\c c}\IeC {\~a}o do n\IeC {\'u}mero de valores finais}{17}{subsection.2.0.3}% 
+\contentsline {subsubsection}{\numberline {2.0.3.1}European Call}{18}{subsubsection.2.0.3.1}% 
+\contentsline {subsubsection}{\numberline {2.0.3.2}European Put}{18}{subsubsection.2.0.3.2}% 
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Atividade 2}}{19}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Gr\IeC {\'a}ficos dos valores de contrato com Monte Carlo}{19}{section.3.1}% 
+\contentsline {subsection}{\numberline {3.1.1}European Call}{19}{subsection.3.1.1}% 
+\contentsline {subsection}{\numberline {3.1.2}European Put}{20}{subsection.3.1.2}% 
+\contentsline {section}{\numberline {3.2}Gr\IeC {\'a}ficos de Compara\IeC {\c c}\IeC {\~a}o de erro entre Binomial e Monte Carlo}{21}{section.3.2}% 
+\contentsline {subsection}{\numberline {3.2.1}European Call}{21}{subsection.3.2.1}% 
+\contentsline {subsection}{\numberline {3.2.2}European Put}{22}{subsection.3.2.2}% 
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Atividade 3}}{23}{chapter.4}% 
