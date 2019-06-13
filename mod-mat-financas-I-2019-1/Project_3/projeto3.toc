@@ -1,0 +1,21 @@
+\changetocdepth {4}
+\babel@toc {brazil}{}
+\babel@toc {brazil}{}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Os Algoritmos}}{3}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Black \& Scholes}{3}{section.1.1}% 
+\contentsline {subsection}{\numberline {1.1.1}Importando os dados do CSV}{5}{subsection.1.1.1}% 
+\contentsline {subsection}{\numberline {1.1.2}Plots dos gr\IeC {\'a}ficos}{6}{subsection.1.1.2}% 
+\contentsline {subsubsection}{\numberline {1.1.2.1}Plot Put 6 dias}{6}{subsubsection.1.1.2.1}% 
+\contentsline {subsubsection}{\numberline {1.1.2.2}Plot Call 6 dias}{6}{subsubsection.1.1.2.2}% 
+\contentsline {subsubsection}{\numberline {1.1.2.3}Plot Put 28 dias}{7}{subsubsection.1.1.2.3}% 
+\contentsline {subsubsection}{\numberline {1.1.2.4}Plot Call 28 dias}{8}{subsubsection.1.1.2.4}% 
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Atividade}}{9}{chapter.2}% 
+\contentsline {subsection}{\numberline {2.0.1}Gr\IeC {\'a}fico de volatilidade implicita para as op\IeC {\c c}\IeC {\~o}es PUT com vencimento em 6 dias}{9}{subsection.2.0.1}% 
+\contentsline {subsection}{\numberline {2.0.2}Gr\IeC {\'a}fico de volatilidade implicita para as op\IeC {\c c}\IeC {\~o}es CALL com vencimento em 6 dias}{10}{subsection.2.0.2}% 
+\contentsline {subsection}{\numberline {2.0.3}Gr\IeC {\'a}fico de volatilidade implicita para as op\IeC {\c c}\IeC {\~o}es PUT com vencimento em 28 dias}{11}{subsection.2.0.3}% 
+\contentsline {subsection}{\numberline {2.0.4}Gr\IeC {\'a}fico de volatilidade implicita para as op\IeC {\c c}\IeC {\~o}es CALL com vencimento em 28 dias}{12}{subsection.2.0.4}% 
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Conclus\IeC {\~a}o}}{13}{chapter.3}% 

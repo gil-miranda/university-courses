@@ -1,0 +1,534 @@
+\documentclass[
+	% -- opções da classe memoir --
+	11pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel.
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	]{abntex2}
+
+  \usepackage{lmodern}			% Usa a fonte Latin Modern
+  \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+  \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+  \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+  \usepackage{color}				% Controle das cores
+  \usepackage{graphicx}			% Inclusão de gráficos
+  \usepackage{microtype} 			% para melhorias de justificação
+  % ---
+  \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+		\usepackage{booktabs}
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics
+                         % to support a larger range
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{mathrsfs}
+    \usepackage{fancyvrb}
+    \usepackage{fvextra}
+
+        % Colors for the hyperref package
+        \definecolor{urlcolor}{rgb}{0,.145,.698}
+        \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+        \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+        % ANSI colors
+        \definecolor{ansi-black}{HTML}{3E424D}
+        \definecolor{ansi-black-intense}{HTML}{282C36}
+        \definecolor{ansi-red}{HTML}{E75C58}
+        \definecolor{ansi-red-intense}{HTML}{B22B31}
+        \definecolor{ansi-green}{HTML}{00A250}
+        \definecolor{ansi-green-intense}{HTML}{007427}
+        \definecolor{ansi-yellow}{HTML}{DDB62B}
+        \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+        \definecolor{ansi-blue}{HTML}{208FFB}
+        \definecolor{ansi-blue-intense}{HTML}{0065CA}
+        \definecolor{ansi-magenta}{HTML}{D160C4}
+        \definecolor{ansi-magenta-intense}{HTML}{A03196}
+        \definecolor{ansi-cyan}{HTML}{60C6C8}
+        \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+        \definecolor{ansi-white}{HTML}{C5C1B4}
+        \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+        \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+        \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+        % Pygments definitions
+
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+\let\PY@ul=\relax \let\PY@tc=\relax%
+\let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+\PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+\PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+  % ---
+  % Pacotes adicionais, usados no anexo do modelo de folha de identificação
+  % ---
+  \usepackage{multicol}
+  \usepackage{multirow}
+  % ---
+
+  % ---
+  % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+  % ---
+  \usepackage{lipsum}				% para geração de dummy text
+  % ---
+
+  % ---
+  % Pacotes de citações
+  % ---
+  \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+  \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+  % ---
+  % CONFIGURAÇÕES DE PACOTES
+  % ---
+
+  % ---
+  % Configurações do pacote backref
+  % Usado sem a opção hyperpageref de backref
+  \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+  % Texto padrão antes do número das páginas
+  \renewcommand{\backref}{}
+  % Define os textos da citação
+  \renewcommand*{\backrefalt}[4]{
+  	\ifcase #1 %
+  		Nenhuma citação no texto.%
+  	\or
+  		Citado na página #2.%
+  	\else
+  		Citado #1 vezes nas páginas #2.%
+  	\fi}%
+  % ---
+
+  % ---
+  % Informações de dados para CAPA e FOLHA DE ROSTO
+  % ---
+  \titulo{Projeto 3\\MAE001 - Modelagem Mat. em Finanças I \\Cálculo de Volatilidade Implicita\\ \& Plot do Smile (Volatilidade x Strike)}
+  \autor{Gil Sales M. Neto \& João Victor de Fonseca}
+  \local{Brasil}
+  \data{Junho, 2019}
+  \instituicao{%
+    Universidade Federal do Rio de Janeiro
+    \par
+    Instituto de Matemática
+    \par
+    Bacharelado em Matemática Aplicada
+		\par
+		Prof.: Marco Cabral}
+  \tipotrabalho{Relatório técnico}
+  % O preambulo deve conter o tipo do trabalho, o objetivo,
+  % o nome da instituição e a área de concentração
+  \preambulo{}
+  % ---
+
+  % ---
+  % Configurações de aparência do PDF final
+
+  % alterando o aspecto da cor azul
+  \definecolor{blue}{RGB}{41,5,195}
+
+  % informações do PDF
+  \makeatletter
+  \hypersetup{
+       	%pagebackref=true,
+  		pdftitle={\@title},
+  		pdfauthor={\@author},
+      	pdfsubject={\imprimirpreambulo},
+  	    pdfcreator={LaTeX with abnTeX2},
+  		pdfkeywords={abnt}{latex}{abntex}{abntex2}{relatório técnico},
+  		colorlinks=true,       		% false: boxed links; true: colored links
+      	linkcolor=blue,          	% color of internal links
+      	citecolor=blue,        		% color of links to bibliography
+      	filecolor=magenta,      		% color of file links
+  		urlcolor=blue,
+  		bookmarksdepth=4
+  }
+  \makeatother
+  % ---
+
+  % ---
+  % Espaçamentos entre linhas e parágrafos
+  % ---
+
+  % O tamanho do parágrafo é dado por:
+  \setlength{\parindent}{1.3cm}
+
+  % Controle do espaçamento entre um parágrafo e outro:
+  \setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+  % ---
+  % compila o indice
+  % ---
+  \makeindex
+  % ---
+
+  % ----
+  % Início do documento
+  % ----
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+% ---
+% inserir o sumario
+% ---
+
+\tableofcontents*
+\cleardoublepage
+
+\chapter{Os Algoritmos}
+Esta seção tem como objetivo apresentar todos os códigos utilizados nas simulações.
+\section{Black \& Scholes}
+
+Utilizamos a linguagem {\color{green}Python3} para a implementação do algoritmo de Black \& Scholes e cálculo da volatilidade implicita.
+Esse algoritmo tem depedência dos pacotes: {\color{red}Scipy} para estatística, {\color{red}Math} para cálculos matemáticos, {\color{red}Pandas} para lidar com os dados e {\color{red}MatPlotLib.pyplot} para os gráficos.
+
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}78}]:} \PY{k+kn}{from} \PY{n+nn}{scipy} \PY{k}{import} \PY{n}{stats}
+         \PY{k+kn}{import} \PY{n+nn}{scipy}
+         \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+         \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+         \PY{k+kn}{import} \PY{n+nn}{math}
+\end{Verbatim}
+
+    \begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}64}]:} \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Precificação utilizando Black and Scholes.}
+         \PY{l+s+sd}{    cp: +1 \PYZhy{}\PYZgt{} call; \PYZhy{}1 put}
+         \PY{l+s+sd}{    s: valor da ação}
+         \PY{l+s+sd}{    k: strike}
+         \PY{l+s+sd}{    t: tempo em dias até expirar a opção}
+         \PY{l+s+sd}{    v: volatilidade}
+         \PY{l+s+sd}{    rf: taxa de juros neutra risco}
+         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+         \PY{k}{def} \PY{n+nf}{black\PYZus{}scholes} \PY{p}{(}\PY{n}{cp}\PY{p}{,} \PY{n}{s}\PY{p}{,} \PY{n}{k}\PY{p}{,} \PY{n}{t}\PY{p}{,} \PY{n}{rf}\PY{p}{,} \PY{n}{v}\PY{p}{,} \PY{n}{div} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{d1} \PY{o}{=} \PY{p}{(}\PY{n}{math}\PY{o}{.}\PY{n}{log}\PY{p}{(}\PY{n}{s}\PY{o}{/}\PY{n}{k}\PY{p}{)}\PY{o}{+}\PY{p}{(}\PY{n}{rf}\PY{o}{+}\PY{l+m+mf}{0.5}\PY{o}{*}\PY{n}{math}\PY{o}{.}\PY{n}{pow}\PY{p}{(}\PY{n}{v}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{n}{t}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{n}{v}\PY{o}{*}\PY{n}{math}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{)}
+                 \PY{n}{d2} \PY{o}{=} \PY{n}{d1} \PY{o}{\PYZhy{}} \PY{n}{v}\PY{o}{*}\PY{n}{math}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{t}\PY{p}{)}
+
+                 \PY{n}{optprice} \PY{o}{=} \PY{p}{(}\PY{n}{cp}\PY{o}{*}\PY{n}{s}\PY{o}{*}\PY{n}{math}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{div}\PY{o}{*}\PY{n}{t}\PY{p}{)}\PY{o}{*}\PY{n}{stats}\PY{o}{.}\PY{n}{norm}\PY{o}{.}\PY{n}{cdf}\PY{p}{(}\PY{n}{cp}\PY{o}{*}\PY{n}{d1}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{p}{(}\PY{n}{cp}\PY{o}{*}\PY{n}{k}\PY{o}{*}\PY{n}{math}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{rf}\PY{o}{*}\PY{n}{t}\PY{p}{)}\PY{o}{*}\PY{n}{stats}\PY{o}{.}\PY{n}{norm}\PY{o}{.}\PY{n}{cdf}\PY{p}{(}\PY{n}{cp}\PY{o}{*}\PY{n}{d2}\PY{p}{)}\PY{p}{)}
+                 \PY{k}{return} \PY{n}{optprice}
+
+
+         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Calculo da volatilidade implicita}
+         \PY{l+s+sd}{    cp: +1 \PYZhy{}\PYZgt{} call; \PYZhy{}1 put}
+         \PY{l+s+sd}{    s: valor da ação}
+         \PY{l+s+sd}{    k: strike}
+         \PY{l+s+sd}{    t: tempo em dias até expirar a opção}
+         \PY{l+s+sd}{    rf: taxa de juros neutra risco}
+         \PY{l+s+sd}{    price: cotação da opção pelo mercado}
+         \PY{l+s+sd}{    Função H(vol): Seja B(vol) o valor calculado por B\PYZam{}S dada volatilidade, e P a cotação da opção, H(vol) = B(vol) \PYZhy{} P}
+         \PY{l+s+sd}{    É a função a ser usada na bisseção}
+         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+         \PY{k}{def} \PY{n+nf}{volat\PYZus{}impl}\PY{p}{(}\PY{n}{cp}\PY{p}{,} \PY{n}{s}\PY{p}{,} \PY{n}{k}\PY{p}{,} \PY{n}{t}\PY{p}{,} \PY{n}{rf}\PY{p}{,} \PY{n}{price}\PY{p}{)}\PY{p}{:}
+             \PY{k}{def} \PY{n+nf}{h}\PY{p}{(}\PY{n}{vol}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{return} \PY{n}{black\PYZus{}scholes}\PY{p}{(}\PY{n}{cp}\PY{p}{,} \PY{n}{s}\PY{p}{,} \PY{n}{k}\PY{p}{,} \PY{n}{t}\PY{p}{,} \PY{n}{rf}\PY{p}{,} \PY{n}{vol}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{price}
+             \PY{k}{return} \PY{n}{scipy}\PY{o}{.}\PY{n}{optimize}\PY{o}{.}\PY{n}{bisect}\PY{p}{(}\PY{n}{h}\PY{p}{,}\PY{l+m+mf}{1e\PYZhy{}6}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{,}\PY{n}{xtol}\PY{o}{=}\PY{l+m+mf}{1e\PYZhy{}16}\PY{p}{)}
+\end{Verbatim}
+
+\newpage
+\subsection{Importando os dados do CSV}
+
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}65}]:} \PY{n}{data} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{BRFOODS.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}163}]:} \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+          \PY{l+s+sd}{Setting CONSTANTS}
+          \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+
+          \PY{n}{sigla\PYZus{}acao} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{BRFS3}\PY{l+s+s1}{\PYZsq{}}
+          \PY{n}{empresa} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{BRFoods S.A.}\PY{l+s+s1}{\PYZsq{}}
+          \PY{n}{preco\PYZus{}acao} \PY{o}{=} \PY{l+m+mf}{27.00}
+          \PY{n}{dias} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{6}\PY{p}{,}\PY{l+m+mi}{29}\PY{p}{)}
+
+
+          \PY{n}{puts} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Tipo}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{PUT}\PY{l+s+s1}{\PYZsq{}}
+          \PY{n}{calls} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Tipo}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CALL}\PY{l+s+s1}{\PYZsq{}}
+          \PY{n}{dia1706} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{17\PYZhy{}06\PYZhy{}2019}\PY{l+s+s1}{\PYZsq{}}
+          \PY{n}{dia1507} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{15\PYZhy{}07\PYZhy{}2019}\PY{l+s+s1}{\PYZsq{}}
+\end{Verbatim}
+\newpage
+\subsection{Plots dos gráficos}
+
+\subsubsection{Plot Put 6 dias}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}172}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} PUT Com 6 dias a vencer}
+
+          \PY{c+c1}{\PYZsh{}\PYZsh{} Buscando as informações no DataFrame}
+          \PY{n}{df\PYZus{}k} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{n}{puts} \PY{o}{\PYZam{}} \PY{n}{dia1706}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{]}
+          \PY{n}{df\PYZus{}s} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{n}{puts} \PY{o}{\PYZam{}} \PY{n}{dia1706}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{:}\PY{l+m+mi}{4}\PY{p}{]}
+          \PY{n}{ks\PYZus{}put\PYZus{}6} \PY{o}{=} \PY{n}{df\PYZus{}k}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}
+          \PY{n}{Ss\PYZus{}put\PYZus{}6} \PY{o}{=} \PY{n}{df\PYZus{}s}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}
+
+          \PY{c+c1}{\PYZsh{}\PYZsh{} Setando o array com as volatilidades a serem plotadas}
+          \PY{n}{vs\PYZus{}put\PYZus{}6} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{p}{(}\PY{n}{k}\PY{p}{,}\PY{n}{s}\PY{p}{)} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{ks\PYZus{}put\PYZus{}6}\PY{p}{,}\PY{n}{Ss\PYZus{}put\PYZus{}6}\PY{p}{)}\PY{p}{:}
+              \PY{n}{vs\PYZus{}put\PYZus{}6}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{volat\PYZus{}impl}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{preco\PYZus{}acao}\PY{p}{,}\PY{n}{k}\PY{p}{,}\PY{n}{dias}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{365}\PY{p}{,}\PY{l+m+mf}{0.065}\PY{p}{,}\PY{n}{s}\PY{p}{)}\PY{p}{)}
+
+          \PY{c+c1}{\PYZsh{}\PYZsh{} Plot do gráfico}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{ks\PYZus{}put\PYZus{}6}\PY{p}{,}\PY{n}{vs\PYZus{}put\PYZus{}6}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linestyle}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{g}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{markerfacecolor}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Strikes \PYZhy{} em R\PYZdl{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Volatilidade}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Gráfico Smile \PYZhy{} Volatilidade x Strike \PYZhy{} PUT Com 6 dias a vencer}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\subsubsection{Plot Call 6 dias}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}98}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} CALL Com 6 dias a vencer}
+
+         \PY{c+c1}{\PYZsh{}\PYZsh{} Buscando as informações no DataFrame}
+         \PY{n}{df\PYZus{}k} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{n}{calls} \PY{o}{\PYZam{}} \PY{n}{dia1706}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{]}
+         \PY{n}{df\PYZus{}s} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{n}{calls} \PY{o}{\PYZam{}} \PY{n}{dia1706}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{:}\PY{l+m+mi}{4}\PY{p}{]}
+         \PY{n}{ks\PYZus{}call\PYZus{}6} \PY{o}{=} \PY{n}{df\PYZus{}k}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}
+         \PY{n}{Ss\PYZus{}call\PYZus{}6} \PY{o}{=} \PY{n}{df\PYZus{}s}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}
+
+         \PY{c+c1}{\PYZsh{}\PYZsh{} Setando o array com as volatilidades a serem plotadas}
+         \PY{n}{vs\PYZus{}call\PYZus{}6} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{k}{for} \PY{p}{(}\PY{n}{k}\PY{p}{,}\PY{n}{s}\PY{p}{)} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{ks\PYZus{}call\PYZus{}6}\PY{p}{,}\PY{n}{Ss\PYZus{}call\PYZus{}6}\PY{p}{)}\PY{p}{:}
+             \PY{n}{vs\PYZus{}call\PYZus{}6}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{volat\PYZus{}impl}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{preco\PYZus{}acao}\PY{p}{,}\PY{n}{k}\PY{p}{,}\PY{n}{dias}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{365}\PY{p}{,}\PY{l+m+mf}{0.065}\PY{p}{,}\PY{n}{s}\PY{p}{)}\PY{p}{)}
+
+         \PY{c+c1}{\PYZsh{}\PYZsh{} Plot do gráfico}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{ks\PYZus{}call\PYZus{}6}\PY{p}{,}\PY{n}{vs\PYZus{}call\PYZus{}6}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linestyle}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{g}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{markerfacecolor}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Strikes \PYZhy{} em R\PYZdl{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Volatilidade}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Gráfico Smile \PYZhy{} Volatilidade x Strike \PYZhy{} CALL Com 6 dias a vencer}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\subsubsection{Plot Put 28 dias}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}186}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} PUT Com 28 dias a vencer}
+
+	\PY{c+c1}{\PYZsh{}\PYZsh{} Buscando as informações no DataFrame}
+	\PY{n}{df\PYZus{}k} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{n}{puts} \PY{o}{\PYZam{}} \PY{n}{dia1507}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{]}
+	\PY{n}{df\PYZus{}s} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{n}{puts} \PY{o}{\PYZam{}} \PY{n}{dia1507}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{:}\PY{l+m+mi}{4}\PY{p}{]}
+	\PY{n}{ks\PYZus{}put\PYZus{}28} \PY{o}{=} \PY{n}{df\PYZus{}k}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}
+	\PY{n}{Ss\PYZus{}put\PYZus{}28} \PY{o}{=} \PY{n}{df\PYZus{}s}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}
+
+	\PY{c+c1}{\PYZsh{}\PYZsh{} Setando o array com as volatilidades a serem plotadas}
+	\PY{n}{vs\PYZus{}put\PYZus{}28} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+	\PY{k}{for} \PY{p}{(}\PY{n}{k}\PY{p}{,}\PY{n}{s}\PY{p}{)} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{ks\PYZus{}put\PYZus{}28}\PY{p}{,}\PY{n}{Ss\PYZus{}put\PYZus{}28}\PY{p}{)}\PY{p}{:}
+		 \PY{n}{vs\PYZus{}put\PYZus{}28}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{volat\PYZus{}impl}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{preco\PYZus{}acao}\PY{p}{,}\PY{n}{k}\PY{p}{,}\PY{n}{dias}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{365}\PY{p}{,}\PY{l+m+mf}{0.065}\PY{p}{,}\PY{n}{s}\PY{p}{)}\PY{p}{)}
+
+	\PY{c+c1}{\PYZsh{}\PYZsh{} Plot do gráfico}
+	\PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+	\PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{ks\PYZus{}put\PYZus{}28}\PY{p}{,}\PY{n}{vs\PYZus{}put\PYZus{}28}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linestyle}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{g}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{markerfacecolor}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+	\PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Strikes \PYZhy{} em R\PYZdl{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+	\PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Volatilidade}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+	\PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Gráfico Smile \PYZhy{} Volatilidade x Strike \PYZhy{} PUT com 28 dias a vencer}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+	\PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
+	\PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\subsubsection{Plot Call 28 dias}
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}173}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} CALL Com 28 dias a vencer}
+
+	\PY{c+c1}{\PYZsh{}\PYZsh{} Buscando as informações no DataFrame}
+	\PY{n}{df\PYZus{}k} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{n}{calls} \PY{o}{\PYZam{}} \PY{n}{dia1507}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{:}\PY{l+m+mi}{3}\PY{p}{]}
+	\PY{n}{df\PYZus{}s} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{n}{calls} \PY{o}{\PYZam{}} \PY{n}{dia1507}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{:}\PY{l+m+mi}{4}\PY{p}{]}
+	\PY{n}{ks\PYZus{}call\PYZus{}28} \PY{o}{=} \PY{n}{df\PYZus{}k}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}
+	\PY{n}{Ss\PYZus{}call\PYZus{}28} \PY{o}{=} \PY{n}{df\PYZus{}s}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}
+
+	\PY{c+c1}{\PYZsh{}\PYZsh{} Setando o array com as volatilidades a serem plotadas}
+	\PY{n}{vs\PYZus{}call\PYZus{}28} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+	\PY{k}{for} \PY{p}{(}\PY{n}{k}\PY{p}{,}\PY{n}{s}\PY{p}{)} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{ks\PYZus{}call\PYZus{}28}\PY{p}{,}\PY{n}{Ss\PYZus{}call\PYZus{}28}\PY{p}{)}\PY{p}{:}
+	 \PY{n}{vs\PYZus{}call\PYZus{}28}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{volat\PYZus{}impl}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{preco\PYZus{}acao}\PY{p}{,}\PY{n}{k}\PY{p}{,}\PY{n}{dias}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{365}\PY{p}{,}\PY{l+m+mf}{0.065}\PY{p}{,}\PY{n}{s}\PY{p}{)}\PY{p}{)}
+
+	\PY{c+c1}{\PYZsh{}\PYZsh{} Plot do gráfico}
+	\PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+	\PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{ks\PYZus{}call\PYZus{}28}\PY{p}{,}\PY{n}{vs\PYZus{}call\PYZus{}28}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linestyle}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{g}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{markerfacecolor}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+	\PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Strikes \PYZhy{} em R\PYZdl{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+	\PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Volatilidade}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+	\PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Gráfico Smile \PYZhy{} Volatilidade x Strike \PYZhy{} CALL com 28 dias a vencer}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+	\PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
+	\PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+
+
+\chapter{Atividade}
+Usamos como fonte de dados para preços de opções o site do InfoMoney: \url{https://www.infomoney.com.br/mercados/ferramentas/cotacoes-opcoes-acoes}, os dados obtidos foram salvos em um arquivo CSV\\
+Utilizamos opções para ações da empresa BRFoods S.A. - Ações: BRFS3\\
+As opções começam no dia 11/06/2019 e tem vencimento dia 17/06/2019 (6 dias) e 15/07/2019 (28 dias)
+
+\subsection{Gráfico de volatilidade implicita para as opções PUT com vencimento em 6 dias}
+\begin{figure}[h]
+	\adjustimage{max size={0.9\linewidth}{1\paperheight}}{put6.png}
+\end{figure}
+
+\newpage
+\subsection{Gráfico de volatilidade implicita para as opções CALL com vencimento em 6 dias}
+\begin{figure}[h]
+	\adjustimage{max size={0.9\linewidth}{1\paperheight}}{call6.png}
+\end{figure}
+
+\newpage
+\subsection{Gráfico de volatilidade implicita para as opções PUT com vencimento em 28 dias}
+\begin{figure}[h]
+	\adjustimage{max size={0.9\linewidth}{1\paperheight}}{put28.png}
+\end{figure}
+
+\newpage
+\subsection{Gráfico de volatilidade implicita para as opções CALL com vencimento em 28 dias}
+\begin{figure}[h]
+	\adjustimage{max size={0.9\linewidth}{1\paperheight}}{call28.png}
+\end{figure}
+
+\chapter{Conclusão}
+Foi possível observar um SMILE no \textbf{PUT} de 6 dias, no \textbf{CALL} de 6 dias e no \textbf{CALL} de 28 dias.\\
+No \textbf{PUT} de 28 dias a curva ficou invertida
+\end{document}
