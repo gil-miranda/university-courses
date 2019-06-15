@@ -1,0 +1,151 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}{Lema}
+
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    frame           = lines,
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+% Edit these as appropriate
+\newcommand\course{CVGA 2018}
+\newcommand\hwnumber{}                  % <-- homework number
+\newcommand\NetIDa{Gil Sales Miranda Neto}           % <-- NetID of person #1
+\newcommand\NetIDb{DRE: 118037119}           % <-- NetID of person #2 (Comment this line out for problem sets)
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\NetIDa}
+\lhead{\NetIDa\\\NetIDb}                 % <-- Comment this line out for problem sets (make sure you are person #1)
+\chead{\textbf{\Large Prova de Repescagem}}
+\rhead{\course \\ \today}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+
+\begin{document}
+
+\section*{Questão 1}
+\subsection*{Dados do problema}
+\(O(t)\) tem velocidade constante \(\vec{v}\), ou seja \(\dot{O}(t) = \vec{v}\) e \(\vec{v}(t) = (v,0)\)\\
+\(P(t) = (x(t),y(t))\)\\
+\subsection*{Solução}
+
+Como \(O(t)\) se move sob o eixo horizontal apenas, temos \(O(t) = (vt,0); v\in \mathbb{R}\).\\
+Dessa forma \(\dot{O}(t) = (v,0)\) como queremos.\\
+Como o vetor \(P(t)\) tem como origem o ponto \(O(t)\) então este é dado na verdade por:
+\[P(t) = O(t) + (x^*(t),y^*(t))\]
+Onde as funções que queremos \((x(t),y(t)) = O(t) + (x^*(t),y^*(t))\), e portanto
+\begin{cases}
+  x(t) = vt+x^*(t) \\
+y(t) = 0+y^*(t)
+\end{cases}
+
+O problema agora se reduz a encontrar \(x^*(t)\) e \(y^*(t)\), que podemos pensar como o movimento de \(P(t)\) quando \(O(t)\) é constante, mas este movimento é apenas um círculo, e a parametrização de um circulo \(c(t) = (rcos(t),rsen(t)), r \in \mathbb{R}\).
+\\ Da física sabemos que a velocidade angular é a variação do ângulo \(t\), portanto \(c(t) = (rcos(\omega t),rsen(\omega t))\) e portanto \\
+\(\begin{cases}
+x^*(t) = rcos(\omega t) \\
+y^*(t) = rsen(\omega t) \\
+x(t) = vt + rcos(\omega t)\\
+y(t) = rsen(\omega t)
+\end{cases}\)\\
+E a parametrização do ponto \(P(t)\) é dada por:
+\[ P(t) = ((vt + rcos(\omega t), rsen(\omega t))\]
+Deixo uma animação da parametrização criada no Geogebra, que condiz com a animação do Youtube: \url{https://www.geogebra.org/m/skn6pzzm}
+
+%% Q3
+\newpage
+\section*{Questão 3}
+% Rest of the work...
+A demonstração para este exercício consistirá em construir \(\gamma\) de forma a possuir todos os elementos de \(\alpha\) e ir 'inserindo' no conjunto também os elementos de \(\beta\) que sejam L.I. com \(\alpha\), dessa maneira chegará um momento em que não há mais elementos em \(\beta\) que sejam L.I. com \(\alpha\) e então \(\gamma\) será um conjunto gerador de \(\mathbb{V}\) e \(\alpha \subset \gamma \subset \beta \cup \alpha \)
+
+\begin{lemma}
+  Seja \(\mathbb{V}\) um espaço vetorial, e \(X = \{x_1, x_2, \dots, x_n \} \in \mathbb{V} \), com \(X\) linearmente independente de modo que \(X \cup \{w\}\) é linearmente dependente, \(\forall w \in \mathbb{V}\). Ou seja, \(X\) é um conjunto L.I. maximal, que possui o máximo de elementos LI de um dado espaço vetorial. Então \(X\) gera \(\mathbb{V}\).
+  \begin{proof}[Demonstração]
+    Seja \(w \in \mathbb{V}\), então por hipotese \(\{w,x_1,\dots,x_n\}\) é L.D., ou seja \(\exists \, a_0,a_1,\dots,a_n \in \mathbb{R}\) com ao menos um dos \(a_i \neq 0\) de forma que
+    \[
+    a_0w + a_1x_1 + \dots + a_nx_n = 0
+    \]
+    De fato, \(a_0 \neq 0\), caso contrário \(a_0 = 0 \implies a_i \neq 0, i \neq 0\) mas isso contradiz o fato de \(X\) ser L.I.\\
+    Portanto podemos reescrever
+    \[
+    w = \frac{-a_1x_1}{a_0} + \dots + \frac{-a_nx_n}{a_0}
+    \]
+    Ou seja, \(w\) é uma combinação linear dos elementos de \(X\), como estamos assumindo \(\forall w \in \mathbb{V}\), então \(X\) gera \(\mathbb{V}\)
+  \end{proof}
+\end{lemma}
+
+  Agora partindo para a solução do problema, \(\mathbb{V}\) é gerado por \(\beta\) e \(\alpha\) é L.I., com \(n \leq m\) então existe ao menos um elemento de \(\beta\) que é L.I. com o conjunto \(\alpha\), caso contrário teriamos:  \(a_0v_i + a_1u_1 + \dots + a_nu_n = 0\), com \(a_0 \neq 0\) e poderíamos escrever \(v_i = \frac{-a_1u_1}{a_0} + \dots + \frac{-a_nu_n}{a_0}\), ou seja, \(\beta\) seria combinação linear de \(\alpha\).\\
+  Logo \(\alpha \cup \{v_i\}\) é L.I. para algum \(v_i \in \beta\).\\
+  Repetimos o processo de encontrar algum \(v_j\) que seja L.I. ao novo conjunto  \(\alpha \cup \{v_i\}, j \neq i\) um número finito de vezes \(k\), de forma que \(m = n + k\), teremos então o conjunto \(\alpha \cup \{v_1, \dots, v_k\}\) L.I. de modo que \(\alpha \cup \{v_1, \dots, v_k\} \cup \{v_i\}\) é L.D. \forall \(v_i \in \beta\).\\
+  Seja \(\gamma = \alpha \cup \{v_1, \dots, v_k\} \) e tomando \(\{u_1,\dots, u_n\} = \{\varepsilon_1, \dots, \varepsilon_n\}\) e \(v_1, \dots, v_k = \varepsilon_{n+1}, \dots, \varepsilon_m\), teremos o conjunto \[\gamma = \{\varepsilon_1, \dots, \varepsilon_m\}\].
+  Aplicando o Lema 1 a \(\gamma\) temos que \(\gamma\) gera \(\mathbb{V}\) e satisfaz \(\alpha \subset \gamma \subset \beta \cup \alpha \)
+
+\newpage
+\section*{Questão 5}
+\begin{lemma}
+Seja \(X(t)\) um vetor, se \(\lVert X(t) \rVert = c, \forall t \in \mathbb{R}, c\neq 0\), ou seja, vetor de módulo constante não nulo, então:
+\[\langle X(t), X'(t) \rangle = 0\]
+\begin{proof}[Demonstração]
+\[\langle X(t), X(t) \rangle = c^2\]
+Como vale para todo \(t\), podemos derivar
+\[ \frac{\mathrm{d}}{\mathrm{d}t}\langle X(t), X(t) \rangle = \frac{\mathrm{d}}{\mathrm{d}t}c^2 = 0 \]
+Aplicando a regra da cadeia
+\begin{align*}
+  \frac{\mathrm{d}}{\mathrm{d}t} \langle X(t), X(t) \rangle &=  \langle X(t)', X(t) \rangle + \langle X(t), X'(t) \rangle \\
+  &= 2 \langle X(t), X'(t) \rangle = 0
+\end{align*}
+e \(2 \langle X(t), X'(t) \rangle = 0 \implies \langle X(t), X'(t) \rangle = 0\)
+\end{proof}
+\end{lemma}
+
+Seja então \(c(t_0)\) a posição da particula no tempo \(t_0\) dada pela função \(c: I \to \mathbb{R}^3\), sabemos que velocidade mede a variação da posição, portanto \(\dot{c}(t_0)\) é o vetor velocidade no ponto \(t_0\) que é um vetor tangente a curva descrita por \(c(t)\) no ponto \(t_0\). Como \(\dot{c}(t_0)\)é não nulo, então \(\lvert \dot{c}(t_0) \rvert \neq 0\) , podemos então definir um vetor unitário que é tangente a curva:
+\[
+T(t_0) = \frac{\dot{c}(t_0)}{\lVert \dot{c}(t_0) \rVert}
+\]
+Então \(T(t_0)\) é o vetor que nos dá a direção da velocidade.\\
+Se olharmos para a variação de \(T(t)\), temos \(T'(t)\) e como \(\lVert T(t) \rVert = 1\), então pela Lema 2 \[\langle T(t), T'(t) \rangle = 0\]
+Tomamos então o vetor unitário na direção de \(T'(t_0)\), que continua sendo ortogonal a \(T(t_0)\)\\
+\[N(t) = \frac{T'(t)}{\lVert T'(t) \rVert}\]
+E este é o vetor na direção Normal.\\
+Aceleração é a variação da velocidade, temos então que aceleração é dada por \(\frac{\mathrm{d}}{\mathrm{d}t}\dot{c}(t) = \ddot{c}(t)\).\\
+Como temos dois vetores ortogonais \(T(t_0)\) e \(N(t_0)\), podemos decompor as componentes de \(\ddot{c}(t_0)\) nestes vetores.\\
+Sendo \(\ddot{c}_T(t_0)\) a componente aceleração tangencial, e \(\ddot{c}_N(t_0)\) a componente aceleração normal, ou seja, ambos escalares, temos então definida a aceleração normal de \(c\) em \(t_0\):
+\begin{align*}
+  \ddot{c}(t_0) &= \ddot{c}_T(t_0) T(t_0) + \ddot{c}_N(t_0) N(t_0)\\
+  \ddot{c}_T(t_0) &= \frac{\ddot{c}(t_0) T(t_0)}{\lVert T(t_0) \rVert ^2}  = \ddot{c}(t_0) T(t_0)\\
+  \ddot{c}_N(t_0) &= \frac{\ddot{c}(t_0) N(t_0)}{\lVert N(t_0) \rVert ^2}  = \ddot{c}(t_0) N(t_0)\\
+\end{align*}
+
+\end{document}
