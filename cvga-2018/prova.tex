@@ -114,6 +114,112 @@ A demonstração para este exercício consistirá em construir \(\gamma\) de for
   Aplicando o Lema 1 a \(\gamma\) temos que \(\gamma\) gera \(\mathbb{V}\) e satisfaz \(\alpha \subset \gamma \subset \beta \cup \alpha \)
 
 % ----------------------------------------------------------
+% Questão 4
+\newpage
+\section*{Questão 4}
+Dada a hipérbole \(h\)
+\[
+\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1
+\]
+
+Podemos fazer a seguinte mudança de variaveis:
+\begin{cases}
+x = au\\
+y = bv
+\end{cases}
+
+Então teremos:
+\begin{align*}
+  \frac{x^2}{a^2} - \frac{y^2}{b^2} &= 1\\
+  &= \frac{\cancel{a^2}u^2}{\cancel{a^2}} - \frac{\cancel{b^2}v^2}{\cancel{b^2}}\\
+  &= u^2 - v^2
+\end{align*}
+Então a transformação linear \(T_1\) que leva a hipérbole \(h\) na nova hipérbole \(h_1\), e: \(T_1 \cdot (x,y) = (u,v)\)\\
+Observando agora que em \(h_1\) temos uma diferença de quadrados, e que em \(xy = 1\) temos um produto de dois termos, podemos então pensar na seguinte mudança de variaveis:
+\begin{cases}
+u = \frac{1}{2}(p-q)\\
+v = \frac{1}{2}(p+q)
+\end{cases}\\
+Dessa maneira:
+\begin{align*}
+  u^2 - v^2 &= 1\\
+  &= \frac{1}{4}(p-q)^2 -\frac{1}{4}(p+q)^2\\
+  &= \frac{1}{4}\left(\cancel{p^2} - 2pq + \cancel{q^2} - \cancel{p^2} - 2pq \cancel{-q^2} \right)\\
+  &= pq
+\end{align*}
+Sendo esta \(pq = 1\) a hipérbole \(h_2\). Então há uma transformação linear \(T_2\) que leva \(h_1\) em \(h_2\), de forma que \(T_2 \cdot (u,v) = (p,q)\)\\
+Para encontrar a transformação linear que leva \(h_0\) em \(h_2\) basta:
+\begin{align*}
+  T_1 \cdot (x,y) &= (u,v) \\
+  T_2 \cdot (u,v) &= (p,q) \\
+  \text{logo:}\\
+  (p,q) &=   T_1 \cdot T_2 \cdot (x,y)
+\end{align*}
+Sendo \(D = T_1 \cdot T_2\), esta é a matriz procurada. Para saber quais são as matrizes \(T_1, T_2\), podemos fazer a matriz jacobiana da mudança de varíavel:\\
+\[
+T_1 =
+\begin{bmatrix}
+  \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v }\\ \\
+  \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v }
+\end{bmatrix} = \begin{bmatrix}
+  a & 0\\ \\
+  0 & b
+\end{bmatrix}
+\]
+E a matriz \(T_2\)
+\[
+T_2 =
+\begin{bmatrix}
+  \frac{\partial u}{\partial p} & \frac{\partial u}{\partial q }\\ \\
+  \frac{\partial v}{\partial p} & \frac{\partial v}{\partial q }
+\end{bmatrix} = \begin{bmatrix}
+  \frac{1}{2} & -\frac{1}{2}
+  \\ \\
+  \frac{1}{2} & \frac{1}{2}
+\end{bmatrix}
+\]
+E finalmente \(D = T_1 \cdot T_2\)
+\[
+D =
+\begin{bmatrix}
+  a & 0\\ \\
+  0 & b
+\end{bmatrix} \cdot
+\begin{bmatrix}
+ \frac{1}{2} & -\frac{1}{2}
+ \\ \\
+ \frac{1}{2} & \frac{1}{2}
+\end{bmatrix}
+= \begin{bmatrix}
+ \frac{a}{2} & -\frac{a}{2}
+ \\ \\
+ \frac{b}{2} & \frac{b}{2}
+\end{bmatrix}
+\]
+Verificando:
+\begin{align*}
+  \begin{bmatrix}
+   \frac{a}{2} & -\frac{a}{2}
+   \\ \\
+   \frac{b}{2} & \frac{b}{2}
+ \end{bmatrix} \cdot
+ \begin{bmatrix}
+ x \\
+ \\
+ y
+ \end{bmatrix} =
+ \begin{bmatrix}
+ \frac{ax}{2} - \frac{ay}{2} &,  \frac{bx}{2} + \frac{by}{2}
+ \end{bmatrix}
+\end{align*}
+Usando essas novas coordenadas em \(h\)
+\begin{align*}
+  \frac{\left(\frac{ax}{2} - \frac{ay}{2}\right)^2}{a^2} - \frac{\left(\frac{bx}{2} + \frac{by}{2}\right)^2}{b^2} &= 1\\ \\
+  b^2 \left(\frac{a^2x^2}{4} - \frac{2a^2xy}{4} + \frac{a^2 y^2}{4}\right) - a^2\left( \frac{b^2x^2}{4} + \frac{2b^2xy}{4} + \frac{b^2 y^2}{4} \right) &= b^2a^2\\
+  \cancel{a^2b^2} xy &= \cancel{a^2b^2}\\
+  y &= \frac{1}{x}
+\end{align*}
+% ----------------------------------------------------------
 % Questão 5
 \newpage
 \section*{Questão 5}
