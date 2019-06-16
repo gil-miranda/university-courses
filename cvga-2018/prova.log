@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.5.4)  15 JUN 2019 22:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.5.4)  15 JUN 2019 23:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -309,20 +309,20 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 19.
  (./prova.aux)
 \openout1 = `prova.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -360,7 +360,7 @@ LaTeX Font Info:    ... okay on input line 58.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 58.
+(lastpage)             ! on input line 59.
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count124
@@ -388,7 +388,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 \c@lstlisting=\count130
 \AtBeginShipoutBox=\box32
-Package hyperref Info: Link coloring ON on input line 58.
+Package hyperref Info: Link coloring ON on input line 59.
  (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -396,41 +396,41 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count131
 )
-LaTeX Info: Redefining \ref on input line 58.
-LaTeX Info: Redefining \pageref on input line 58.
-LaTeX Info: Redefining \nameref on input line 58.
+LaTeX Info: Redefining \ref on input line 59.
+LaTeX Info: Redefining \pageref on input line 59.
+LaTeX Info: Redefining \nameref on input line 59.
  (./prova.out) (./prova.out)
 \@outlinefile=\write3
 \openout3 = `prova.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 62.
+LaTeX Font Info:    Try loading font information for U+msa on input line 63.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 62.
+LaTeX Font Info:    Try loading font information for U+msb on input line 63.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 62.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 63.
  (/usr/share/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Underfull \hbox (badness 10000) in paragraph at lines 62--64
+Underfull \hbox (badness 10000) in paragraph at lines 63--65
 
  []
 
-./prova.tex:71: Missing $ inserted.
+./prova.tex:72: Missing $ inserted.
 <inserted text> 
                 $
-l.71 \begin{cases}
+l.72 \begin{cases}
                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./prova.tex:74: Missing $ inserted.
+./prova.tex:75: Missing $ inserted.
 <inserted text> 
                 $
-l.74 \end{cases}
+l.75 \end{cases}
                 
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -439,51 +439,51 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Overfull \hbox (16.76746pt too wide) in paragraph at lines 69--75
+Overfull \hbox (16.76746pt too wide) in paragraph at lines 70--76
 \OT1/cmr/m/n/12 Onde as fun^^Xc~oes que quer-e-mos $(\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; y\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )) = \OML/cmm/m/it/12 O\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 ) + (\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; y[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 ))$, e por-tanto $[]$ 
  []
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-Overfull \hbox (5.09778pt too wide) in paragraph at lines 97--98
+Overfull \hbox (5.09778pt too wide) in paragraph at lines 98--99
 []\OT1/cmr/m/n/12 Seja $\OML/cmm/m/it/12 w \OMS/cmsy/m/n/12 2 \U/msb/m/n/12 V$\OT1/cmr/m/n/12 , ent~ao por hipotese $\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 w; x[]; [] ; x[]\OMS/cmsy/m/n/12 g$ \OT1/cmr/m/n/12 ^^Se L.D., ou seja $\OMS/cmsy/m/n/12 9 \OML/cmm/m/it/12 a[]; a[]; [] ; a[] \OMS/cmsy/m/n/12 2
  []
 
-./prova.tex:112: Missing $ inserted.
+./prova.tex:114: Missing $ inserted.
 <inserted text> 
                 $
-l.112 ...ots, v_k\} \cup \{v_i\}\) é L.D. \forall
-                                                   \(v_i \in \beta\).\\
+l.114 ...ots, v_k\} \cup \{v_p\}\) é L.D. \forall
+                                                   \(v_p \in \beta\).\\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-./prova.tex:112: LaTeX Error: Bad math environment delimiter.
+./prova.tex:114: LaTeX Error: Bad math environment delimiter.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.112 ..., v_k\} \cup \{v_i\}\) é L.D. \forall \(
-                                                  v_i \in \beta\).\\
+l.114 ..., v_k\} \cup \{v_p\}\) é L.D. \forall \(
+                                                  v_p \in \beta\).\\
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 [2]
-./prova.tex:126: Missing $ inserted.
+./prova.tex:128: Missing $ inserted.
 <inserted text> 
                 $
-l.126 \begin{cases}
+l.128 \begin{cases}
                    
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./prova.tex:129: Missing $ inserted.
+./prova.tex:131: Missing $ inserted.
 <inserted text> 
                 $
-l.129 \end{cases}
+l.131 \end{cases}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -491,18 +491,18 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./prova.tex:139: Missing $ inserted.
+./prova.tex:141: Missing $ inserted.
 <inserted text> 
                 $
-l.139 \begin{cases}
+l.141 \begin{cases}
                    
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./prova.tex:142: Missing $ inserted.
+./prova.tex:144: Missing $ inserted.
 <inserted text> 
                 $
-l.142 \end{cases}
+l.144 \end{cases}
                  \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -511,38 +511,38 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Overfull \hbox (24.6848pt too wide) in paragraph at lines 136--144
+Overfull \hbox (24.6848pt too wide) in paragraph at lines 138--146
 \OT1/cmr/m/n/12 pro-duto de dois ter-mos, pode-mos ent~ao pen-sar na seguinte mu-dan^^Xca de vari-aveis: $[]$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--159
+Underfull \hbox (badness 10000) in paragraph at lines 159--161
 
  []
 
 [3] [4]
-Overfull \hbox (14.39641pt too wide) in paragraph at lines 244--245
+Overfull \hbox (14.39641pt too wide) in paragraph at lines 246--247
 \OML/cmm/m/it/12 I \OMS/cmsy/m/n/12 ! \U/msb/m/n/12 R[]$\OT1/cmr/m/n/12 , sabe-mos que ve-loci-dade mede a varia^^Xc~ao da posi^^Xc~ao, por-tanto $[](\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 ) = ([](\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 ))$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--251
+Underfull \hbox (badness 10000) in paragraph at lines 251--253
 
  []
 
 [5]
-./prova.tex:265: Missing $ inserted.
+./prova.tex:267: Missing $ inserted.
 <inserted text> 
                 $
-l.265 \begin{cases}
+l.267 \begin{cases}
                    
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./prova.tex:269: Missing $ inserted.
+./prova.tex:271: Missing $ inserted.
 <inserted text> 
                 $
-l.269 \end{cases}
+l.271 \end{cases}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -550,18 +550,18 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./prova.tex:275: Missing $ inserted.
+./prova.tex:277: Missing $ inserted.
 <inserted text> 
                 $
-l.275 \begin{cases}
+l.277 \begin{cases}
                    
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./prova.tex:278: Missing $ inserted.
+./prova.tex:280: Missing $ inserted.
 <inserted text> 
                 $
-l.278 \end{cases}
+l.280 \end{cases}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -570,45 +570,46 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--282
+Underfull \hbox (badness 10000) in paragraph at lines 266--284
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--282
+Underfull \hbox (badness 10000) in paragraph at lines 266--284
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--282
+Underfull \hbox (badness 10000) in paragraph at lines 266--284
 
  []
 
 [6] 
 AED: lastpage setting LastPage
 [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 302.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 302.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 304.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 304.
  (./prova.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 302.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 302.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 304.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 304.
 Package rerunfilecheck Info: File `prova.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 302.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 304.
  ) 
 Here is how much of TeX's memory you used:
  8472 strings out of 492616
  118778 string characters out of 6135178
- 236669 words of memory out of 5000000
+ 236671 words of memory out of 5000000
  12258 multiletter control sequences out of 15000+600000
  11113 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  28i,19n,43p,546b,337s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on prova.pdf (7 pages, 161365 bytes).
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dis
+t/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on prova.pdf (7 pages, 168965 bytes).
 PDF statistics:
- 113 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
+ 117 PDF objects out of 1000 (max. 8388607)
+ 91 compressed objects within 1 object stream
  18 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

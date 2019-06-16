@@ -20,6 +20,7 @@
 
 \renewcommand\lstlistingname{Algorithm}
 \renewcommand\lstlistlistingname{Algorithms}
+\renewcommand{\qedsymbol}{\(\blacksquare\)}
 \def\lstlistingautorefname{Alg.}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
@@ -73,7 +74,7 @@ Onde as funções que queremos \((x(t),y(t)) = O(t) + (x^*(t),y^*(t))\), e porta
   y (t) = 0+y^* (t)
 \end{cases}
 
-O problema agora se reduz a encontrar \(x^*(t)\) e \(y^*(t)\), que podemos pensar como o movimento de \(P(t)\) quando \(O(t)\) é constante, mas este movimento é apenas um círculo, e a parametrização de um circulo \(c(t) = (rcos(t),rsen(t)), r \in \mathbb{R}\).
+O problema agora se reduz a encontrar \(x^*(t)\) e \(y^*(t)\), que podemos pensar como o movimento de \(P(t)\) quando \(O(t)\) é constante, mas este movimento é apenas um círculo de raio \( r \), e a parametrização de um circulo \(c(t) = (rcos(t),rsen(t)), r \in \mathbb{R}\).
 \\ Da física sabemos que a velocidade angular é a variação do ângulo \(t\), portanto \(c(t) = (rcos(\omega t),rsen(\omega t))\), mas \(c(0) = (r,0)\) e como queremos que \(P(0) = (0,0)\), devemos ter \(c(t) = (rcos(\omega t) - r,rsen(\omega t))\), portanto:\\
 \(\begin{cases}
 x^*(t) = rcos(\omega t) - r \\
@@ -107,11 +108,12 @@ A demonstração para este exercício consistirá em construir \(\gamma\) de for
   \end{proof}
 \end{lemma}
 
-  Agora partindo para a solução do problema, \(\mathbb{V}\) é gerado por \(\beta\) e \(\alpha\) é L.I., com \(n \leq m\) então existe ao menos um elemento de \(\beta\) que é L.I. com o conjunto \(\alpha\), caso contrário teriamos:  \(a_0v_i + a_1u_1 + \dots + a_nu_n = 0\), com \(a_0 \neq 0\) e poderíamos escrever \(v_i = \frac{-a_1u_1}{a_0} + \dots + \frac{-a_nu_n}{a_0}\), ou seja, \( \beta \) seria combinação linear de \(\alpha\).\\
+  Agora partindo para a solução do problema, \(\mathbb{V}\) é gerado por \(\beta\) e \(\alpha\) é L.I.\\
+  \(n \leq m\), pois caso contrário \(n > m\), então haveria um elemento de \(\alpha\) que não é gerado por \(\beta\), logo não pertenceria a \(\mathbb{V}\). Então com \(n \leq m\) existe ao menos um elemento de \(\beta\) que é L.I. com o conjunto \(\alpha\), caso contrário teriamos:  \(a_0v_i + a_1u_1 + \dots + a_nu_n = 0\), com \(a_0 \neq 0\) e poderíamos escrever \(v_i = \frac{-a_1u_1}{a_0} + \dots + \frac{-a_nu_n}{a_0}\), ou seja, \( \beta \) seria combinação linear de \(\alpha\).\\
   Logo \(\alpha \cup \{v_i\}\) é L.I. para algum \(v_i \in \beta\).\\
-  Repetimos o processo de encontrar algum \(v_j\) que seja L.I. ao novo conjunto  \(\alpha \cup \{v_i\}, j \neq i\) um número finito de vezes \(k\), de forma que \(m = n + k\), teremos então o conjunto \(\alpha \cup \{v_1, \dots, v_k\}\) L.I. de modo que \(\alpha \cup \{v_1, \dots, v_k\} \cup \{v_i\}\) é L.D. \forall \(v_i \in \beta\).\\
-  Seja \(\gamma = \alpha \cup \{v_1, \dots, v_k\} \) e tomando \(\{u_1,\dots, u_n\} = \{\varepsilon_1, \dots, \varepsilon_n\}\) e \(v_1, \dots, v_k = \varepsilon_{n+1}, \dots, \varepsilon_m\), teremos o conjunto \[\gamma = \{\varepsilon_1, \dots, \varepsilon_m\}\].
-  Aplicando o Lema 1 a \(\gamma\) temos que \(\gamma\) gera \(\mathbb{V}\) e satisfaz \(\alpha \subset \gamma \subset \beta \cup \alpha \)
+  Repetimos o processo de encontrar algum \(v_j\) que seja L.I. ao novo conjunto  \(\alpha \cup \{v_i\}, j \neq i\) um número finito de vezes \(k\), de forma que \(m = n + k\), teremos então o conjunto \(\alpha \cup \{v_1\} \cup \dots \cup \{v_k\}\) L.I. de modo que \(\alpha \cup \{v_1, \dots, v_k\} \cup \{v_p\}\) é L.D. \forall \(v_p \in \beta\).\\
+  Seja \(\gamma = \alpha \cup \{v_1, \dots, v_k\} \) e tomando \(\{u_1,\dots, u_n\} = \{\varepsilon_1, \dots, \varepsilon_n\}\) e \(v_1, \dots, v_k = \varepsilon_{n+1}, \dots, \varepsilon_m\), teremos o conjunto \[\gamma = \{\varepsilon_1, \dots, \varepsilon_m\}\]
+  \(\gamma\) satisfaz \(\alpha \subset \gamma \subset \beta \cup \alpha \), e aplicando o Lema 1 a \(\gamma\) temos que \(\gamma\) gera \(\mathbb{V}\).
 
 % ----------------------------------------------------------
 % Questão 4

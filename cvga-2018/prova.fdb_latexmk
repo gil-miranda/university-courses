@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1560648725 "prova.tex" "prova.pdf" "prova" 1560648725
+["pdflatex"] 1560650778 "prova.tex" "prova.pdf" "prova" 1560650779
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1550406775 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1550406775 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1550406775 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -38,6 +38,7 @@
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1550406775 36118 fad905eba93cff5bce1e185fe980a177 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb" 1550406775 24252 1e4e051947e12dfb50fee0b7f4e26e3a ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb" 1550406775 11493 4f5ed183a47d3197cf8cd322325db6de ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1550406775 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1550406775 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1550406775 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1550406775 1458 43ab4710dc82f3edeabecd0d099626b2 ""
@@ -93,11 +94,11 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1550406775 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1557323951 3100712 2e4ebd0701d199081df207106829b113 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1556981594 7919195 efdf6829444625fa9ffe15bb24dc74ff ""
-  "prova.aux" 1560648725 757 3f3efb9db89ad0aca04f8084636e4866 ""
-  "prova.out" 1560648725 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "prova.tex" 1560648724 14545 cdf7607e377b1aac5b3029d519365be8 ""
+  "prova.aux" 1560650779 757 3f3efb9db89ad0aca04f8084636e4866 ""
+  "prova.out" 1560650779 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "prova.tex" 1560650778 14793 b39621580ab36b17f403988a6f357785 ""
   (generated)
-  "prova.out"
+  "prova.pdf"
   "prova.log"
   "prova.aux"
-  "prova.pdf"
+  "prova.out"
