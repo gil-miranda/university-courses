@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1560624407 "prova.tex" "prova.pdf" "prova" 1560624407
+["pdflatex"] 1560635498 "prova.tex" "prova.pdf" "prova" 1560644899
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1550406775 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1550406775 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1550406775 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -37,6 +37,7 @@
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1550406775 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1550406775 36118 fad905eba93cff5bce1e185fe980a177 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb" 1550406775 24252 1e4e051947e12dfb50fee0b7f4e26e3a ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb" 1550406775 11493 4f5ed183a47d3197cf8cd322325db6de ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1550406775 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1550406775 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1550406775 1458 43ab4710dc82f3edeabecd0d099626b2 ""
@@ -58,6 +59,7 @@
   "/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty" 1550406775 2432 8ff93b1137020e8f21930562a874ae66 ""
   "/usr/share/texmf-dist/tex/latex/base/article.cls" 1550406775 19933 3097d1b31d3c45dc957096f554529032 ""
   "/usr/share/texmf-dist/tex/latex/base/size12.clo" 1550406775 8305 6a682ae291edd56e2d7accbf95eca451 ""
+  "/usr/share/texmf-dist/tex/latex/cancel/cancel.sty" 1550406342 7592 dd751af313a16a0308545d5bfd7aaaa2 ""
   "/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty" 1550406775 11128 a53805799bebfed6358fc1658a18e41f ""
   "/usr/share/texmf-dist/tex/latex/geometry/geometry.sty" 1550406775 41645 0653033a985e06c69a2a9cea9a95e31a ""
   "/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1550406775 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
@@ -91,11 +93,11 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1550406775 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1557323951 3100712 2e4ebd0701d199081df207106829b113 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1556981594 7919195 efdf6829444625fa9ffe15bb24dc74ff ""
-  "prova.aux" 1560624407 757 c8354d10a4707610207095b921558890 ""
-  "prova.out" 1560624407 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "prova.tex" 1560624407 8361 416891c1e94435805febc854a2949fa8 ""
+  "prova.aux" 1560635498 757 0a3b8458ccfe135c8adb81d4482f449b ""
+  "prova.out" 1560635498 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "prova.tex" 1560644899 11438 cb3df431f9a2ad41fe53c78d1c0ce419 ""
   (generated)
   "prova.pdf"
-  "prova.aux"
-  "prova.log"
   "prova.out"
+  "prova.log"
+  "prova.aux"

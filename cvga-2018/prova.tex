@@ -10,6 +10,7 @@
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{hyperref}
+\usepackage{cancel}
 
 \hypersetup{%
   colorlinks=true,
@@ -47,7 +48,7 @@
 \headheight 35pt
 \lhead{\NetIDa}
 \lhead{\NetIDa\\\NetIDb}                 % <-- Comment this line out for problem sets (make sure you are person #1)
-\chead{\textbf{\Large Prova de Repescagem}}
+\chead{\textbf{\Large Prova de Repescagem CVGA}}
 \rhead{\course \\ \today}
 \lfoot{}
 \cfoot{}
@@ -68,20 +69,20 @@ Como o vetor \(P(t)\) tem como origem o ponto \(O(t)\) então este é dado na ve
 \[P(t) = O(t) + (x^*(t),y^*(t))\]
 Onde as funções que queremos \((x(t),y(t)) = O(t) + (x^*(t),y^*(t))\), e portanto
 \begin{cases}
-  x(t) = vt+x^*(t) \\
-y(t) = 0+y^*(t)
+  x (t) = vt+x^* (t) \\
+  y (t) = 0+y^* (t)
 \end{cases}
 
 O problema agora se reduz a encontrar \(x^*(t)\) e \(y^*(t)\), que podemos pensar como o movimento de \(P(t)\) quando \(O(t)\) é constante, mas este movimento é apenas um círculo, e a parametrização de um circulo \(c(t) = (rcos(t),rsen(t)), r \in \mathbb{R}\).
-\\ Da física sabemos que a velocidade angular é a variação do ângulo \(t\), portanto \(c(t) = (rcos(\omega t),rsen(\omega t))\) e portanto \\
+\\ Da física sabemos que a velocidade angular é a variação do ângulo \(t\), portanto \(c(t) = (rcos(\omega t),rsen(\omega t))\), mas \(c(0) = (r,0)\) e como queremos que \(P(0) = (0,0)\), devemos ter \(c(t) = (rcos(\omega t) - r,rsen(\omega t))\), portanto:\\
 \(\begin{cases}
-x^*(t) = rcos(\omega t) \\
+x^*(t) = rcos(\omega t) - r \\
 y^*(t) = rsen(\omega t) \\
-x(t) = vt + rcos(\omega t)\\
+x(t) = (vt-r) + rcos(\omega t)\\
 y(t) = rsen(\omega t)
 \end{cases}\)\\
 E a parametrização do ponto \(P(t)\) é dada por:
-\[ P(t) = ((vt + rcos(\omega t), rsen(\omega t))\]
+\[ P(t) = (vt-r + rcos(\omega t), rsen(\omega t))\]
 Deixo uma animação da parametrização criada no Geogebra, que condiz com a animação do Youtube: \url{https://www.geogebra.org/m/skn6pzzm}
 
 %% Q3
@@ -106,14 +107,18 @@ A demonstração para este exercício consistirá em construir \(\gamma\) de for
   \end{proof}
 \end{lemma}
 
-  Agora partindo para a solução do problema, \(\mathbb{V}\) é gerado por \(\beta\) e \(\alpha\) é L.I., com \(n \leq m\) então existe ao menos um elemento de \(\beta\) que é L.I. com o conjunto \(\alpha\), caso contrário teriamos:  \(a_0v_i + a_1u_1 + \dots + a_nu_n = 0\), com \(a_0 \neq 0\) e poderíamos escrever \(v_i = \frac{-a_1u_1}{a_0} + \dots + \frac{-a_nu_n}{a_0}\), ou seja, \(\beta\) seria combinação linear de \(\alpha\).\\
+  Agora partindo para a solução do problema, \(\mathbb{V}\) é gerado por \(\beta\) e \(\alpha\) é L.I., com \(n \leq m\) então existe ao menos um elemento de \(\beta\) que é L.I. com o conjunto \(\alpha\), caso contrário teriamos:  \(a_0v_i + a_1u_1 + \dots + a_nu_n = 0\), com \(a_0 \neq 0\) e poderíamos escrever \(v_i = \frac{-a_1u_1}{a_0} + \dots + \frac{-a_nu_n}{a_0}\), ou seja, \( \beta \) seria combinação linear de \(\alpha\).\\
   Logo \(\alpha \cup \{v_i\}\) é L.I. para algum \(v_i \in \beta\).\\
   Repetimos o processo de encontrar algum \(v_j\) que seja L.I. ao novo conjunto  \(\alpha \cup \{v_i\}, j \neq i\) um número finito de vezes \(k\), de forma que \(m = n + k\), teremos então o conjunto \(\alpha \cup \{v_1, \dots, v_k\}\) L.I. de modo que \(\alpha \cup \{v_1, \dots, v_k\} \cup \{v_i\}\) é L.D. \forall \(v_i \in \beta\).\\
   Seja \(\gamma = \alpha \cup \{v_1, \dots, v_k\} \) e tomando \(\{u_1,\dots, u_n\} = \{\varepsilon_1, \dots, \varepsilon_n\}\) e \(v_1, \dots, v_k = \varepsilon_{n+1}, \dots, \varepsilon_m\), teremos o conjunto \[\gamma = \{\varepsilon_1, \dots, \varepsilon_m\}\].
   Aplicando o Lema 1 a \(\gamma\) temos que \(\gamma\) gera \(\mathbb{V}\) e satisfaz \(\alpha \subset \gamma \subset \beta \cup \alpha \)
 
+% ----------------------------------------------------------
+% Questão 5
 \newpage
 \section*{Questão 5}
+% Item a
+\subsection*{Item a}
 \begin{lemma}
 Seja \(X(t)\) um vetor, se \(\lVert X(t) \rVert = c, \forall t \in \mathbb{R}, c\neq 0\), ou seja, vetor de módulo constante não nulo, então:
 \[\langle X(t), X'(t) \rangle = 0\]
@@ -130,7 +135,7 @@ e \(2 \langle X(t), X'(t) \rangle = 0 \implies \langle X(t), X'(t) \rangle = 0\)
 \end{proof}
 \end{lemma}
 
-Seja então \(c(t_0)\) a posição da particula no tempo \(t_0\) dada pela função \(c: I \to \mathbb{R}^3\), sabemos que velocidade mede a variação da posição, portanto \(\dot{c}(t_0)\) é o vetor velocidade no ponto \(t_0\) que é um vetor tangente a curva descrita por \(c(t)\) no ponto \(t_0\). Como \(\dot{c}(t_0)\)é não nulo, então \(\lvert \dot{c}(t_0) \rvert \neq 0\) , podemos então definir um vetor unitário que é tangente a curva:
+Seja então \(c(t_0) = (x(t_0), y(t_0), z(t_0))\) a posição da particula no tempo \(t_0\) dada pela função \(c: I \to \mathbb{R}^3\), sabemos que velocidade mede a variação da posição, portanto \(\dot{c}(t_0) = (\dot{x}(t_0), \dot{y}(t_0), \dot{z}(t_0))\) é o vetor velocidade no ponto \(t_0\) que é um vetor tangente a curva descrita por \(c(t)\) no ponto \(t_0\). Como \(\dot{c}(t_0)\) é não nulo, então \(\lvert \dot{c}(t_0) \rvert \neq 0\) , podemos então definir um vetor unitário que é tangente a curva:
 \[
 T(t_0) = \frac{\dot{c}(t_0)}{\lVert \dot{c}(t_0) \rVert}
 \]
@@ -140,12 +145,52 @@ Tomamos então o vetor unitário na direção de \(T'(t_0)\), que continua sendo
 \[N(t) = \frac{T'(t)}{\lVert T'(t) \rVert}\]
 E este é o vetor na direção Normal.\\
 Aceleração é a variação da velocidade, temos então que aceleração é dada por \(\frac{\mathrm{d}}{\mathrm{d}t}\dot{c}(t) = \ddot{c}(t)\).\\
-Como temos dois vetores ortogonais \(T(t_0)\) e \(N(t_0)\), podemos decompor as componentes de \(\ddot{c}(t_0)\) nestes vetores.\\
-Sendo \(\ddot{c}_T(t_0)\) a componente aceleração tangencial, e \(\ddot{c}_N(t_0)\) a componente aceleração normal, ou seja, ambos escalares, temos então definida a aceleração normal de \(c\) em \(t_0\):
+Como temos dois vetores ortogonais \(T(t_0)\) e \(N(t_0)\), podemos decompor as componentes de \(\ddot{c}(t_0)\) nestes vetores, de forma que a aceleração será um combinação linear desses vetores ortogonais.\\
+Sendo \(x_T\) a componente aceleração tangencial, e \(x_N\) a componente aceleração normal, ambos escalares, temos então definido o vetor de aceleração normal de \(c\) em \(t_0\): \(\ddot{c}_N(t_0)\)
 \begin{align*}
-  \ddot{c}(t_0) &= \ddot{c}_T(t_0) T(t_0) + \ddot{c}_N(t_0) N(t_0)\\
-  \ddot{c}_T(t_0) &= \frac{\ddot{c}(t_0) T(t_0)}{\lVert T(t_0) \rVert ^2}  = \ddot{c}(t_0) T(t_0)\\
-  \ddot{c}_N(t_0) &= \frac{\ddot{c}(t_0) N(t_0)}{\lVert N(t_0) \rVert ^2}  = \ddot{c}(t_0) N(t_0)\\
+  \ddot{c}(t_0) &= x_T(t_0) T(t_0) + x_N(t_0) N(t_0)\\
+  \ddot{c}_T(t_0) &= \frac{\langle \ddot{c}(t_0),T(t_0) \rangle}{\lVert T(t_0) \rVert ^2}T(t_0)  = x_T(t_0) T(t_0)\\
+  \ddot{c}_N(t_0) &= \frac{\langle \ddot{c}(t_0),N(t_0) \rangle}{\lVert N(t_0) \rVert ^2}N(t_0)  = x_N(t_0) N(t_0)\\
+\end{align*}
+
+% Item begin
+\subsection*{Item b}
+Vamos olhar para a velocidade e aceleração de \(c_1\), aplicando regra da cadeia e derivando em relação a \(s\)\\
+\begin{cases}
+  \frac{\mathrm{d}}{\mathrm{d}s}c_1(s) = \frac{\mathrm{d}}{\mathrm{d}s}c(\alpha(s)) = \frac{\mathrm{d}}{\mathrm{d}s}c(\alpha(s))\frac{\mathrm{d}}{\mathrm{d}s}\alpha(s) \\
+
+  \frac{\mathrm{d^2}}{\mathrm{d}s^2}c_1(s) = \frac{\mathrm{d^2}}{\mathrm{d}s^2}c(\alpha(s)) = \frac{\mathrm{d^2}}{\mathrm{d}s^2}c(\alpha(s)) \frac{\mathrm{d}}{\mathrm{d}s}\alpha^2(s) + \frac{\mathrm{d}}{\mathrm{d}s}c(\alpha(s)) \frac{\mathrm{d^2}}{\mathrm{d}s^2}\alpha(s)\\
+\end{cases}
+\\
+\\
+Como \(\alpha(s_0) = t_0\), podemos reescrever:
+\\
+\\
+\begin{cases}
+  \frac{\mathrm{d}}{\mathrm{d}s}c_1(s_0) = \dot{c}(t_0) \frac{\mathrm{d}}{\mathrm{d}s}\alpha(s_0)\\
+  \frac{\mathrm{d^2}}{\mathrm{d}s^2}c_1(s_0) = \ddot{c}(t_0)\frac{\mathrm{d}}{\mathrm{d}s}\alpha^2(s_0) + \dot{c}(t_0)\frac{\mathrm{d^2}}{\mathrm{d}s^2}\alpha(s_0)\\
+\end{cases}
+\\
+\\
+Mas \(\frac{\mathrm{d}}{\mathrm{d}s}\alpha(s_0)\) e \(\frac{\mathrm{d^2}}{\mathrm{d}s^2}\alpha(s_0)\) são escalares, podemos então encontrar a aceleração normal para \(c_1(s_0)\)
+
+\begin{align*}
+  c''_{1N}(s_0) &= \frac{\langle {\alpha'}^2(s_0)\ddot{c}(t_0) + \alpha''(s_0)\dot{c}(t_0),N(t_0) \rangle}{\lVert N(t_0) \rVert ^2}N(t_0)\\
+  &= \frac{\langle {\alpha'}^2(s_0)\ddot{c}(t_0),N(t_0) \rangle + \cancelto{0, \text{pelo Lema 2}}{\langle {\alpha''}(s_0)\dot{c}(t_0),N(t_0) \rangle}}{\lVert N(t_0) \rVert ^2}N(t_0)\\
+  &= {\alpha'}^2(s_0)\frac{ \langle \ddot{c}(t_0),N(t_0) \rangle}{\lVert N(t_0) \rVert ^2}N(t_0)\\
+  &= {\alpha'}^2(s_0) \ddot{c}_N(t_0)\\
+  \text{E a norma da aceleração normal}\\
+  \lVert c''_{1N}(s_0) \rVert &= \lvert {\alpha'}^2(s_0)\rvert \cdot \lVert \ddot{c}_N(t_0) \rVert
+\end{align*}
+E Vamos calcular o módulo da velocidade de \(c_1(s_0)\)
+\begin{align*}
+  \lVert c'_1(s_0) \rVert &= \lvert {\alpha'}(s_0)\rvert \cdot \lVert \dot{c}_N(t_0) \rVert
+\end{align*}
+Podemos agora comparar a razão entre norma da aceleração normal e norma da velocidade para \(c_1\) e \(c\)
+\begin{align*}
+  \frac{\lVert \ddot{c}_N(t_0)\rVert}{{\lVert \dot{c}(t_0) \rVert}^2} &= \frac{\lVert c''_{1N}(s_0)\rVert}{{\lVert c'_1(s_0) \rVert}^2}\\ \\
+  \frac{\lVert \ddot{c}_N(t_0)\rVert}{{\lVert \dot{c}(t_0) \rVert}^2} &= \frac{\cancel{\lvert {\alpha'}^2(s_0)\rvert} \cdot \lVert \ddot{c}_N(t_0) \rVert}{\cancel{{\lvert {\alpha'}(s_0)\rvert}^2} \cdot {\lVert \dot{c}(t_0) \rVert}^2} \\ \\
+  \frac{\lVert \ddot{c}_N(t_0)\rVert}{{\lVert \dot{c}(t_0) \rVert}^2} &= \frac{\lVert \ddot{c}_N(t_0) \rVert}{{\lVert \dot{c}(t_0) \rVert}^2}
 \end{align*}
 
 \end{document}
