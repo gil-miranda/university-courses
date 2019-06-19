@@ -1,0 +1,150 @@
+\documentclass[10pt]{article}
+\usepackage{amsmath}
+\usepackage{cancel}
+\usepackage{booktabs}
+
+\author{Gil Sales M. Neto}
+\title{Correção da P1 - Probabilidade 1 2019.1\\Profª. Mária Eulália}
+
+\begin{document}
+  \maketitle
+
+  \begin{table}[h]
+  \begin{tabular}{ll}
+  \toprule
+  \multicolumn{1}{c}{Questão} & \multicolumn{1}{c}{Pontuação} \\
+  \toprule
+  1 & a - 1.5 | b - 1 \\
+  2 & a - 1 | b - 0.5 |  c - 1 \\
+  3 & 2.5 \\
+  4 & a - 0.5 |  b - 1 | c - 0.5 |  d - 0.5
+  \end{tabular}
+  \caption{Pontuação das questões}
+  \label{tab:my-table2}
+  \end{table}
+
+  \chapter{Questão 1}
+  \subparagraph{Letra a)}
+  \(X_i\) número observado na extração. \(X_i \in {1,2,\dots,N}\)\\
+  \(X = max \, X_i, 1\leq i \leq k\) \\
+  \begin{align*}
+    P(X=k) &= P([x \leq k] \setminus [x\leq k-1])\\
+    &= P(X\leq k) - P(X\leq k-1)\\
+    &= \left(\frac{k}{N}\right)^n - \left(\frac{k-1}{N}\right)^n\\
+    &= \frac{k^n - (k-1)^n}{N^n}\\
+    &= \frac{\sum_{i=0}^{n-1} \binom{n}{i} (k-1)}{N^n}
+  \end{align*}
+
+\subparagraph{Letra b)}
+Ela provou para caso geral \(2 \leq n < N\), mas a prova pede apenas \(n = 2\)\\
+\begin{cases}
+  \(P(Y\leq k) = \dfrac{\binom{k}{n}}{\binom{N}{n}}\)\\
+  \(P(Y\leq x) = 0\), se \(x < n\)\\
+  \(P(Y = k) = \dfrac{\binom{k}{n} - \binom{k-1}{n}}{\binom{N}{n}}\)\\
+\end{cases}
+
+Para caso \(n=2\)
+\(P(Y\leq k) =
+\begin{cases}
+  0, k < n\\
+  \dfrac{\binom{k}{2}}{\binom{N}{2}} = \dfrac{k(k-1)}{N(N-1)} = \dfrac{2(k-1)}{N(N-1)}
+\end{cases}\)
+\newline
+\newline
+\midrule
+\newline
+\newline
+\chapter{Questão 2}
+\newline
+V: Tem vírus\\
+D: Envia Mensagem de vírus
+\begin{table}[h]
+\begin{tabular}{lll}
+  \toprule
+\multicolumn{1}{c}{\(P(V) = 0.2\)} & \multicolumn{1}{c}{\(P(D| V) = 0.9\)} & \(P(D| V^c ) = 0.02\) \\
+\(P(V^c) = 0.8\)  & \(P(D^c | V) = 0.1\) & \(P(D^c | V^c) = 0.98\)
+\end{tabular}
+\caption{Informações dadas pelo exercicio}
+\label{tab:my-table}
+\end{table}
+
+\subparagraph{Letra a)}
+\begin{align*}
+  P(V^c | D) &= \frac{P(V^c \cap D)}{P(D)}\\
+  &= \frac{P(V^c)P(D|V^c)}{P(V^c)P(D|V^c) + P(V)P(D|V)}\\
+  &= \frac{0.8 * 0.02}{0.8*0.02 + 0.2*0.9}\\
+  &\approx \frac{81}{1000}
+\end{align*}
+
+\subparagraph{Letra b)}
+\begin{align*}
+  P(V\cap D^c) &= P(V)P(D^c|V)\\
+  &= \frac{2}{10} \cdot \frac{1}{10}\\
+  &= \frac{2}{100}
+\end{align*}
+
+\subparagraph{Letra c)}
+\begin{align*}
+  P(V | D^c) &= \frac{P(V \cap D^c)}{P(D^c)}\\
+  &= \frac{P(V)P(D^c|V)}{P(V^c)P(D^c|V^c) + P(V)P(D^c|V)}\\
+  &= \frac{0.2 * 0.1}{0.8*0.98 + 0.2*0.1}\\
+  &\approx \frac{25}{1000}
+\end{align*}
+\newpage
+\chapter{Questão 3}\\
+Sejam \(X_1, X_2\), variaveis aleatórias independentes.\\
+
+\(P(X_1 = k) = e^{-\lambda_1} \frac{\lambda_1}{k!},P(X_2 = k) = e^{-\lambda_2} \frac{\lambda_2}{k!}, k=0,1,2,\dots\)\\
+\begin{align*}
+  P(X_1 = k | X_1 + X_2 = n) &= \frac{P( X_1 = k,X_1+X_2 = n)}{P(X_1+X_2 = n)}\\
+  &= \frac{P(X_1 = k,X_2 = n-k)}{P(X_1+X_2 = n)}\\
+  &= \frac{P(X_1 = k)P(X_2 = n-k)}{P(X_1+X_2 = n)}
+\end{align*}
+
+\begin{align*}
+  P(X_1,X_2 = n) &= \sum_{i=0}^n P(X_1 = i, X_2 = n-i)\\
+  &= \sum_{i=0}^n P(X_1 = i)P(X_2 = n-i)\\
+  &= \sum_{i=0}^n e^{-\lambda_1}\frac{\lambda_1^i}{i!} \cdot e^{-\lambda_2}\frac{\lambda_2^i}{n-i!}\\
+  &= \frac{e^{- \lambda_1+\lambda_2}}{n!} \sum_{i=0}^n \binom{n}{i} \underbrace{\lambda_1^i \lambda_2^{n-i}}_{(\lambda_1+\lambda_2)^n}
+\end{align*}
+Logo:
+\begin{align*}
+  \frac{P(X_1 = k)P(X_2 = n-k)}{P(X_1 + X_2 = n)}&=\frac{\cancel{e^{-\lambda_1}}\frac{\lambda_1^k}{k!} \cdot \cancel{e^{-\lambda_2}}\frac{\lambda_2}{k!}}{\cancel{e^{-(\lambda_1+ \lambda_2)}}\frac{(\lambda_1+\lambda_2)^n}{n!}}\\
+  &= \binom{n}{k}\left(\frac{\lambda_1}{\lambda_1+\lambda_2}\right)^k\left(\frac{\lambda_2}{\lambda_1+\lambda_2}\right)^{n-k}
+\end{align*}
+\newpage
+\chapter{Questão 4}
+\subparagraph{Letra a}
+f_Z(z) = \begin{cases}
+  \frac{1}{2}, z \in D\\
+  0, z \notin D
+\end{cases}
+
+\subparagraph{Letra b}
+F_s = X+Y\\
+\(d^2 + d^2 = (s+1)^2 \implies d = \frac{s+1}{\sqrt{2}}\)\\
+P(X+Y \in s) = \begin{cases}
+  0, s<-1\\
+  \frac{s+1}{2}, -1\leq s \leq 1\\
+  1, s \geq 1
+\end{cases}
+
+\subparagraph{Letra c}
+P(X \geq x), -1 \leq x \leq 1\\
+\begin{align*}
+  P(X \geq x) &= 1-p(X\leq x)\\
+  &= 1-\frac{(1-(-x))^2}{2}\\
+  &= 1- \frac{(1+x)^2}{2}
+\end{align*}
+
+\subparagraph{Letra d}
+Não, tome X = 2/3 \\
+\( P(X \geq 2/3) > 0, P(Y \geq 2/3) > 0\)\\
+mas:
+\(P(X \geq 2/3 \cap Y \geq 2/3) = 0\)
+
+
+
+
+
+\end{document}
