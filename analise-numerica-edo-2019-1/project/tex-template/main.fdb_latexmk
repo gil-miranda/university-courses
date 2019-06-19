@@ -1,0 +1,14 @@
+# Fdb version 3
+["pdflatex"] 1560941977 "main.tex" "main.pdf" "main" 1560941977
+  "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1550406775 3332 103109f5612ad95229751940c61aada0 ""
+  "/usr/share/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1550406775 1288 655e228510b4c2a1abe905c368440826 ""
+  "/usr/share/texmf-dist/tex/latex/base/article.cls" 1550406775 19933 3097d1b31d3c45dc957096f554529032 ""
+  "/usr/share/texmf-dist/tex/latex/base/size12.clo" 1550406775 8305 6a682ae291edd56e2d7accbf95eca451 ""
+  "/usr/share/texmf-dist/web2c/texmf.cnf" 1550406775 33301 a3134070eacafb10b1f371612ce2650d ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1556981594 7919195 efdf6829444625fa9ffe15bb24dc74ff ""
+  "main.aux" 1560941977 8 a94a2480d3289e625eea47cd1b285758 ""
+  "main.tex" 1560941977 6722 6df1b153de8cfb8d26247c0b47253f05 ""
+  "sbc-template.sty" 0 -1 0 ""
+  (generated)
+  "main.log"
+  "main.pdf"
