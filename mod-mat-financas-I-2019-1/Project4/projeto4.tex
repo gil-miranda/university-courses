@@ -1,0 +1,472 @@
+\documentclass[
+	% -- opções da classe memoir --
+	11pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel.
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	]{abntex2}
+
+  \usepackage{lmodern}			% Usa a fonte Latin Modern
+  \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+  \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+  \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+  \usepackage{color}				% Controle das cores
+  \usepackage{graphicx}			% Inclusão de gráficos
+  \usepackage{microtype} 			% para melhorias de justificação
+  % ---
+  \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+		\usepackage{booktabs}
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics
+                         % to support a larger range
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{mathrsfs}
+    \usepackage{fancyvrb}
+    \usepackage{fvextra}
+
+        % Colors for the hyperref package
+        \definecolor{urlcolor}{rgb}{0,.145,.698}
+        \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+        \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+        % ANSI colors
+        \definecolor{ansi-black}{HTML}{3E424D}
+        \definecolor{ansi-black-intense}{HTML}{282C36}
+        \definecolor{ansi-red}{HTML}{E75C58}
+        \definecolor{ansi-red-intense}{HTML}{B22B31}
+        \definecolor{ansi-green}{HTML}{00A250}
+        \definecolor{ansi-green-intense}{HTML}{007427}
+        \definecolor{ansi-yellow}{HTML}{DDB62B}
+        \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+        \definecolor{ansi-blue}{HTML}{208FFB}
+        \definecolor{ansi-blue-intense}{HTML}{0065CA}
+        \definecolor{ansi-magenta}{HTML}{D160C4}
+        \definecolor{ansi-magenta-intense}{HTML}{A03196}
+        \definecolor{ansi-cyan}{HTML}{60C6C8}
+        \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+        \definecolor{ansi-white}{HTML}{C5C1B4}
+        \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+        \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+        \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+        % Pygments definitions
+
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+\let\PY@ul=\relax \let\PY@tc=\relax%
+\let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+\PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+\PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+  % ---
+  % Pacotes adicionais, usados no anexo do modelo de folha de identificação
+  % ---
+  \usepackage{multicol}
+  \usepackage{multirow}
+  % ---
+
+  % ---
+  % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+  % ---
+  \usepackage{lipsum}				% para geração de dummy text
+  % ---
+
+  % ---
+  % Pacotes de citações
+  % ---
+  \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+  \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+  % ---
+  % CONFIGURAÇÕES DE PACOTES
+  % ---
+
+  % ---
+  % Configurações do pacote backref
+  % Usado sem a opção hyperpageref de backref
+  \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+  % Texto padrão antes do número das páginas
+  \renewcommand{\backref}{}
+  % Define os textos da citação
+  \renewcommand*{\backrefalt}[4]{
+  	\ifcase #1 %
+  		Nenhuma citação no texto.%
+  	\or
+  		Citado na página #2.%
+  	\else
+  		Citado #1 vezes nas páginas #2.%
+  	\fi}%
+  % ---
+
+  % ---
+  % Informações de dados para CAPA e FOLHA DE ROSTO
+  % ---
+  \titulo{Projeto 4\\MAE001 - Modelagem Mat. em Finanças I \\CAPM \& Estrutura a Termo}
+  \autor{Gil Sales M. Neto \& João Victor de Fonseca}
+  \local{Brasil}
+  \data{Junho, 2019}
+  \instituicao{%
+    Universidade Federal do Rio de Janeiro
+    \par
+    Instituto de Matemática
+    \par
+    Bacharelado em Matemática Aplicada
+		\par
+		Prof.: Marco Cabral}
+  \tipotrabalho{Relatório técnico}
+  % O preambulo deve conter o tipo do trabalho, o objetivo,
+  % o nome da instituição e a área de concentração
+  \preambulo{}
+  % ---
+
+  % ---
+  % Configurações de aparência do PDF final
+
+  % alterando o aspecto da cor azul
+  \definecolor{blue}{RGB}{41,5,195}
+
+  % informações do PDF
+  \makeatletter
+  \hypersetup{
+       	%pagebackref=true,
+  		pdftitle={\@title},
+  		pdfauthor={\@author},
+      	pdfsubject={\imprimirpreambulo},
+  	    pdfcreator={LaTeX with abnTeX2},
+  		pdfkeywords={abnt}{latex}{abntex}{abntex2}{relatório técnico},
+  		colorlinks=true,       		% false: boxed links; true: colored links
+      	linkcolor=blue,          	% color of internal links
+      	citecolor=blue,        		% color of links to bibliography
+      	filecolor=magenta,      		% color of file links
+  		urlcolor=blue,
+  		bookmarksdepth=4
+  }
+  \makeatother
+  % ---
+
+  % ---
+  % Espaçamentos entre linhas e parágrafos
+  % ---
+
+  % O tamanho do parágrafo é dado por:
+  \setlength{\parindent}{1.3cm}
+
+  % Controle do espaçamento entre um parágrafo e outro:
+  \setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+  % ---
+  % compila o indice
+  % ---
+  \makeindex
+  % ---
+
+  % ----
+  % Início do documento
+  % ----
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+% ---
+% inserir o sumario
+% ---
+
+\tableofcontents*
+\cleardoublepage
+
+\chapter{Os Algoritmos}
+Esta seção tem como objetivo apresentar todos os códigos utilizados nas simulações.
+\section{Funções principais}
+
+Utilizamos a linguagem {\color{green}Python3} para a implementação do algoritmo que determina a estrutura a termo de juros.
+Esse algoritmo tem depedência dos pacotes: {\color{red}Scipy} para Spline, {\color{red}Numpy} e {\color{red}MatPlotLib.pyplot} para os gráficos.
+
+\begin{Verbatim}[breaklines=true, commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}165}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+          \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+          \PY{k+kn}{from} \PY{n+nn}{scipy}\PY{n+nn}{.}\PY{n+nn}{interpolate} \PY{k}{import} \PY{n}{spline}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}259}]:} \PY{c+c1}{\PYZsh{} Carregando dados}
+      \PY{n}{ltns\PYZus{}2017} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{l+m+mf}{897.78}\PY{p}{,}\PY{l+m+mi}{2018}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mf}{812.14}\PY{p}{,}\PY{l+m+mi}{2019}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mf}{754.04}\PY{p}{,}\PY{l+m+mi}{2020}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mf}{651.41}\PY{p}{,}\PY{l+m+mi}{2021}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+      \PY{n}{ltns\PYZus{}2018} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{l+m+mf}{936.03}\PY{p}{,}\PY{l+m+mi}{2019}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mf}{855.85}\PY{p}{,}\PY{l+m+mi}{2020}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mf}{770.38}\PY{p}{,}\PY{l+m+mi}{2021}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mf}{622.14}\PY{p}{,}\PY{l+m+mi}{2023}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+      \PY{n}{ltns\PYZus{}2019} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{p}{[}\PY{l+m+mf}{937.58}\PY{p}{,}\PY{l+m+mi}{2020}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mf}{866.29}\PY{p}{,}\PY{l+m+mi}{2021}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mf}{804.61}\PY{p}{,}\PY{l+m+mi}{2022}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mf}{719.12}\PY{p}{,}\PY{l+m+mi}{2023}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+\newpage
+\subsection{Carregando dados e Calculando Estrutura a Termo}
+
+\begin{Verbatim}[breaklines=true,commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}260}]:} \PY{c+c1}{\PYZsh{} Algoritmo para estrutura a termo}
+          \PY{k}{def} \PY{n+nf}{term\PYZus{}structure}\PY{p}{(}\PY{n}{valores}\PY{p}{,} \PY{n}{ano}\PY{p}{)}\PY{p}{:}
+              \PY{n}{ys} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{p}{(}\PY{l+m+mi}{1000}\PY{o}{/}\PY{n}{i}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{/}\PY{p}{(}\PY{n}{i}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{n}{ano}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{valores}\PY{p}{]}\PY{p}{)}
+              \PY{n}{ys} \PY{o}{*}\PY{o}{=} \PY{l+m+mi}{100}
+              \PY{k}{return} \PY{n}{ys}
+
+          \PY{c+c1}{\PYZsh{} Estrutura a termo para cada ano}
+          \PY{n}{ts\PYZus{}2017} \PY{o}{=} \PY{p}{[}\PY{p}{(}\PY{n}{i}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{l+m+mi}{2017}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{ltns\PYZus{}2017}\PY{p}{]}
+          \PY{n}{ys\PYZus{}2017} \PY{o}{=} \PY{n}{term\PYZus{}structure}\PY{p}{(}\PY{n}{ltns\PYZus{}2017}\PY{p}{,} \PY{l+m+mi}{2017}\PY{p}{)}
+
+          \PY{n}{ts\PYZus{}2018} \PY{o}{=} \PY{p}{[}\PY{p}{(}\PY{n}{i}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{l+m+mi}{2018}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{ltns\PYZus{}2018}\PY{p}{]}
+          \PY{n}{ys\PYZus{}2018} \PY{o}{=} \PY{n}{term\PYZus{}structure}\PY{p}{(}\PY{n}{ltns\PYZus{}2018}\PY{p}{,} \PY{l+m+mi}{2018}\PY{p}{)}
+
+          \PY{n}{ts\PYZus{}2019} \PY{o}{=} \PY{p}{[}\PY{p}{(}\PY{n}{i}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{l+m+mi}{2019}\PY{p}{)} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{ltns\PYZus{}2019}\PY{p}{]}
+          \PY{n}{ys\PYZus{}2019} \PY{o}{=} \PY{n}{term\PYZus{}structure}\PY{p}{(}\PY{n}{ltns\PYZus{}2019}\PY{p}{,} \PY{l+m+mi}{2019}\PY{p}{)}
+\end{Verbatim}
+\newpage
+
+\subsection{Plots dos gráficos}
+
+\subsubsection{Função para plotagem}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}269}]:} \PY{c+c1}{\PYZsh{} Funções para plotar gráficos}
+      \PY{k}{def} \PY{n+nf}{plot\PYZus{}spline}\PY{p}{(}\PY{n}{ts}\PY{p}{,} \PY{n}{ys}\PY{p}{,} \PY{n}{ano}\PY{p}{,} \PY{n}{lim}\PY{p}{)}\PY{p}{:}
+          \PY{n}{xs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{lim}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}
+          \PY{n}{spl} \PY{o}{=} \PY{n}{spline}\PY{p}{(}\PY{n}{ts}\PY{p}{,} \PY{n}{ys}\PY{p}{,} \PY{n}{xs}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Yield Curve \PYZhy{} Titulos emitidos em }\PY{l+s+si}{\PYZpc{}d}\PY{l+s+s1}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{n}{ano}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Tempo até maturidade (em anos)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Juros (}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{k+kc}{True}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xs}\PY{p}{,}\PY{n}{spl}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{ts}\PY{p}{,}\PY{n}{ys}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ro}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\subsubsection{Plot Emitidos em 2017}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}273}]:} \PY{n}{plot\PYZus{}spline}\PY{p}{(}\PY{n}{ts\PYZus{}2017}\PY{p}{,} \PY{n}{ys\PYZus{}2017}\PY{p}{,} \PY{l+m+mi}{2017}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{)}
+\end{Verbatim}
+
+\subsubsection{Plot Emitidos em 2018}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}272}]:} \PY{n}{plot\PYZus{}spline}\PY{p}{(}\PY{n}{ts\PYZus{}2018}\PY{p}{,} \PY{n}{ys\PYZus{}2018}\PY{p}{,} \PY{l+m+mi}{2018}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}
+\end{Verbatim}
+
+\subsubsection{Plot Emitidos em 2019}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}270}]:} \PY{n}{plot\PYZus{}spline}\PY{p}{(}\PY{n}{ts\PYZus{}2019}\PY{p}{,} \PY{n}{ys\PYZus{}2019}\PY{p}{,} \PY{l+m+mi}{2019}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}
+\end{Verbatim}
+
+
+
+
+\chapter{Atividade 1}
+Usamos como fonte de dados para valor das LTNs o histórico fornecido pelo site do Tesouro Nacional: \url{https://sisweb.tesouro.gov.br/apex/f?p=2031:2:0::::}, os dados obtidos foram transcritos diretamente para listas (ltns\_2017, ltns\_2018, ltns\_2019)\\
+Utilizamos os arquivos LTN dos anos 2017, 2018 e 2019\\
+Todos os valores usados levam em conta emissão em 01 de Janeiro do ano corrente, e maturidade em 01 de Janeiro do ano de maturidade, ano este que varia para cada ano de emissão.\\
+
+\subsection{Estrutura a termo de juros}
+Os juros foram calculados utilizando o modelo para estrutura a termo fornecido no livro texto:
+\[
+y_m = \left(\frac{V_f}{B_{0,m}}\right)^\frac{1}{m} - 1
+\]
+Onde:\\
+\(y_m\) é o rendimento/juros anual para o título. \\
+\(m\) é o tempo restante para maturidade, em anos.\\
+\(B_{0,m}\) é o valor em tempo 0 do título com maturidade em tempo \(m\)\\
+\(V_f\) é o valor de face, que no caso das LTNs: \(V_f = 1000\)
+\\
+Com \(y_m\) calculados, plotamos a Curva de Rendimento (Yield Curve), ou estrutura a termo de juros.\\
+O Gráfico é feito com tempo para maturidade no eixo horizontal e rendimento no eixo vertical, os pontos são interpolados com Spline do pacote SciPy.
+
+\newpage
+\subsection{Estrutura a Termo para Título emitido em 2017}
+\begin{tabular}{ll}
+\toprule
+\multicolumn{1}{c}{Ano de Maturidade} & Valor em tempo 0 \\
+\midrule
+2018 & R\$ 897.78 \\
+2019 & R\$ 812.14 \\
+2020 & R\$ 754.04\\
+2021 & R\$ 651.41
+\end{tabular}
+\begin{figure}[h]
+	\adjustimage{max size={1\linewidth}{1\paperheight}}{y_2017.png}
+\end{figure}
+
+\newpage
+\subsection{Estrutura a Termo para Título emitido em 2018}
+\begin{tabular}{ll}
+\toprule
+\multicolumn{1}{c}{Ano de Maturidade} & Valor em tempo 0 \\
+\midrule
+2019 & R\$ 936.03 \\
+2020 & R\$ 855.85 \\
+2021 & R\$ 770.38\\
+2023 & R\$ 622.14
+\end{tabular}
+\begin{figure}[h]
+	\adjustimage{max size={1\linewidth}{1\paperheight}}{y_2018.png}
+\end{figure}
+
+\newpage
+\subsection{Estrutura a Termo para Título emitido em 2019}
+\begin{tabular}{ll}
+\toprule
+\multicolumn{1}{c}{Ano de Maturidade} & Valor em tempo 0 \\
+\midrule
+2018 & R\$ 897.78 \\
+2019 & R\$ 812.14 \\
+2020 & R\$ 754.04\\
+2021 & R\$ 651.41
+\end{tabular}
+
+\begin{figure}[h]
+	\adjustimage{max size={1\linewidth}{1\paperheight}}{y_2019.png}
+\end{figure}
+
+\chapter{Conclusão}
+Foi possível observar um SMILE no \textbf{PUT} de 6 dias, no \textbf{CALL} de 6 dias e no \textbf{CALL} de 28 dias.\\
+No \textbf{PUT} de 28 dias a curva ficou invertida
+\end{document}

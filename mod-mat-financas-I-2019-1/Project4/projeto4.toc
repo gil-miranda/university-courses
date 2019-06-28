@@ -1,0 +1,21 @@
+\changetocdepth {4}
+\babel@toc {brazil}{}
+\babel@toc {brazil}{}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Os Algoritmos}}{3}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Fun\IeC {\c c}\IeC {\~o}es principais}{3}{section.1.1}% 
+\contentsline {subsection}{\numberline {1.1.1}Carregando dados e Calculando Estrutura a Termo}{4}{subsection.1.1.1}% 
+\contentsline {subsection}{\numberline {1.1.2}Plots dos gr\IeC {\'a}ficos}{5}{subsection.1.1.2}% 
+\contentsline {subsubsection}{\numberline {1.1.2.1}Fun\IeC {\c c}\IeC {\~a}o para plotagem}{5}{subsubsection.1.1.2.1}% 
+\contentsline {subsubsection}{\numberline {1.1.2.2}Plot Emitidos em 2017}{5}{subsubsection.1.1.2.2}% 
+\contentsline {subsubsection}{\numberline {1.1.2.3}Plot Emitidos em 2018}{5}{subsubsection.1.1.2.3}% 
+\contentsline {subsubsection}{\numberline {1.1.2.4}Plot Emitidos em 2019}{5}{subsubsection.1.1.2.4}% 
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Atividade 1}}{6}{chapter.2}% 
+\contentsline {subsection}{\numberline {2.0.1}Estrutura a termo de juros}{6}{subsection.2.0.1}% 
+\contentsline {subsection}{\numberline {2.0.2}Estrutura a Termo para T\IeC {\'\i }tulo emitido em 2017}{7}{subsection.2.0.2}% 
+\contentsline {subsection}{\numberline {2.0.3}Estrutura a Termo para T\IeC {\'\i }tulo emitido em 2018}{8}{subsection.2.0.3}% 
+\contentsline {subsection}{\numberline {2.0.4}Estrutura a Termo para T\IeC {\'\i }tulo emitido em 2019}{9}{subsection.2.0.4}% 
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Conclus\IeC {\~a}o}}{10}{chapter.3}% 
