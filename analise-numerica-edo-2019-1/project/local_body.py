@@ -1,0 +1,65 @@
+from math import sqrt
+from math import cos
+from math import atan2
+from math import sin
+
+class Body:
+    ## All vectors are decomposed in x-axis and y-axis
+    ## p = (x,y) -> Actual Position Vector
+    ## v = (x,y) -> Actual Velocity Vector
+    ## pos_x -> List of all x-axis positions over time
+    ## pos_y -> List of all y-axis positions over time
+    ## color -> Orbit trace and planet color
+
+    def __init__(self, name_of = 'UNNAMED', color_of = 'gray'):
+        self.name = name_of
+        self.color = color_of
+
+    mass = 0
+    v_x = v_y = v_x0 = v_y0 = 0
+    p_x = p_y = p_x0 = p_y0 = 0
+    pos_x = []
+    pos_y = []
+    kinetic = 0
+    potential = 0
+    momentum = 0
+
+    def acceleration(self, bodies, pos = [0,0], retangle = False, retpe = False, G = 6.67428e-11, retm = False):
+        acc_x = acc_y = 0
+        pe = 0
+        ke = 0
+        for other in bodies:
+            if self is other:
+                continue
+            d_x = (other.p_x - pos[0])
+            d_y = (other.p_y - pos[1])
+            d = sqrt(d_x**2 + d_y**2) ## Calculate the distance between the bodies
+            if d == 0:
+                raise ValueError('The bodies %r and %r collided' %(self.name, other.name))
+
+            ## Compute acceleration OTHER causes on THIS
+            acc = G * other.mass / d**2
+
+            ## Compute potential Energy
+            if retpe:
+                pe += G * other.mass * self.mass / d
+                ke += 1/2 * self.mass * (self.v_x**2 + self.v_y**2)
+                energy = ke - pe
+            ## Decomposing the acceleration on x-axis and y-axis
+            theta = atan2(d_y, d_x)
+            a_x = acc * cos(theta)
+            a_y = acc * sin(theta)
+            acc_x += a_x
+            acc_y += a_y
+
+        if retm:
+            v = self.v_x**2 + self.v_y**2 #v^2
+            dsun = self.p_x**2 + self.p_y**2
+            try:
+                momentum = sqrt(dsun * (self.mass**2 * v) - (self.p_x * self.v_x * self.mass + self.mass * self.p_y * self.v_y)**2)
+            except:
+                momentum = 0
+        if retangle and retpe and retm:
+            return acc_x, acc_y, energy, momentum
+        else:
+            return acc_x, acc_y
