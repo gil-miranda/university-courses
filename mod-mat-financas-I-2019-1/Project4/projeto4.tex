@@ -398,6 +398,84 @@ Esse algoritmo tem depedência dos pacotes: {\color{red}Scipy} para Spline, {\co
 {\color{incolor}In [{\color{incolor}270}]:} \PY{n}{plot\PYZus{}spline}\PY{p}{(}\PY{n}{ts\PYZus{}2019}\PY{p}{,} \PY{n}{ys\PYZus{}2019}\PY{p}{,} \PY{l+m+mi}{2019}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}
 \end{Verbatim}
 
+\subsection{Atividade 3}
+\subsubsection{Importando Dados}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}90}]:} \PY{n}{kroton} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{KROT3.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+         \PY{n}{mglu} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{MGLU3.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+         \PY{n}{itau} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ITUB4.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+         \PY{n}{raias} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RADL3.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+\end{Verbatim}
+\subsubsection{Preparando Dados}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}91}]:} \PY{n}{itau\PYZus{}fecho} \PY{o}{=} \PY{n}{itau}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}
+		 \PY{n}{kroton\PYZus{}fecho} \PY{o}{=} \PY{n}{kroton}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}
+		 \PY{n}{raias\PYZus{}fecho} \PY{o}{=} \PY{n}{raias}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}
+		 \PY{n}{mglu\PYZus{}fecho} \PY{o}{=} \PY{n}{mglu}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{o}{.}\PY{n}{flatten}\PY{p}{(}\PY{p}{)}
+
+		 \PY{n}{beta\PYZus{}itau} \PY{o}{=} \PY{l+m+mf}{1.2663}
+		 \PY{n}{rm\PYZus{}itau} \PY{o}{=} \PY{l+m+mf}{0.2039}
+
+		 \PY{n}{beta\PYZus{}mglu} \PY{o}{=} \PY{l+m+mf}{1.2737}
+		 \PY{n}{rm\PYZus{}mglu} \PY{o}{=} \PY{l+m+mf}{0.2598}
+
+		 \PY{n}{beta\PYZus{}raia} \PY{o}{=} \PY{l+m+mf}{0.3499}
+		 \PY{n}{rm\PYZus{}raia} \PY{o}{=} \PY{l+m+mf}{0.1397}
+
+		 \PY{n}{beta\PYZus{}kroton} \PY{o}{=} \PY{l+m+mf}{1.1226}
+		 \PY{n}{rm\PYZus{}kroton} \PY{o}{=} \PY{l+m+mf}{0.0738}
+
+		 \PY{n}{re\PYZus{}itau} \PY{o}{=} \PY{n}{retorno\PYZus{}esp}\PY{p}{(}\PY{n}{selic}\PY{p}{,} \PY{n}{beta} \PY{o}{=} \PY{n}{beta\PYZus{}itau}\PY{p}{,} \PY{n}{rm} \PY{o}{=} \PY{n}{rm\PYZus{}itau}\PY{p}{)}
+		 \PY{n}{re\PYZus{}mglu} \PY{o}{=} \PY{n}{retorno\PYZus{}esp}\PY{p}{(}\PY{n}{selic}\PY{p}{,} \PY{n}{beta} \PY{o}{=} \PY{n}{beta\PYZus{}mglu}\PY{p}{,} \PY{n}{rm} \PY{o}{=} \PY{n}{rm\PYZus{}mglu}\PY{p}{)}
+		 \PY{n}{re\PYZus{}raia} \PY{o}{=} \PY{n}{retorno\PYZus{}esp}\PY{p}{(}\PY{n}{selic}\PY{p}{,} \PY{n}{beta} \PY{o}{=} \PY{n}{beta\PYZus{}raia}\PY{p}{,} \PY{n}{rm} \PY{o}{=} \PY{n}{rm\PYZus{}raia}\PY{p}{)}
+		 \PY{n}{re\PYZus{}kroton} \PY{o}{=} \PY{n}{retorno\PYZus{}esp}\PY{p}{(}\PY{n}{selic}\PY{p}{,} \PY{n}{beta} \PY{o}{=} \PY{n}{beta\PYZus{}kroton}\PY{p}{,} \PY{n}{rm} \PY{o}{=} \PY{n}{rm\PYZus{}kroton}\PY{p}{)}
+
+		 \PY{n}{vol\PYZus{}itau} \PY{o}{=} \PY{l+m+mf}{0.513346}
+		 \PY{n}{vol\PYZus{}mglu} \PY{o}{=} \PY{l+m+mf}{0.726408}
+		 \PY{n}{vol\PYZus{}raia} \PY{o}{=} \PY{l+m+mf}{0.164342}
+		 \PY{n}{vol\PYZus{}kroton} \PY{o}{=} \PY{l+m+mf}{0.226435}
+
+		 \PY{n}{shp\PYZus{}itau} \PY{o}{=} \PY{n}{sharpe}\PY{p}{(}\PY{n}{vol\PYZus{}itau}\PY{p}{,} \PY{n}{re\PYZus{}itau}\PY{p}{)}
+		 \PY{n}{shp\PYZus{}mglu} \PY{o}{=} \PY{n}{sharpe}\PY{p}{(}\PY{n}{vol\PYZus{}mglu}\PY{p}{,} \PY{n}{re\PYZus{}mglu}\PY{p}{)}
+		 \PY{n}{shp\PYZus{}raia} \PY{o}{=} \PY{n}{sharpe}\PY{p}{(}\PY{n}{vol\PYZus{}raia}\PY{p}{,} \PY{n}{re\PYZus{}raia}\PY{p}{)}
+		 \PY{n}{shp\PYZus{}kroton} \PY{o}{=} \PY{n}{sharpe}\PY{p}{(}\PY{n}{vol\PYZus{}kroton}\PY{p}{,} \PY{n}{re\PYZus{}kroton}\PY{p}{)}
+\end{Verbatim}
+
+\subsubsection{Algoritmos}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}92}]:} \PY{n}{selic} \PY{o}{=} \PY{l+m+mf}{0.065}
+		 \PY{k}{def} \PY{n+nf}{retorno\PYZus{}esp}\PY{p}{(}\PY{n}{rf} \PY{o}{=} \PY{n}{selic}\PY{p}{,} \PY{n}{beta} \PY{o}{=} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{rm} \PY{o}{=} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+				 \PY{k}{return} \PY{n}{rf} \PY{o}{+} \PY{n}{beta}\PY{o}{*}\PY{p}{(}\PY{n}{rm} \PY{o}{\PYZhy{}} \PY{n}{rf}\PY{p}{)}
+
+		 \PY{k}{def} \PY{n+nf}{sharpe}\PY{p}{(}\PY{n}{vol}\PY{p}{,} \PY{n}{re}\PY{p}{,}\PY{n}{rf} \PY{o}{=} \PY{n}{selic}\PY{p}{)}\PY{p}{:}
+				 \PY{k}{return} \PY{p}{(}\PY{n}{re} \PY{o}{\PYZhy{}} \PY{n}{rf}\PY{p}{)}\PY{o}{/}\PY{n}{vol}
+\end{Verbatim}
+
+\subsubsection{Plot Retorno}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}93}]:} \PY{n}{res} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{re\PYZus{}itau}\PY{p}{,} \PY{n}{re\PYZus{}mglu}\PY{p}{,} \PY{n}{re\PYZus{}raia}\PY{p}{,} \PY{n}{re\PYZus{}kroton}\PY{p}{]}\PY{p}{)}
+		 \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
+		 \PY{n}{plt}\PY{o}{.}\PY{n}{bar}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Itau}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Magazine Luiza}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Drogas Raia}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Kroton}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{res}\PY{o}{*}\PY{l+m+mi}{100}\PY{p}{)}
+		 \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Retorno (em }\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+		 \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{n}{alpha} \PY{o}{=} \PY{l+m+mf}{0.4}\PY{p}{)}
+		 \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\subsubsection{Plot Sharpe}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}94}]:} \PY{n}{sharpes} \PY{o}{=} \PY{p}{[}\PY{n}{shp\PYZus{}itau}\PY{p}{,} \PY{n}{shp\PYZus{}mglu}\PY{p}{,} \PY{n}{shp\PYZus{}raia}\PY{p}{,} \PY{n}{shp\PYZus{}kroton}\PY{p}{]}
+		 \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
+		 \PY{n}{plt}\PY{o}{.}\PY{n}{bar}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Itau}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Magazine Luiza}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Drogas Raia}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Kroton}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{sharpes}\PY{p}{)}
+		 \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{n}{alpha} \PY{o}{=} \PY{l+m+mf}{0.4}\PY{p}{)}
+		 \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Índice Sharpe}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+		 \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+
+
+
+
 
 
 
@@ -466,7 +544,24 @@ O Gráfico é feito com tempo para maturidade no eixo horizontal e rendimento no
 	\adjustimage{max size={1\linewidth}{1\paperheight}}{y_2019.png}
 \end{figure}
 
-\chapter{Conclusão}
-Foi possível observar um SMILE no \textbf{PUT} de 6 dias, no \textbf{CALL} de 6 dias e no \textbf{CALL} de 28 dias.\\
-No \textbf{PUT} de 28 dias a curva ficou invertida
+\chapter{Atividade 3}
+Usamos como fonte de dados para valor das ações o histórico fornecido pelo site Investing.com: \url{https://br.investing.com/equities/}, os dados foram salvos em um arquivo .csv e importado com a biblioteca Pandas.\\
+As empresas e ações utilizadas foram: \\
+\begin{itemize}
+	\item Itaú Unibanco - ITUB4
+	\item Kroton Educacional - KROT3
+	\item Magazine Luiza - MGLU3
+	\item Drogas Raia - RADL3
+\end{itemize}
+
+\subsection{Retorno esperado}
+\begin{figure}[h]
+	\adjustimage{max size={1\linewidth}{1\paperheight}}{retorno.png}
+\end{figure}
+
+\subsection{Índice Sharpe}
+\begin{figure}[h]
+	\adjustimage{max size={1\linewidth}{1\paperheight}}{sharpe.png}
+\end{figure}
+
 \end{document}
