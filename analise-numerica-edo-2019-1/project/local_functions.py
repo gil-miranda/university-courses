@@ -166,8 +166,7 @@ def big_plotter(methods = ['euler'], steps = [3600], graph = ['orbit'], opt = ['
         if 'orbit' in graph:
                 j = 0
                 for h in steps:
-                    print(pos_vec[m][steps.index(h)])
-                    orbit_plotter(pos_vec[m][steps.index(h)][1], opt[0], title = opt[1] + ' - ' + m + ' - h = ' + str(h))
+                    orbit_plotter(pos_vec[m][j][1], opt[0], title = opt[1] + ' - ' + m + ' - h = ' + str(h))
                     j += 1
 
         if 'energy' in graph:
