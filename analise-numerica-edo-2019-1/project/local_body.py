@@ -22,12 +22,12 @@ class Body:
     pos_y = []
     kinetic = 0
     potential = 0
-    momentum = 0
+    ang_mo = 0
 
-    def acceleration(self, bodies, pos = [0,0], retangle = False, retpe = False, G = 6.67428e-11, retm = False):
+    def acceleration(self, bodies, pos = [0,0], retpe = False, G = 6.67428e-11, retm = False):
         acc_x = acc_y = 0
         pe = 0
-        ke = 0
+        m = 0
         for other in bodies:
             if self is other:
                 continue
@@ -40,11 +40,17 @@ class Body:
             ## Compute acceleration OTHER causes on THIS
             acc = G * other.mass / d**2
 
+            if retm:
+                v = self.v_x**2 + self.v_y**2 #v^2
+                dsun = (self.p_x**2 + self.p_y**2)
+                try:
+                    m += sqrt(dsun * (self.mass**2 * v) - (self.p_x * self.v_x * self.mass + self.mass * self.p_y * self.v_y)**2)
+                except:
+                    m += 0
+
             ## Compute potential Energy
             if retpe:
                 pe += G * other.mass * self.mass / d
-                ke += 1/2 * self.mass * (self.v_x**2 + self.v_y**2)
-                energy = ke - pe
             ## Decomposing the acceleration on x-axis and y-axis
             theta = atan2(d_y, d_x)
             a_x = acc * cos(theta)
@@ -52,14 +58,8 @@ class Body:
             acc_x += a_x
             acc_y += a_y
 
-        if retm:
-            v = self.v_x**2 + self.v_y**2 #v^2
-            dsun = self.p_x**2 + self.p_y**2
-            try:
-                momentum = sqrt(dsun * (self.mass**2 * v) - (self.p_x * self.v_x * self.mass + self.mass * self.p_y * self.v_y)**2)
-            except:
-                momentum = 0
-        if retangle and retpe and retm:
-            return acc_x, acc_y, energy, momentum
+
+        if retpe and retm:
+            return acc_x, acc_y, pe, m
         else:
             return acc_x, acc_y
