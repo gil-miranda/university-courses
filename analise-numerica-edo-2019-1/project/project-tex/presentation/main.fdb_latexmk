@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1562234643 "main.tex" "main.pdf" "main" 1562234646
+["pdflatex"] 1562241123 "main.tex" "main.pdf" "main" 1562241126
   "/usr/share/texmf-dist/fonts/enc/dvips/arev/arevoml.enc" 1557554766 2921 ae68ca7d9a4902b5e8c8b47846fadadb ""
   "/usr/share/texmf-dist/fonts/enc/dvips/arev/arevot1.enc" 1557554766 3020 a1ac7e8d91c840af41a220ec7126413f ""
   "/usr/share/texmf-dist/fonts/enc/dvips/carlito/crlt_csjzgd.enc" 1557554766 3004 7d6a7fc5595e6f84ce94e81901b05d9b ""
@@ -289,10 +289,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1561238705 3100697 c3107dd7e59eb00ca0a1a6defab1e52a ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1561238698 7979416 4f4cd997babe2375d553132c16a37a03 ""
   "beamerthemefibeamer.sty" 1562029378 8254 ffb18300e2ec232149494cba783548d8 ""
-  "main.aux" 1562234645 5975 08b3ecfc7dfe132d6c5010eb19935752 "pdflatex"
-  "main.nav" 1562234645 3627 957caedce6308ce7182459363256a5dc "pdflatex"
-  "main.out" 1562234645 112 cec4d8580e512a654505ec4ea0444d9d "pdflatex"
-  "main.tex" 1562234643 11750 efdd0ae2e33162254e438c87a48f6e1b ""
+  "main.aux" 1562241126 5975 08b3ecfc7dfe132d6c5010eb19935752 "pdflatex"
+  "main.nav" 1562241126 3627 957caedce6308ce7182459363256a5dc "pdflatex"
+  "main.out" 1562241126 112 cec4d8580e512a654505ec4ea0444d9d "pdflatex"
+  "main.tex" 1562241123 11946 fb3b200c2000cb6c2b05362e276fc77f ""
   "minerva.png" 1562204716 41209 acd0c33f3c1491f163bdbead43af7115 ""
   "resources/an_euler.png" 1562233791 35979 925ae449e080faefb42c0718653ab59d ""
   "resources/an_leap.png" 1562233799 38376 ba65d83bd9b0c2402a43a459953368c0 ""
@@ -308,10 +308,10 @@
   "resources/verlet.png" 1562208492 69117 8f497925fb515c0b1978ce4646766470 ""
   "resources/verlet3.png" 1562234283 173388 77d56286717bbdcadcc097b0a8054a66 ""
   (generated)
-  "main.snm"
-  "main.out"
   "main.aux"
-  "main.pdf"
+  "main.snm"
   "main.nav"
-  "main.toc"
+  "main.pdf"
+  "main.out"
   "main.log"
+  "main.toc"

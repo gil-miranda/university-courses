@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.6.22)  4 JUL 2019 07:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.6.22)  4 JUL 2019 08:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1341,15 +1341,15 @@ Package microtype Info: Character `textemdash ' is missing
 (microtype)             in font `OT1/zavm/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `OML/zavm/m/it' will be
-(Font)              scaled to size 9.30756pt on input line 46.
+(Font)              scaled to size 9.30756pt on input line 50.
 LaTeX Font Info:    Font shape `T1/Carlito-LF/m/it' will be
-(Font)              scaled to size 10.95pt on input line 46.
+(Font)              scaled to size 10.95pt on input line 50.
  [2
 
 ] [3
 
 ]
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 74.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 78.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) (/usr/share/texmf-dist/tex/latex/microtype/mt-cmr.cfg
@@ -1359,10 +1359,10 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (
 ] [5
 
 ]
-./main.tex:93: Misplaced alignment tab character &.
+./main.tex:97: Misplaced alignment tab character &.
 \beamer@doifinframe ... \item \( \lVert L \rVert &
                                                   = \sqrt {\rVert q \lVert ^...
-l.93     \end{frame}
+l.97     \end{frame}
                     
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1376,12 +1376,12 @@ might try typing `S' now just to see what is salvageable.
 ] [7
 
 ]
-LaTeX Font Info:    Try loading font information for T1+DejaVuSansMono-TLF on input line 118.
+LaTeX Font Info:    Try loading font information for T1+DejaVuSansMono-TLF on input line 122.
  (/usr/share/texmf-dist/tex/latex/dejavu/T1DejaVuSansMono-TLF.fd
 File: T1DejaVuSansMono-TLF.fd 2011/06/01 Font definitions for T1/DejaVuSansMono-TLF.
 )
 LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/m/n' will be
-(Font)              scaled to size 9.30756pt on input line 118.
+(Font)              scaled to size 9.30756pt on input line 122.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `DejaVuSansMono-TLF' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1392,10 +1392,10 @@ Package microtype Info: Loading generic protrusion settings for font family
 <resources/earth_wrong.png, id=86, 624.3325pt x 606.265pt>
 File: resources/earth_wrong.png Graphic file (type png)
 <use resources/earth_wrong.png>
-Package pdftex.def Info: resources/earth_wrong.png  used on input line 125.
+Package pdftex.def Info: resources/earth_wrong.png  used on input line 129.
 (pdftex.def)             Requested size: 312.98476pt x 256.0727pt.
 
-Overfull \hbox (12.80801pt too wide) in paragraph at lines 125--125
+Overfull \hbox (12.80801pt too wide) in paragraph at lines 129--129
  [] 
  []
 
@@ -1403,13 +1403,13 @@ Overfull \hbox (12.80801pt too wide) in paragraph at lines 125--125
 
  <./resources/earth_wrong.png>]
 
-./main.tex:137: LaTeX Error: \caption outside figure or table.
+./main.tex:141: LaTeX Error: \caption outside figure or table.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.137     \end{frame}
+l.141     \end{frame}
                      
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1419,12 +1419,12 @@ If that doesn't work, type  X <return>  to quit.
 ] [11
 
 ]
-LaTeX Font Info:    Try loading font information for TS1+Carlito-LF on input line 155.
+LaTeX Font Info:    Try loading font information for TS1+Carlito-LF on input line 159.
  (/usr/share/texmf-dist/tex/latex/carlito/TS1Carlito-LF.fd
 File: TS1Carlito-LF.fd 2014/08/20 (autoinst) Font definitions for TS1/Carlito-LF.
 )
 LaTeX Font Info:    Font shape `TS1/Carlito-LF/m/it' will be
-(Font)              scaled to size 12.0pt on input line 155.
+(Font)              scaled to size 12.0pt on input line 159.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `Carlito-LF' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1435,10 +1435,10 @@ Package microtype Info: Loading generic protrusion settings for font family
 <resources/euler_cromer.png, id=109, 624.3325pt x 606.265pt>
 File: resources/euler_cromer.png Graphic file (type png)
 <use resources/euler_cromer.png>
-Package pdftex.def Info: resources/euler_cromer.png  used on input line 162.
+Package pdftex.def Info: resources/euler_cromer.png  used on input line 166.
 (pdftex.def)             Requested size: 312.98476pt x 256.0727pt.
 
-Overfull \hbox (12.80801pt too wide) in paragraph at lines 162--162
+Overfull \hbox (12.80801pt too wide) in paragraph at lines 166--166
  [] 
  []
 
@@ -1450,10 +1450,10 @@ Overfull \hbox (12.80801pt too wide) in paragraph at lines 162--162
 <resources/verlet.png, id=122, 624.3325pt x 606.265pt>
 File: resources/verlet.png Graphic file (type png)
 <use resources/verlet.png>
-Package pdftex.def Info: resources/verlet.png  used on input line 181.
+Package pdftex.def Info: resources/verlet.png  used on input line 185.
 (pdftex.def)             Requested size: 312.98476pt x 256.0727pt.
 
-Overfull \hbox (12.80801pt too wide) in paragraph at lines 181--181
+Overfull \hbox (12.80801pt too wide) in paragraph at lines 185--185
  [] 
  []
 
@@ -1463,7 +1463,7 @@ Overfull \hbox (12.80801pt too wide) in paragraph at lines 181--181
 <resources/leap_scheme.png, id=129, 676.02562pt x 194.97844pt>
 File: resources/leap_scheme.png Graphic file (type png)
 <use resources/leap_scheme.png>
-Package pdftex.def Info: resources/leap_scheme.png  used on input line 189.
+Package pdftex.def Info: resources/leap_scheme.png  used on input line 193.
 (pdftex.def)             Requested size: 142.25839pt x 85.3564pt.
  [16
 
@@ -1473,10 +1473,10 @@ Package pdftex.def Info: resources/leap_scheme.png  used on input line 189.
 <resources/leap1.png, id=140, 624.3325pt x 606.265pt>
 File: resources/leap1.png Graphic file (type png)
 <use resources/leap1.png>
-Package pdftex.def Info: resources/leap1.png  used on input line 225.
+Package pdftex.def Info: resources/leap1.png  used on input line 229.
 (pdftex.def)             Requested size: 312.98476pt x 256.0727pt.
 
-Overfull \hbox (12.80801pt too wide) in paragraph at lines 225--225
+Overfull \hbox (12.80801pt too wide) in paragraph at lines 229--229
  [] 
  []
 
@@ -1486,22 +1486,22 @@ Overfull \hbox (12.80801pt too wide) in paragraph at lines 225--225
 <resources/h_euler.png, id=147, 726.715pt x 497.86pt>
 File: resources/h_euler.png Graphic file (type png)
 <use resources/h_euler.png>
-Package pdftex.def Info: resources/h_euler.png  used on input line 239.
+Package pdftex.def Info: resources/h_euler.png  used on input line 243.
 (pdftex.def)             Requested size: 142.25774pt x 85.35677pt.
 <resources/h_leap.png, id=148, 732.7375pt x 497.86pt>
 File: resources/h_leap.png Graphic file (type png)
 <use resources/h_leap.png>
-Package pdftex.def Info: resources/h_leap.png  used on input line 239.
+Package pdftex.def Info: resources/h_leap.png  used on input line 243.
 (pdftex.def)             Requested size: 142.26271pt x 85.35677pt.
  [19
 
  <./resources/h_euler.png> <./resources/h_leap.png>]
 File: resources/h_euler.png Graphic file (type png)
 <use resources/h_euler.png>
-Package pdftex.def Info: resources/h_euler.png  used on input line 248.
+Package pdftex.def Info: resources/h_euler.png  used on input line 252.
 (pdftex.def)             Requested size: 284.52658pt x 256.0779pt.
 
-Overfull \vbox (22.8567pt too high) detected at line 248
+Overfull \vbox (22.8567pt too high) detected at line 252
  []
 
 [20
@@ -1509,10 +1509,10 @@ Overfull \vbox (22.8567pt too high) detected at line 248
 ]
 File: resources/h_leap.png Graphic file (type png)
 <use resources/h_leap.png>
-Package pdftex.def Info: resources/h_leap.png  used on input line 257.
+Package pdftex.def Info: resources/h_leap.png  used on input line 261.
 (pdftex.def)             Requested size: 284.52542pt x 256.0779pt.
 
-Overfull \vbox (25.22336pt too high) detected at line 257
+Overfull \vbox (25.22336pt too high) detected at line 261
  []
 
 [21
@@ -1521,22 +1521,22 @@ Overfull \vbox (25.22336pt too high) detected at line 257
 <resources/an_euler.png, id=167, 732.7375pt x 497.86pt>
 File: resources/an_euler.png Graphic file (type png)
 <use resources/an_euler.png>
-Package pdftex.def Info: resources/an_euler.png  used on input line 271.
+Package pdftex.def Info: resources/an_euler.png  used on input line 275.
 (pdftex.def)             Requested size: 142.26271pt x 85.35677pt.
 <resources/an_leap.png, id=168, 739.76375pt x 497.86pt>
 File: resources/an_leap.png Graphic file (type png)
 <use resources/an_leap.png>
-Package pdftex.def Info: resources/an_leap.png  used on input line 271.
+Package pdftex.def Info: resources/an_leap.png  used on input line 275.
 (pdftex.def)             Requested size: 142.26103pt x 85.35677pt.
  [22
 
  <./resources/an_euler.png> <./resources/an_leap.png>]
 File: resources/an_euler.png Graphic file (type png)
 <use resources/an_euler.png>
-Package pdftex.def Info: resources/an_euler.png  used on input line 280.
+Package pdftex.def Info: resources/an_euler.png  used on input line 284.
 (pdftex.def)             Requested size: 284.52542pt x 256.0779pt.
 
-Overfull \vbox (22.8567pt too high) detected at line 280
+Overfull \vbox (22.8567pt too high) detected at line 284
  []
 
 [23
@@ -1544,10 +1544,10 @@ Overfull \vbox (22.8567pt too high) detected at line 280
 ]
 File: resources/an_leap.png Graphic file (type png)
 <use resources/an_leap.png>
-Package pdftex.def Info: resources/an_leap.png  used on input line 289.
+Package pdftex.def Info: resources/an_leap.png  used on input line 293.
 (pdftex.def)             Requested size: 284.52208pt x 256.0779pt.
 
-Overfull \vbox (25.22336pt too high) detected at line 289
+Overfull \vbox (25.22336pt too high) detected at line 293
  []
 
 [24
@@ -1555,7 +1555,7 @@ Overfull \vbox (25.22336pt too high) detected at line 289
 ]
 File: resources/earth_wrong.png Graphic file (type png)
 <use resources/earth_wrong.png>
-Package pdftex.def Info: resources/earth_wrong.png  used on input line 299.
+Package pdftex.def Info: resources/earth_wrong.png  used on input line 303.
 (pdftex.def)             Requested size: 284.529pt x 227.62634pt.
  [25
 
@@ -1563,7 +1563,7 @@ Package pdftex.def Info: resources/earth_wrong.png  used on input line 299.
 <resources/leap3.png, id=193, 624.3325pt x 606.265pt>
 File: resources/leap3.png Graphic file (type png)
 <use resources/leap3.png>
-Package pdftex.def Info: resources/leap3.png  used on input line 308.
+Package pdftex.def Info: resources/leap3.png  used on input line 312.
 (pdftex.def)             Requested size: 284.529pt x 227.62634pt.
  [26
 
@@ -1571,7 +1571,7 @@ Package pdftex.def Info: resources/leap3.png  used on input line 308.
 <resources/cromer3.png, id=200, 624.3325pt x 606.265pt>
 File: resources/cromer3.png Graphic file (type png)
 <use resources/cromer3.png>
-Package pdftex.def Info: resources/cromer3.png  used on input line 317.
+Package pdftex.def Info: resources/cromer3.png  used on input line 321.
 (pdftex.def)             Requested size: 284.529pt x 227.62634pt.
  [27
 
@@ -1579,7 +1579,7 @@ Package pdftex.def Info: resources/cromer3.png  used on input line 317.
 <resources/verlet3.png, id=207, 624.3325pt x 606.265pt>
 File: resources/verlet3.png Graphic file (type png)
 <use resources/verlet3.png>
-Package pdftex.def Info: resources/verlet3.png  used on input line 326.
+Package pdftex.def Info: resources/verlet3.png  used on input line 330.
 (pdftex.def)             Requested size: 284.529pt x 227.62634pt.
  [28
 
@@ -1589,10 +1589,10 @@ Package pdftex.def Info: resources/verlet3.png  used on input line 326.
 <resources/outer.png, id=220, 631.35875pt x 606.265pt>
 File: resources/outer.png Graphic file (type png)
 <use resources/outer.png>
-Package pdftex.def Info: resources/outer.png  used on input line 362.
+Package pdftex.def Info: resources/outer.png  used on input line 366.
 (pdftex.def)             Requested size: 312.98114pt x 256.0727pt.
 
-Overfull \hbox (12.8044pt too wide) in paragraph at lines 362--362
+Overfull \hbox (12.8044pt too wide) in paragraph at lines 366--366
  [] 
  []
 
@@ -1610,25 +1610,25 @@ Overfull \hbox (12.8044pt too wide) in paragraph at lines 362--362
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 371.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 371.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 375.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 375.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 371.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 371.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 375.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 375.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: CEC4D8580E512A654505EC4EA0444D9D;112.
  ) 
 Here is how much of TeX's memory you used:
- 31161 strings out of 492623
- 589886 string characters out of 6135669
- 710034 words of memory out of 5000000
+ 31167 strings out of 492623
+ 590015 string characters out of 6135669
+ 710035 words of memory out of 5000000
  34184 multiletter control sequences out of 15000+600000
- 198045 words of font info for 134 fonts, out of 8000000 for 9000
+ 199072 words of font info for 138 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  70i,16n,70p,824b,960s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/carlito/crlt_llspvt.enc}{/usr/share/texmf-dist/fonts/enc/dvips/dejavu/dejavumono_t1-type1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fonts/enc/dvips/arev/arevoml.enc}{/usr/share/texmf-dist/fonts/enc/dvips/iwona/ex-iwona.enc}{/usr/share/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/carlito/crlt_csjzgd.enc}</usr/share/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/share/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/share/texmf-dist/fonts/type1/typoland/carlito/Carlito-Bold.pfb></usr/share/texmf-dist/fonts/type1/typoland/carlito/Carlito-Italic.pfb></usr/share/texmf-dist/fonts/type1/typoland/carlito/Carlito.pfb></usr/share/texmf-dist/fonts/type1/public/dejavu/DejaVuSansMono.pfb></usr/share/texmf-dist/fonts/type1/nowacki/iwona/iwonar.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/mathdesign/mdbch/m
 d-chb7t.pfb></usr/share/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb>
-Output written on main.pdf (31 pages, 1045955 bytes).
+Output written on main.pdf (31 pages, 1046196 bytes).
 PDF statistics:
  291 PDF objects out of 1000 (max. 8388607)
  205 compressed objects within 3 object streams

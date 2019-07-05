@@ -521,6 +521,9 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/typoland/carlito/Carlito-Italic-lf-t1.tfm
 INPUT /usr/share/texmf-dist/fonts/vf/typoland/carlito/Carlito-lf-t1.vf
 INPUT /usr/share/texmf-dist/fonts/tfm/typoland/carlito/Carlito-lf-t1--base.tfm
+INPUT /usr/share/texmf-dist/fonts/vf/public/arev/zavmr7y.vf
+INPUT /usr/share/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chb7y.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/arev/favmr7y.tfm
 INPUT /usr/share/texmf-dist/fonts/vf/typoland/carlito/Carlito-lf-t1.vf
 INPUT /usr/share/texmf-dist/fonts/tfm/typoland/carlito/Carlito-lf-t1--base.tfm
 INPUT /usr/share/texmf-dist/fonts/vf/typoland/carlito/Carlito-Italic-lf-t1.vf
@@ -532,9 +535,6 @@ INPUT /usr/share/texmf-dist/fonts/tfm/typoland/carlito/Carlito-Italic-lf-t1--bas
 INPUT /usr/share/texmf-dist/fonts/vf/public/arev/zavmr7t.vf
 INPUT /usr/share/texmf-dist/fonts/tfm/public/arev/favmr7t.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chb7t.tfm
-INPUT /usr/share/texmf-dist/fonts/vf/public/arev/zavmr7y.vf
-INPUT /usr/share/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chb7y.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/arev/favmr7y.tfm
 INPUT /usr/share/texmf-dist/fonts/vf/typoland/carlito/Carlito-lf-t1.vf
 INPUT /usr/share/texmf-dist/fonts/tfm/typoland/carlito/Carlito-lf-t1--base.tfm
 INPUT /usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
