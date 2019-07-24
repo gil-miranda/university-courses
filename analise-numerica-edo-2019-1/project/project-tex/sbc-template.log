@@ -1,7 +1,6 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.6.22)  1 JUL 2019 01:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=latex 2019.7.18)  19 JUL 2019 18:09
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
 **sbc-template.tex
 (./sbc-template.tex
@@ -24,17 +23,22 @@ File: size12.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
 \bibindent=\dimen102
 ) (./sbc-template.sty
 Package: sbc-template 2001/06/09
- (/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+
+(/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2018/04/16 v5.8 Page Geometry
- (/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
-) (/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
-) (/usr/share/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
-) (/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+)
+(/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count88
@@ -54,14 +58,17 @@ Package: caption2 2002/08/03 v2.1 Customising captions (AS)
 \captionmargin=\dimen111
 \captionwidth=\dimen112
 \captionindent=\dimen113
-Package caption2 Info: Running in caption2 v2.0 compatibility mode on input line 147.
+Package caption2 Info: Running in caption2 v2.0 compatibility mode on input lin
+e 147.
 \captionlinewidth=\dimen114
-) (/usr/share/texmf-dist/tex/latex/psnfss/times.sty
+)
+(/usr/share/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
 \c@instn=\count91
- (/usr/share/texmf-dist/tex/latex/titlesec/titlesec.sty
-Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
+
+(/usr/share/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2019/07/16 v2.11 Sectioning titles
 \ttl@box=\box27
 \beforetitleunit=\skip43
 \aftertitleunit=\skip44
@@ -71,39 +78,49 @@ Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \titlewidth=\dimen117
 \titlewidthlast=\dimen118
 \titlewidthfirst=\dimen119
-)) (/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+))
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
- (/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
- (/usr/share/texmf-dist/tex/latex/graphics/trig.sty
+
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-) (/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+)
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 99.
- (/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+Package graphics Info: Driver file: dvips.def on input line 99.
+
+(/usr/share/texmf-dist/tex/latex/graphics-def/dvips.def
+File: dvips.def 2017/06/20 v3.1d Graphics/color driver for dvips
 ))
 \Gin@req@height=\dimen120
 \Gin@req@width=\dimen121
-) (/usr/share/texmf-dist/tex/latex/url/url.sty
+)
+(/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) (/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2018/12/01 v2.17b AMS math features
 \@mathmargin=\skip45
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
- (/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
+
+(/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks17
 \ex@=\dimen122
-)) (/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
+))
+(/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen123
-) (/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
+)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count92
@@ -143,29 +160,36 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
 \mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2844.
 LaTeX Info: Redefining \] on input line 2845.
-) (/usr/share/texmf-dist/tex/latex/float/float.sty
+)
+(/usr/share/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count104
 \float@exts=\toks22
 \float@box=\box30
 \@float@everytoks=\toks23
 \@floatcapt=\box31
-) (/usr/share/texmf-dist/tex/generic/babel/babel.sty
+)
+(/usr/share/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2019/04/03 3.29 The Babel package
- (/usr/share/texmf-dist/tex/generic/babel/switch.def
+
+(/usr/share/texmf-dist/tex/generic/babel/switch.def
 File: switch.def 2019/04/03 3.29 Babel switching mechanism
-) (/usr/share/texmf-dist/tex/generic/babel-portuges/portuges.ldf
+)
+(/usr/share/texmf-dist/tex/generic/babel-portuges/portuges.ldf
 Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
- (/usr/share/texmf-dist/tex/generic/babel/babel.def
+
+(/usr/share/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2019/04/03 3.29 Babel common definitions
 \babel@savecnt=\count105
 \U@D=\dimen131
- (/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
+
+(/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@dirlevel=\count106
 )
 \l@brazil = a dialect from \language\l@portuges 
 Package babel Info: Making " an active character on input line 145.
-)) (/usr/share/texmf-dist/tex/latex/base/inputenc.sty
+))
+(/usr/share/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks24
 \inpenc@posthook=\toks25
@@ -199,9 +223,9 @@ LaTeX Font Info:    Try loading font information for OT1+ptm on input line 27.
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 *geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
+*geometry* detected driver: dvips
 *geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
+* driver: dvips
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -232,58 +256,12 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count107
-\scratchdimen=\dimen132
-\scratchbox=\box32
-\nofMPsegments=\count108
-\nofMParguments=\count109
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count110
-\MPscratchDim=\dimen133
-\MPnumerator=\count111
-\makeMPintoPDFobject=\count112
-\everyMPtoPDFconversion=\toks27
-) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
- (/usr/share/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-) (/usr/share/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
- (/usr/share/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
- (/usr/share/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-))) (/usr/share/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
- (/usr/share/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
- (/usr/share/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
- (/usr/share/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)))) (/usr/share/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 438.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
- (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-))
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <16> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 29.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 29.
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 29.
- (/usr/share/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+(/usr/share/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
@@ -300,40 +278,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
 
-./sbc-template.tex:54: Misplaced alignment tab character &.
-l.54 \ddot{r} &
-               = G \frac{m_2}{\lVert r \rVert^2}
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-./sbc-template.tex:62: Misplaced alignment tab character &.
-l.62 \ddot{r} &
-               = G \frac{m_2}{\lVert r \rVert^2}
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-./sbc-template.tex:73: Misplaced alignment tab character &.
-l.73 \ddot{r_i} &
-                 = G\sum_{j=1}^{8}\left(\frac{m_j}{\lVert r_j \rVert^2}\righ...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-./sbc-template.tex:81: Missing delimiter (. inserted).
+]
+! Missing delimiter (. inserted).
 <to be read again> 
                    +
 l.81 \end{align*}
@@ -345,14 +293,14 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-./sbc-template.tex:81: Extra \right.
+! Extra \right.
 <to be read again> 
                    +
 l.81 \end{align*}
                  
 I'm ignoring a \right that had no matching \left.
 
-./sbc-template.tex:81: Missing delimiter (. inserted).
+! Missing delimiter (. inserted).
 <to be read again> 
                    +
 l.81 \end{align*}
@@ -364,14 +312,14 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-./sbc-template.tex:81: Extra \right.
+! Extra \right.
 <to be read again> 
                    +
 l.81 \end{align*}
                  
 I'm ignoring a \right that had no matching \left.
 
-./sbc-template.tex:81: Missing delimiter (. inserted).
+! Missing delimiter (. inserted).
 <to be read again> 
                    +
 l.81 \end{align*}
@@ -383,14 +331,14 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-./sbc-template.tex:81: Extra \right.
+! Extra \right.
 <to be read again> 
                    +
 l.81 \end{align*}
                  
 I'm ignoring a \right that had no matching \left.
 
-./sbc-template.tex:81: Missing delimiter (. inserted).
+! Missing delimiter (. inserted).
 <to be read again> 
                    +
 l.81 \end{align*}
@@ -402,183 +350,243 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-./sbc-template.tex:81: Extra \right.
+! Extra \right.
 <to be read again> 
                    +
 l.81 \end{align*}
                  
 I'm ignoring a \right that had no matching \left.
-
-
-LaTeX Warning: Citation `sokal:22' on page 2 undefined on input line 87.
 
 [2]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 126.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 135.
+
  (/usr/share/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 126.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 135.
  [3]
-Underfull \hbox (badness 10000) in paragraph at lines 146--147
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
 
-./sbc-template.tex:168: Missing { inserted.
+! Missing { inserted.
 <to be read again> 
                    _
-l.168  \end{align*}
+l.177  \end{align*}
                    
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
 so that I will find a matching right brace soon.
 (If you're confused by all this, try typing `I}' now.)
 
-./sbc-template.tex:168: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
-l.168  \end{align*}
+l.177  \end{align*}
                    
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-./sbc-template.tex:168: Missing { inserted.
+! Missing { inserted.
 <to be read again> 
                    _
-l.168  \end{align*}
+l.177  \end{align*}
                    
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
 so that I will find a matching right brace soon.
 (If you're confused by all this, try typing `I}' now.)
 
-./sbc-template.tex:168: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
-l.168  \end{align*}
+l.177  \end{align*}
                    
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-[4]
-<euler-3600-orbit.png, id=28, 624.3325pt x 606.265pt>
-File: euler-3600-orbit.png Graphic file (type png)
-<use euler-3600-orbit.png>
-Package pdftex.def Info: euler-3600-orbit.png  used on input line 174.
-(pdftex.def)             Requested size: 170.70596pt x 202.29752pt.
-<eulercromer-3600-orbit.png, id=30, 624.3325pt x 606.265pt>
-File: eulercromer-3600-orbit.png Graphic file (type png)
-<use eulercromer-3600-orbit.png>
-Package pdftex.def Info: eulercromer-3600-orbit.png  used on input line 175.
-(pdftex.def)             Requested size: 170.70596pt x 202.29752pt.
-<verlet-3600-orbit.png, id=31, 624.3325pt x 606.265pt>
-File: verlet-3600-orbit.png Graphic file (type png)
-<use verlet-3600-orbit.png>
-Package pdftex.def Info: verlet-3600-orbit.png  used on input line 177.
-(pdftex.def)             Requested size: 170.70596pt x 202.29752pt.
-<leapfrog-3600-orbit.png, id=32, 624.3325pt x 606.265pt>
-File: leapfrog-3600-orbit.png Graphic file (type png)
-<use leapfrog-3600-orbit.png>
-Package pdftex.def Info: leapfrog-3600-orbit.png  used on input line 178.
-(pdftex.def)             Requested size: 170.70596pt x 202.29752pt.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 179.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+
+! LaTeX Error: Cannot determine size of graphic in euler-3600-orbit.png (no Bou
+ndingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.183 ...ght =.3\textheight]{euler-3600-orbit.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: euler-3600-orbit.png Graphic file (type eps)
+<euler-3600-orbit.png>
+
+! LaTeX Error: Cannot determine size of graphic in eulercromer-3600-orbit.png (
+no BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.184 ...3\textheight]{eulercromer-3600-orbit.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: eulercromer-3600-orbit.png Graphic file (type eps)
+<eulercromer-3600-orbit.png>
+
+! LaTeX Error: Cannot determine size of graphic in verlet-3600-orbit.png (no Bo
+undingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.186 ...ht =.3\textheight]{verlet-3600-orbit.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: verlet-3600-orbit.png Graphic file (type eps)
+<verlet-3600-orbit.png>
+
+! LaTeX Error: Cannot determine size of graphic in leapfrog-3600-orbit.png (no 
+BoundingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.187 ... =.3\textheight]{leapfrog-3600-orbit.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: leapfrog-3600-orbit.png Graphic file (type eps)
+<leapfrog-3600-orbit.png>
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 188.
+
  (/usr/share/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 179.
-<earth-en-euler.png, id=33, 726.715pt x 497.86pt>
-File: earth-en-euler.png Graphic file (type png)
-<use earth-en-euler.png>
-Package pdftex.def Info: earth-en-euler.png  used on input line 185.
-(pdftex.def)             Requested size: 213.39217pt x 269.7292pt.
-<earth-en-eulercromer.png, id=34, 732.7375pt x 497.86pt>
-File: earth-en-eulercromer.png Graphic file (type png)
-<use earth-en-eulercromer.png>
-Package pdftex.def Info: earth-en-eulercromer.png  used on input line 186.
-(pdftex.def)             Requested size: 213.39406pt x 269.7292pt.
-
-Overfull \hbox (2.2749pt too wide) in paragraph at lines 185--187
-[][] [] 
- []
-
-<earth-en-verlet.png, id=35, 732.7375pt x 497.86pt>
-File: earth-en-verlet.png Graphic file (type png)
-<use earth-en-verlet.png>
-Package pdftex.def Info: earth-en-verlet.png  used on input line 188.
-(pdftex.def)             Requested size: 213.39406pt x 269.7292pt.
-<earth-en-leapfrog.png, id=36, 732.7375pt x 497.86pt>
-File: earth-en-leapfrog.png Graphic file (type png)
-<use earth-en-leapfrog.png>
-Package pdftex.def Info: earth-en-leapfrog.png  used on input line 189.
-(pdftex.def)             Requested size: 213.39406pt x 269.7292pt.
-
-Overfull \hbox (2.2768pt too wide) in paragraph at lines 188--190
-[][] [] 
- []
-
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 188.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5 <./euler-3600-orbit.png> <./eulercromer-3600-orbit.png> <./verlet-3600-orbit.png> <./leapfrog-3600-orbit.png>]
-<earth-m-euler.png, id=47, 741.77126pt x 497.86pt>
-File: earth-m-euler.png Graphic file (type png)
-<use earth-m-euler.png>
-Package pdftex.def Info: earth-m-euler.png  used on input line 196.
-(pdftex.def)             Requested size: 221.93321pt x 269.7292pt.
-<earth-m-eulercromer.png, id=48, 748.7975pt x 497.86pt>
-File: earth-m-eulercromer.png Graphic file (type png)
-<use earth-m-eulercromer.png>
-Package pdftex.def Info: earth-m-eulercromer.png  used on input line 197.
-(pdftex.def)             Requested size: 221.93309pt x 269.7292pt.
+ [5]
 
-Overfull \hbox (19.35498pt too wide) in paragraph at lines 196--198
-[][] [] 
- []
+! LaTeX Error: Cannot determine size of graphic in h_euler.png (no BoundingBox)
+.
 
-<earth-m-verlet.png, id=49, 748.7975pt x 497.86pt>
-File: earth-m-verlet.png Graphic file (type png)
-<use earth-m-verlet.png>
-Package pdftex.def Info: earth-m-verlet.png  used on input line 199.
-(pdftex.def)             Requested size: 221.93309pt x 269.7292pt.
-<earth-m-leapfrog.png, id=50, 748.7975pt x 497.86pt>
-File: earth-m-leapfrog.png Graphic file (type png)
-<use earth-m-leapfrog.png>
-Package pdftex.def Info: earth-m-leapfrog.png  used on input line 200.
-(pdftex.def)             Requested size: 221.93309pt x 269.7292pt.
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.194 ...idth, height =.5\textheight]{h_euler.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
-Overfull \hbox (19.35486pt too wide) in paragraph at lines 199--201
-[][] [] 
- []
+File: h_euler.png Graphic file (type eps)
+<h_euler.png>
+
+! LaTeX Error: Cannot determine size of graphic in h_leap.png (no BoundingBox).
 
 
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.196 ...width, height =.5\textheight]{h_leap.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: h_leap.png Graphic file (type eps)
+<h_leap.png>
+
+! LaTeX Error: Cannot determine size of graphic in an_euler.png (no BoundingBox
+).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.201 ...dth, height =.5\textheight]{an_euler.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: an_euler.png Graphic file (type eps)
+<an_euler.png>
+
+! LaTeX Error: Cannot determine size of graphic in an_leap.png (no BoundingBox)
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.203 ...idth, height =.5\textheight]{an_leap.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: an_leap.png Graphic file (type eps)
+<an_leap.png>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [6 <./earth-en-euler.png> <./earth-en-eulercromer.png> <./earth-en-verlet.png> <./earth-en-leapfrog.png>]
+ [6]
+Overfull \vbox (25.3558pt too high) has occurred while \output is active []
+
+
+[7]
+Overfull \vbox (25.3558pt too high) has occurred while \output is active []
+
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 238--241
+\OT1/ptm/m/n/12 Links for the souce code of the si-mu-la-tion can be found in $
+\OT1/pcr/m/n/12 https :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 238--241
+\OT1/pcr/m/n/12 / / github . com / mirandagil / university-[]courses / tree / m
+aster /
+ []
+
+
+! LaTeX Error: Cannot determine size of graphic in planets.png (no BoundingBox)
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.243 ...idth, height =.4\textheight]{planets.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: planets.png Graphic file (type eps)
+<planets.png>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7 <./earth-m-euler.png> <./earth-m-eulercromer.png> <./earth-m-verlet.png> <./earth-m-leapfrog.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 234--237
-\OT1/ptm/m/n/12 Links for the souce code of the si-mu-la-tion can be found in $\OT1/pcr/m/n/12 https :
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 234--237
-\OT1/pcr/m/n/12 / / github . com / mirandagil / university-[]courses / tree / master /
- []
-
-<planets.png, id=66, 627.34375pt x 606.265pt>
-File: planets.png Graphic file (type png)
-<use planets.png>
-Package pdftex.def Info: planets.png  used on input line 239.
-(pdftex.def)             Requested size: 298.76674pt x 269.72694pt.
-[8 <./planets.png>]
-./sbc-template.tex:258: Misplaced alignment tab character &.
+ [9]
+! Misplaced alignment tab character &.
 <argument> ...e the Gravitational n-Body Problem &
                                                    represent the result grap...
-l.258 ...sent the result graphically using OpenGL}
+l.262 ...sent the result graphically using OpenGL}
                                                   .
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -588,37 +596,28 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-Overfull \hbox (10.67532pt too wide) in paragraph at lines 262--264
+Overfull \hbox (10.67532pt too wide) in paragraph at lines 266--268
 \OT1/pcr/m/n/12 https://nssdc.gsfc.nasa.gov/planetary/factsheet/index.html 
  []
 
 
-Overfull \hbox (89.87529pt too wide) in paragraph at lines 266--268
-\OT1/pcr/m/n/12 https://courses.edx.org/courses/course-v1:MITx+8.01.2x+3T2018/course/ 
+Overfull \hbox (89.87529pt too wide) in paragraph at lines 270--272
+\OT1/pcr/m/n/12 https://courses.edx.org/courses/course-v1:MITx+8.01.2x+3T2018/c
+ourse/ 
  []
 
-[9] (./sbc-template.aux)
-
-LaTeX Warning: There were undefined references.
-
+[10] (./sbc-template.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3922 strings out of 492623
- 53254 string characters out of 6135669
- 140929 words of memory out of 5000000
- 7736 multiletter control sequences out of 15000+600000
- 22676 words of font info for 51 fonts, out of 8000000 for 9000
+ 3051 strings out of 492624
+ 39278 string characters out of 6135695
+ 127761 words of memory out of 5000000
+ 6919 multiletter control sequences out of 15000+600000
+ 14350 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,15n,28p,328b,312s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-d
-ist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sbc-template.pdf (9 pages, 1153523 bytes).
-PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
- 72 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 30i,15n,28p,1459b,310s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+Output written on sbc-template.dvi (10 pages, 18744 bytes).

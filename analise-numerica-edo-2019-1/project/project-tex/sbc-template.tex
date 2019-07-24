@@ -51,7 +51,7 @@ a &= G \frac{m_2}{r^2}
 \end{align*}
 But acceleration is just the second derivative of position, so what we truly have is the differential equation
 \[
-\ddot{r} &= G \frac{m_2}{\lVert r \rVert^2}
+\ddot{r} = G \frac{m_2}{\lVert r \rVert^2}
 \]
 So, by transforming this into an initial value problem we can solve for the body's position.\\
 The N-Body problem is a well know problem, the equations described above only tells us about a system of two bodies. But what about systems with more bodies? How to simulate a galaxy, for example, or how to determine where a GPS satellite must be in Earth's orbit?\\
@@ -59,7 +59,7 @@ This article is a case study of the N-Body problem, where N = 9, so we have the 
 \section{One Differential Equation to rule them all} \label{sec:thediffeq}
 (...) One Differential Equation to find them all. And inspired by a Lord of The Rings line, we can use our One Differential Equation to determine all bodies' position.
 \[
-\ddot{r} &= G \frac{m_2}{\lVert r \rVert^2}
+\ddot{r} = G \frac{m_2}{\lVert r \rVert^2}
 \]
 Rewriting this as a system of first order linear equations:
 \begin{align*}
@@ -70,7 +70,7 @@ Rewriting this as a system of first order linear equations:
 \end{align*}
 Give us an easy way to determine a body's position. But we are dealing with a system of 9 bodies, so the force acting on our main body is the sum of all forces from all the bodies, and our differential equation for the i-th body is:
 \[
-\ddot{r_i} &= G\sum_{j=1}^{8}\left(\frac{m_j}{\lVert r_j \rVert^2}\right), j \neq i
+\ddot{r_i} = G\sum_{j=1}^{8}\left(\frac{m_j}{\lVert r_j \rVert^2}\right), j \neq i
 \]
 And our system of equations to solve becomes
 \begin{align*}
@@ -83,13 +83,22 @@ Solving this for each planet gives us all the position of planets in the solar s
 \section{The Pyshics of the problem}
 Going through the Physics Laws of the problem will give us tools to verify if our model is a good model, and if the numerical solutions are, in fact, solving the right model.
 
-\subsection{Conservation of Energy and Angular Momentum}
-This system under Newton's Law is a conservative system, in other words, it conserves energy, as Professor Alan Sokal\cite{sokal:22} from University College London defines Energy on his Lectures of Analytical Dynamics:
+\subsection{Hamiltonian and Angular Momentum}
+This system under Newton's Law is a conservative system, in other words, it conserves energy, as Professor Alan Sokal from University College London says, and we can look at the Hamiltonian of the system.\\
+Here \(q\) denotes position vector, so \(\dot{q}\) is the velocity vector. \\
+First of all, the self potential energy
 \[
-E = K_e + P_e
+U = G \displaystyle \sum_{i,j}^n \frac{m_i m_j}{\lVert q_i - q_j \rVert}
 \]
-Where \(K_e = \frac{1}{2} m v^2\) is the Kinectic Energy, and \(P_e = - G \frac{m_1m_2}{d}\) the potential energy.
-Saying the system is conservative is the same that saying \(\frac{\mathrm{d}E}{\mathrm{d}t} = 0\), or \( K_e + P_e = C\), C being constant.\\
+The linear momentum
+\[
+p_i = m_i \dot{q_i}
+\]
+And finally the Hamiltonian
+\[
+H = \displaystyle \sum_{i = 1}^{n} \frac{\lVert p_i \rVert ^2}{2m_i} - U
+\]
+And so \(H\) is constant.\\ yy 
 Another conserved quantity is the Angular Momentum, which is defined as:
 \[
 L = r \times p
@@ -182,26 +191,21 @@ Now we will look at some results, the initial values for the simulation where ch
 Just as the picture shows, the Euler Method gets off orbit, and the symplectic ones stay in orbit.
 Now let's take a look at the Energy.
 \begin{figure}[H]
-  \includegraphics[width=.5\textwidth, height =.4\textheight]{earth-en-euler.png}
-  \includegraphics[width=.5\textwidth, height =.4\textheight]{earth-en-eulercromer.png}
+  \includegraphics[width=.92\textwidth, height =.5\textheight]{h_euler.png}
 
-  \includegraphics[width=.5\textwidth, height =.4\textheight]{earth-en-verlet.png}
-  \includegraphics[width=.5\textwidth, height =.4\textheight]{earth-en-leapfrog.png}
+  \includegraphics[width=.92\textwidth, height =.5\textheight]{h_leap.png}
   \caption{Mechanical Energy simulated \(100000\) times}
   \label{Euler Method}
 \end{figure}
-The symplectic methods does not conserves energy exactly, so it's expected a little variation.\\
-However, they do conserve Angular Momentum and we should expect a straight line.
 \begin{figure}[H]
-  \includegraphics[width=.52\textwidth, height =.4\textheight]{earth-m-euler.png}
-  \includegraphics[width=.52\textwidth, height =.4\textheight]{earth-m-eulercromer.png}
+  \includegraphics[width=.92\textwidth, height =.5\textheight]{an_euler.png}
 
-  \includegraphics[width=.52\textwidth, height =.4\textheight]{earth-m-verlet.png}
-  \includegraphics[width=.52\textwidth, height =.4\textheight]{earth-m-leapfrog.png}
+  \includegraphics[width=.92\textwidth, height =.5\textheight]{an_leap.png}
   \caption{Angular momentum simulated \(40000\) times)}
   \label{Euler Method}
 \end{figure}
-And as we can see, the symplectic methods conserves almost all energy as we do smaller steps.
+The symplectic methods conserves the hamiltonian with bigger steps while euler methods only conserves with really small steps, also the hamiltonian with euler method is decreasing and not only a senoidal movement, while the leapfrog hamiltonian is bounded.\\
+On the angular momentum graphs we can see this same characteristic.
 
 \begin{table}[H]
 \centering
