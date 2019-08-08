@@ -1,5 +1,0 @@
-\babel@toc {brazil}{}
-\contentsline {chapter}{\numberline {1}Introdu\~A\IeC {\S }\~A\IeC {\pounds }o}{1}% 
-\contentsline {section}{\numberline {1.1}OLAAAAA}{1}% 
-\contentsline {chapter}{\numberline {2}PAU NO SEU CU}{2}% 
-\contentsline {section}{\numberline {2.1}FODASE}{2}% 

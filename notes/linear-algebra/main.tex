@@ -1,0 +1,344 @@
+\documentclass{article}
+%\documentclass[runningheads]{llncs}
+%
+%\usepackage{graphicx}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+% \renewcommand\UrlFont{\color{blue}\rmfamily}
+%\documentclass[12pt]{amsart}
+\RequirePackage{etex}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+%\usepackage[all]{xy}
+\usepackage[pdftex]{graphicx}
+\usepackage{color}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{indent first}
+\usepackage[labelfont=bf,labelsep=period,justification=raggedright]{caption}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[colorinlistoftodos]{todonotes}
+%\usepackage{tkz-fct}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{multicol}
+\PassOptionsToPackage{dvipsnames,svgnames}{xcolor}
+\usepackage{textcomp}
+
+
+% \topmargin 0.4cm
+% \oddsidemargin 0.5cm
+% \evensidemargin 0.5cm
+% \textwidth 14cm 
+% \textheight 20.2cm
+
+% \setlength{\oddsidemargin}{0.25in}
+% \setlength{\evensidemargin}{0.25in}
+% \setlength{\textwidth}{6in}
+%\setlength{\topmargin}{-0.25in}
+%\setlength{\textheight}{8in}
+
+\DeclareMathOperator{\ab}{ab}
+%\DeclareMathOperator{\arg}{arg}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+%\DeclareMathOperator{\Re}{Re}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\fancyC}{Č}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfc}{\mathfrak{c}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\msP}{\mathscr{P}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\DeclareRobustCommand{\sstirling}{\genfrac\{\}{0pt}{}}
+\DeclareRobustCommand{\fstirling}{\genfrac[]{0pt}{}}
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+\newcommand{\planefig}[2] {
+\filldraw[shift={#1},rotate=#2] (.4,.3) circle (2pt);
+\filldraw[shift={#1},rotate=#2] (-.4,.3) circle (2pt);
+\draw[shift={#1},rotate=#2] (-20:.55) arc (-20:-160:.55);
+\draw[shift={#1},rotate=#2] (0,0) circle (1cm);
+}
+
+\newcommand{\simon}[1]{\todo[color=green]{SR: #1}}
+\newcommand{\nitya}[1]{\todo[color=blue!30]{NM: #1}}
+\newcommand{\penghui}[1]{\todo[color=red!60]{HPH: #1}}
+\newcommand{\michael}[1]{\todo[color=yellow]{MW: #1}}
+\newcommand{\winnie}[1]{\todo[color=purple!60]{WL: #1}}
+\newcommand{\peter}[1]{\todo[color=pink]{PR: #1}}
+\newcommand{\jae}[1]{\todo[color=brown!60]{JL: #1}}
+\newcommand{\silas}[1]{\todo[color=orange]{SJ: #1}}
+\newcommand{\refr}[1]{\textcolor{blue}{#1}}
+
+
+\theoremstyle{plain}
+\newtheorem{thm}{Teorema}
+%\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}{Corolário}
+\newtheorem{conj}{Conjectura}
+\newtheorem{prop}{Proposição}
+\newtheorem{lemma}{Lema}
+\newtheorem{heur}{Heuristica}
+\newtheorem{qn}{Questão}
+%\newtheorem{claim}[thm]{Claim}
+\newtheorem{axm}{Axioma}
+\newtheorem{defn}{Definição}
+\newtheorem{cond}{Condições}
+\newtheorem*{notn}{Notação}
+
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newtheorem*{ex}{Exemplo}
+\newtheorem*{exer}{Exercicio}
+
+\numberwithin{equation}{section}
+\numberwithin{thm}{section}
+\numberwithin{defn}{section}
+\numberwithin{lemma}{section}
+\numberwithin{axm}{section}
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+%\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+%\usepackage{lipsum}
+
+\title{Notas de estudo em Álgebra Linear\\ Um guia de teoremas, resultados importantes\\ e exercícios}
+
+
+\author{
+  Gil S. M. Neto\\
+  Graduando em Matemática Aplicada - UFRJ\\
+  \texttt{gilsmneto@gmail.com, gil.neto@ufrj.br}\\
+  \texttt{http://mirandagil.github.io}
+  %% examples of more authors
+  %% \AND
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+}
+\date{Última atualização: \today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Fundamentos}
+
+\subsection{O Espaço Vetorial}
+
+Um espaço vetorial \(\mathbb{V}\) é um objeto matemático, dizemos \( \mathbb{V}\) é um E.V. sobre um corpo \(\mathbb{K}\), onde são definidas duas operações:
+
+\begin{itemize}
+	\item Soma (+): \(u+v = z \, \,\forall  u,v, z \in \mathbb{V}\)
+	\item Multiplicação por escalar (\(\cdot\)): \(k\cdot v = z \, \, \, \forall k \in \mathbb{K}, v,z \in \mathbb{V}\)
+\end{itemize}
+
+\subsubsection*{Axiomas de Espaços Vetoriais}
+\begin{enumerate}
+\item Soma é comutativa: \(u+v = v+u\)
+\item Soma é associativa \( u+(v+z) = (u+v)+z\)
+\item Existe um elemento  \(E \in \mathbb{V}\), chamando elemento neutro tal que \(v + E = v, \forall \, v \in \mathbb{V}\)
+\item Para todo \(v \in \mathbb{V} \,\,\, \exists -v\), tal que: \(v + (-v) = E\)
+\item Multiplicação por escalar é associativa: \( a(b u) = (ab) u \, \, \forall \, \,  a, b \in \mathbb{K}, u \in \mathbb{V}\)
+\item Multiplicação por escalar é distributiva: \( (a+b)u = au + bu \) e \(a(u+v) = au + av\)
+\item \( 1 \cdot v = v, \forall \, \, v \in \mathbb{V} \)
+\end{enumerate}
+
+\subsubsection*{Consequência dos Axiomas}
+\begin{itemize}
+	\item O Elemento neutro é único  \begin{proof}
+	  		Vamos supor que exista outro  elemento neutro: \(E \text{ e } E'\) logo: \( E + v = v = E' + v\)\\
+	  		utilizando o inverso da soma
+	  		\begin{align*}
+	  		E + v &= E' + v \\
+	  		E + v - v &= E' + v - v \\
+	  		E + E &= E ' + E' \\
+	  		E &= E'
+	  		\end{align*}
+					  		
+	  		
+	  \end{proof}
+
+	\item Lei do cancelamento: \(w + v = w + u \implies v = u, \forall \, w, v, u \in \mathbb{V}\)
+	\begin{proof}
+		\begin{align*}
+			w + v &= w + u\\
+			&\text{Utilizando existência do inverso}\\
+			w + v - w &= w + u - w\\
+			v + E &= u + E\\
+			&\text{Utilizando o elemento neutro}\\
+			v = u
+		\end{align*}		
+		\end{proof}
+		\item \( 0\cdot v = E \, \, \, \forall \,  v \in \mathbb{V}\)
+	\begin{proof}
+		\begin{align*}
+			&\text{Usando distributividade}\\
+			(0+0) v &= 0v \\
+			0v + 0v &= 0v \\
+			&\text{Usando existência do inverso}\\
+			0v + 0v - 0v &= 0v - 0v \\
+			0v &= E
+		\end{align*}		
+	\end{proof}
+			\item \( a \neq 0, v \neq E \implies av \neq E, \, \, \forall \,  v \in \mathbb{V}, a \in \mathbb{K}\)
+	\begin{proof}
+		\begin{align*}
+			av &= E \\
+			1v &= v\\
+			&= (a \cdot a^{-1}) v\\
+			&= a^{-1}(av) \\
+			&=a^{-1} E\\
+			v &= E
+		\end{align*}		
+	\end{proof}
+	\item \(-1 \cdot v = -v, \forall \, v \in \mathbb{V}\)
+	\begin{proof}
+		\begin{align*}
+			v + -1v &= 1v + -1v\\
+			\text{Utilizando distributividade da multiplicação}
+			v + -1v &= (1 - 1) v\\
+			v + -1v &= 0v\\
+			\text{Propriedade de elemento neutro}\\
+			v + -1v &= E\\
+			v - v + -1v &= E -v\\
+			E + -1v &= -v\\
+			-1v &= -v			
+		\end{align*}
+	\end{proof}
+		\item E = (0,0,\dots ,0)
+		\begin{proof}
+			\( z = (0,0,\dots ,0), v = (v_1, \dots , v_n) \)
+			\begin{align*}
+				v + z &= (v_1 + 0, v_2 + 0, \dots , v_n + 0)\\
+				v + z &= (v_1, v_2, \dots, v_n)\\
+				v + z &= v\\
+				&\text{z tem então propriedade de elemento neutro, mas o elemento neutro é único, logo}\\
+				z &= E 
+			\end{align*}
+		\end{proof}
+\end{itemize}
+
+\subsection{Isomorfismo}
+Isomorfismo é um mapa que preserva as estruturas de grupo entre dois conjuntos.\\
+Dois espaços lineares são isomorfos se são homeomorfos e se há uma bijeção entre eles. Espaços lineares isomorfos são indistiguiveis pelas operações definidas neles.\\
+Se temos dois espaços vetoriais isomorfos \(\mathbb{V}, \mathbb{U}\) com \(a,b,c \in \mathbb{V}\) e \( x,y,z \in \mathbb{U}\) e temos \(a = x, b = y e c = z\), então:
+\[ a + b = c \implies x + y = z\]
+
+
+\section*{Bibliografia}
+\begin{thebibliography}{1}
+
+\bibitem{ref_tao1}
+Peter D. Lax: \textit{Linear Algebra and it's applications}. 2nd ed. Wiley (2007)
+\end{thebibliography}
+
+
+\end{document}
