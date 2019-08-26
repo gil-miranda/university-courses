@@ -1,0 +1,887 @@
+\documentclass{article}
+%\documentclass[runningheads]{llncs}
+%
+%\usepackage{graphicx}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+% \renewcommand\UrlFont{\color{blue}\rmfamily}
+%\documentclass[12pt]{amsart}
+\RequirePackage{etex}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage[all]{xy}
+\usepackage[pdftex]{graphicx}
+\usepackage{color}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{indent first}
+\usepackage[labelfont=bf,labelsep=period,justification=raggedright]{caption}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{tkz-fct}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{multicol}
+\PassOptionsToPackage{dvipsnames,svgnames}{xcolor}
+\usepackage{textcomp}
+
+
+% \topmargin 0.4cm
+% \oddsidemargin 0.5cm
+% \evensidemargin 0.5cm
+% \textwidth 14cm 
+% \textheight 20.2cm
+
+% \setlength{\oddsidemargin}{0.25in}
+% \setlength{\evensidemargin}{0.25in}
+% \setlength{\textwidth}{6in}
+%\setlength{\topmargin}{-0.25in}
+%\setlength{\textheight}{8in}
+
+\DeclareMathOperator{\ab}{ab}
+%\DeclareMathOperator{\arg}{arg}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\BGL}{BGL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\CHur}{CHur}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\Conf}{Conf}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\et}{\text{\'et}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Hur}{Hur}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\Perm}{Perm}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\rad}{rad}
+%\DeclareMathOperator{\Re}{Re}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Surj}{Surj}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\tame}{tame}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\fancyC}{Č}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QED}{\hspace{\stretch{1}} $\blacksquare$}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\bfm}{\mathbf{m}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
+\newcommand{\mfc}{\mathfrak{c}}
+\newcommand{\mfI}{\mathfrak{I}}
+\newcommand{\mfM}{\mathfrak{M}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfo}{\mathfrak{o}}
+\newcommand{\mfO}{\mathfrak{O}}
+\newcommand{\mfP}{\mathfrak{P}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfz}{\mathfrak{z}}
+\newcommand{\msP}{\mathscr{P}}
+\newcommand{\AGL}{\mathbb{A}\GL}
+\newcommand{\Qbar}{\overline{\QQ}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\DeclareRobustCommand{\sstirling}{\genfrac\{\}{0pt}{}}
+\DeclareRobustCommand{\fstirling}{\genfrac[]{0pt}{}}
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+\newcommand{\planefig}[2] {
+\filldraw[shift={#1},rotate=#2] (.4,.3) circle (2pt);
+\filldraw[shift={#1},rotate=#2] (-.4,.3) circle (2pt);
+\draw[shift={#1},rotate=#2] (-20:.55) arc (-20:-160:.55);
+\draw[shift={#1},rotate=#2] (0,0) circle (1cm);
+}
+
+\newcommand{\simon}[1]{\todo[color=green]{SR: #1}}
+\newcommand{\nitya}[1]{\todo[color=blue!30]{NM: #1}}
+\newcommand{\penghui}[1]{\todo[color=red!60]{HPH: #1}}
+\newcommand{\michael}[1]{\todo[color=yellow]{MW: #1}}
+\newcommand{\winnie}[1]{\todo[color=purple!60]{WL: #1}}
+\newcommand{\peter}[1]{\todo[color=pink]{PR: #1}}
+\newcommand{\jae}[1]{\todo[color=brown!60]{JL: #1}}
+\newcommand{\silas}[1]{\todo[color=orange]{SJ: #1}}
+
+
+
+\theoremstyle{plain}
+\newtheorem{thm}{Teorema}
+%\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corolário}
+\newtheorem{conj}[thm]{Conjectura}
+\newtheorem{prop}[thm]{Proposição}
+\newtheorem{lemma}[thm]{Lema}
+\newtheorem{heur}[thm]{Heuristica}
+\newtheorem{qn}[thm]{Questão}
+%\newtheorem{claim}[thm]{Claim}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definição}
+\newtheorem{cond}[thm]{Condições}
+\newtheorem*{notn}{Notação}
+
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{ex}{Example}
+\newtheorem*{exer}{Exercise}
+
+\numberwithin{equation}{section}
+\numberwithin{thm}{section}
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+%\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+%\usepackage{lipsum}
+
+\title{Notas de estudo em Álgebra Linear\\ Um guia de teoremas e resultados importantes}
+
+
+\author{
+  Gil S. M. Neto\\
+  Graduando em Matemática Aplicada - UFRJ\\
+  \texttt{gilsmneto@gmail.com} \\
+  %% examples of more authors
+  %% \AND
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+In this paper, we do exactly what the title implies: prove the Čebotarev Density Theorem. This is an extremely valuable theorem because it is a vast generalization of Dirichlet's Theorem on primes in an arithmetic progression, which states that for any $a, n \in \ZZ_{+}$ relatively prime, there are infinitely many primes that are $\equiv a \pmod{n}$. Our theorem goes even further to the case of other number fields; we will show that the prime ideals in an imaginary quadratic field $K$ are virtually equidistributed among the conjugacy classes of Artin symbols in the Galois group of a Galois extension $L$ over $K$. Note that $L$ need not be abelian over $K$.  
+
+We start by introducing the L-functions. This will familiarize us with the most basic definitions as well as important functions. Then, we talk about convergence of L-functions, which will be especially important in later sections. 
+
+Next, we briefly visit some character theory. Specifically, the study of Dirichlet characters will help us prove important statements regarding partial zeta functions that will aid us in our journey to the Density Theorem. We then return to our study of L-functions and incorporate some of the theory that we have built up to this point. In particular, we derive an important theorem regarding where an L-function is analytic.
+
+At this point, we introduce the notion of density. Starting with polar density, we explore various density-related properties and go on to prove some powerful results, such as the Artin map being surjective. 
+
+Then, we move on to Dirichlet density (and briefly introduce natural density). We prove that if polar density exists, then so does Dirichlet density, and that the two are equal. This nicely connects these two forms of density. We also explore some properties of Dirichlet density.
+
+In the next section, we deepen our treatment of L-functions. We introduce several of the concepts in class field theory that allow us to derive preliminary density results. Most importantly, we prove that for a nontrivial Dirichlet character of the ray class group, the corresponding L-function does not vanish at $s = 1$. 
+
+By generalizing our arguments in the study of L-functions, we establish the theory needed to prove the main theorem in the case of an abelian extension $L \supset K$. At this point, we finally arrive at the main theorem, and prove it in the case of non-abelian extensions by cleverly connecting it to the abelian case. 
+
+Finally, we come to what is arguably the most important section: applications of the Čebotarev Density Theorem. This theorem has prolific applications, ranging from the theory of binary quadratic forms to the first main theorem of complex multiplication, although we just list a few. We then part with some concluding remarks. 
+
+\end{abstract}
+
+
+% keywords can be removed
+\keywords{Class Field Theory \and Čebotarev Density Theorem \and Analytic Number Theory \and Algebraic Number Theory}
+
+
+\section{O Espaço Vetorial}
+
+Um espaço vetorial \(\mathbb{V}\) é um objeto matemático, dizemos \( \mathbb{V}\) é um E.V. sobre um corpo \(\mathbb{K}\), onde são definidas duas operações:
+
+\begin{itemize}
+	\item Soma (+): \(u+v = z \, \,\forall  u,v, z \in \mathbb{V}\)
+	\item Multiplicação por escalar (\(\cdot\)): \(k\cdot v = z \, \, \, \forall k \in \mathbb{K}, v,z \in \mathbb{V}\)
+\end{itemize}
+
+\subsection*{Axiomas de Espaços Vetoriais}
+\begin{enumerate}
+\item Soma é comutativa: \(u+v = v+u\)
+\item Soma é associativa \( u+(v+z) = (u+v)+z\)
+\item Existe um elemento  \(E \in \mathbb{V}\), chamando elemento neutro tal que \(v + E = v, \forall \, v \in \mathbb{V}\)
+\item Para todo \(v \in \mathbb{V} \,\,\, \exists -v\), tal que: \(v + (-v) = E\)
+\item Multiplicação por escalar é associativa: \( a(b u) = (ab) u \, \, \forall \, \,  a, b \in \mathbb{K}, u \in \mathbb{V}\)
+\item \( 1 \cdot v = v, \forall \, \, v \in \mathbb{V} \)
+\end{enumerate}
+
+\subsection*{Consequência dos Axiomas}
+\begin{itemize}
+	\item O Elemento neutro é único  \begin{proof}
+	  		Vamos supor que exista outro  elemento neutro: \(E \text{ e } E'\) logo: \( E + v = v = E' + v\)\\
+	  		utilizando o inverso da soma
+	  		\begin{align*}
+	  		E + v &= E' + v \\
+	  		E + v - v &= E' + v - v \\
+	  		E + E &= E ' + E' \\
+	  		E &= E'
+	  		\end{align*}
+					  		
+	  		
+	  \end{proof}
+
+	\item Lei do cancelamento: \(w + v = w + u \implies v = u, \forall \, w, v, u \in \mathbb{V}\)
+	\begin{proof}
+		\begin{align*}
+			w + v &= w + u\\
+			&\text{Utilizando existência do inverso}\\
+			w + v - w &= w + u - w\\
+			v + E &= u + E\\
+			&\text{Utilizando o elemento neutro}\\
+			v = u
+		\end{align*}		
+		\end{proof}
+		\item \( 0\cdot v = E \, \, \, \forall \,  v \in \mathbb{V}\)
+	\begin{proof}
+		\begin{align*}
+			&\text{Usando distributividade}\\
+			(0+0) v &= 0v \\
+			0v + 0v &= 0v \\
+			&\text{Usando existência do inverso}\\
+			0v + 0v - 0v &= 0v - 0v \\
+			0v &= E
+		\end{align*}		
+	\end{proof}
+			\item \( a \neq 0, v \neq E \implies av \neq E, \, \, \forall \,  v \in \mathbb{V}, a \in \mathbb{K}\)
+	\begin{proof}
+		\begin{align*}
+			av &= E \\
+			1v &= v\\
+			&= (a \cdot a^{-1}) v\\
+			&= a^{-1}(av) \\
+			&=a^{-1} E\\
+			v &= E
+		\end{align*}		
+	\end{proof}
+	\item \(-1 \cdot v = -v, \forall \, v \in \mathbb{V}\)
+	\begin{proof}
+		\begin{align*}
+			v + -1v &= 1v + -1v\\
+			v + -1v &= (1 - 1) v\\
+			v + -1v &= 0v\\
+			v + -1v &= E\\
+			v - v + -1v &= E -v\\
+			E + -1v &= -v\\
+			-1v &= -v			
+		\end{align*}
+	\end{proof}
+\end{itemize}
+
+\begin{enumerate}
+    \item The Riemann zeta function is $$\zeta(s) = \sum_{n \ge 1} \frac{1}{n^s} = \prod_{p} \frac{1}{1 - p^{-s}}$$ Notice that the sum is equal to the product because of unique factorization in $\ZZ$.
+    \item More importantly, we will explore the Dedekind zeta function, $$\zeta_{K}(s) = \sum_{\mathfrak{a} \ge 0} \frac{1}{N\mathfrak{a}^s} = \prod_{\mathfrak{p}} \frac{1}{1 - N\mathfrak{p}^{-s}}$$ The sum is over the integral ideals of $\mathcal{O}_K$ while the product is over the prime ideals of $\mathcal{O}_K$. Furthermore, the sum above is equal to the product because of unique factorization of ideals into prime ideals in the ring of integers $\mathcal{O}_K$ (because it is a Dedekind domain).
+\end{enumerate}
+
+\begin{defn}
+Let $I_{K}^{\mathfrak{m}}$ denote the set of fractional ideals in $\mathcal{O}_K$ that are coprime to the modulus $\mathfrak{m}$. Define a Dirichlet character $\chi$ to be a homomorphism $$\chi: I_{K}^{\mathfrak{m}} \longrightarrow \CC^{\times}$$ that is trivial over the principal class $P_{K, 1}$ of the ray class group $C_{\mathfrak{m}} = I_{K}^{\mathfrak{m}}/P_{K, 1}$. In other words, $\chi$ is a character over the ray class group.
+\end{defn}
+
+Notice that $\chi$ somewhat resembles the Artin map (which we will explicitly characterize in Theorem \ref{6.4}), though it is not quite the same. Still, characters are especially useful when dealing with L-functions.
+
+\begin{defn}
+A Dirichlet L-series for a given character $\chi$ is $$L(s, \chi) = \sum_{\mathfrak{a} \subset \mathcal{O}_K, (\mathfrak{a}, \mathfrak{m}) = 1} \frac{\chi(\mathfrak{a})}{N\mathfrak{a}^s} = \prod_{(\mathfrak{p}, \mathfrak{m}) = 1} \frac{1}{1 - \chi(\mathfrak{p})N\mathfrak{p}^{-s}}$$ Once again, we can turn the sum into the product because of unique factorization of ideals in $\mathcal{O}_K$.
+\end{defn}
+
+\section{Convergence of L-series}
+
+In this section, we list some analytic statements regarding the convergence of Dirichlet series. We omit the proof of most theorems in this section; they generally reduce to extensive computation. Still, they make good exercises for the reader. 
+
+\begin{prop} \label{2.1}
+Let $$f(n) = \sum_{n \ge 1} \frac{a(n)}{n^s}$$ be a Dirichlet series and let $S(x) = \sum_{n \le x} a(n)$, and suppose there exist constants $a$ and $b$ such that $|S(x)| \le ax^b$ for all large $x$. Then, $f(s)$ converges uniformly for $s$ in $$D(b, \delta, \epsilon) = \{\Re(s) \ge b + \delta, \arg(s-b) \le \pi/2 - \epsilon\}$$ for all $\delta, \epsilon \ge 0$, and it converges to an analytic function on the half plane $\Re(s) > b$. (Note that $\Re(s)$ denotes the real part of $s$.)
+\end{prop}
+
+\begin{lemma}
+The Riemann zeta function $\zeta(s)$ has a meromorphic continuation to the half plane $\Re(s) > 0$ with a simple pole at $s = 1$.
+\end{lemma}
+
+\begin{lemma}
+For $s$ real and $s > 1$, $$\frac{1}{s-1} \le \zeta(s) \le 1 + \frac{1}{s-1}$$ Hence, $\zeta(s)$ has a simple pole at $s = 1$ and $$\zeta(s) = \frac{1}{s-1} + \text{function holomorphic near } 1$$
+\end{lemma}
+
+\begin{proof}
+This is left as an exercise to the reader. (Hint: Look at the graph of $y = x^{-s}$ and relate $\zeta(s)$ to the area under the curve.)
+\end{proof}
+
+Armed with this fact, we can look at other interesting Dirichlet series. 
+
+\begin{prop}
+Let $f(n)$ be a Dirichlet series for which there exists constants $C$, $a$, and $b < 1$ such that $|S(n) - an| \le Cx^b$. Then, $f$ extends to a meromorphic function on $\Re(s) > b$ with a simple pole at $s = 1$ with residue $a$. 
+\end{prop}
+
+\begin{proof}
+For the Dirichlet series $f(s) - a\zeta(s)$, $|S(n)| \le Cx^b$, so by Proposition \ref{2.1}, this series converges for $\Re(s) > b$. The result readily follows.  
+\end{proof}
+
+Before we move on, we encounter one last lemma that will prove to be useful soon.
+
+\begin{lemma} \label{2.5}
+Let $u_1, u_2, \cdots$ be a sequence of real numbers $\ge 2$ for which $$f(s) = \prod_{j = 1}^{\infty} \frac{1}{1 - u_{j}^{-s}}$$ is uniformly convergent on each region $D(1, \delta, \epsilon)$ (with $\delta, \epsilon > 0$). Then, $$\log f(s) \sim \sum \frac{1}{u_{j}^{s}}$$ as $s \to 1^{+}$ (i.e., from the right side of the plane). 
+\end{lemma}
+
+\begin{proof}
+This is a simple exercise in manipulating sums. (Hint: use the Maclaurin series for $\log(1-x)$ and then break the double sum apart.)
+\end{proof}
+
+
+\section{Characters and Partial Zeta Functions}
+
+Now, we introduce some basic character theory. In particular, knowing certain statements about characters - namely, the orthogonality relations - will aid us in our study of L-functions.
+
+\begin{defn}
+A one-dimensional representation of a group $G$, i.e. $\chi: G \longrightarrow \CC^{\times}$ is a character of $G$. Note that this map is a homomorphism.
+\end{defn}
+
+\begin{prop} \label{3.2}
+For a character $\chi$ of $G$, we have that $\sum_{a \in G} \chi(a) = \begin{cases}
+|G| & \text{ if } \chi = \chi_{0} \text{ (the trivial character)} \\
+0 &  \text { otherwise } \\
+\end{cases}$  
+
+\end{prop}
+
+\begin{proof}
+The first part is obvious. If we have a nontrivial character $\chi$, then for some $g \in G$, $\chi(g) \neq 1$. Then, $$\chi(g)\sum_{a \in G} \chi(a) = \sum_{a \in G} \chi(ga) = \sum_{a \in G} \chi(a),$$ meaning $\sum_{a \in G} \chi(a) = 0$, as desired. 
+\end{proof}
+
+\begin{prop} \label{3.3}
+Suppose the group $G$ is abelian. Fix some $a \in G$. Then, $$\sum_{\chi \in \hat{G}} \chi(a) = \begin{cases}
+|G| & \text{ if } a = 1 \\
+0 & \text { otherwise } \\
+\end{cases}$$ Here, $\hat{G} = \Hom(G, C^{\times})$ is the character group of $G$. 
+\end{prop}
+
+\begin{proof}
+Using the fact that $G$ is noncanonically isomorphic to $\hat{G}$, this proof becomes identical to that of the previous proposition. 
+\end{proof}
+
+Before we introduce some new tools, let us provide some motivation to our treatment of L-functions. Let $K$ be a number field and $\mathfrak{m}$ be some modulus. Begin with the Dedekind zeta function, $\zeta_{K}(s)$. For some class $\mathfrak{t} \in C_{\mathfrak{m}}$ (i.e., the class group), define the partial zeta function to be $$\zeta(s, \mathfrak{t}) = \sum_{\mathfrak{a} \ge 0, \mathfrak{a} \in \mathfrak{t}} \frac{1}{N\mathfrak{a}^s}$$ Note that for every character $\chi$ of the class group, $$\zeta_{K}(s) = \sum_{\mathfrak{t} \in C_{\mathfrak{m}}} \zeta(s, \mathfrak{t}) \text{ and}$$ $$L(s, \chi) = \sum_{\mathfrak{t} \in C_{\mathfrak{m}}} \chi(\mathfrak{t})\zeta(s, \mathfrak{t})$$ In other words, knowing about $\zeta(s, \mathfrak{t})$ can tell us about the Dedekind zeta function as well as the corresponding L-function. 
+
+\begin{thm}
+The partial zeta function $\zeta(s, \mathfrak{t})$ is analytic for $\Re(s) > 1 - \frac{1}{[K : \QQ]}$ except for a simple pole at $s = 1$. If we let $g_{\mathfrak{m}}$ denote the residue at $s = 1$, then $g_{\mathfrak{m}}$ is independent of $\mathfrak{t}$.
+\end{thm}
+
+\begin{proof}
+We omit the proof of this theorem, mainly because it relies on the famous class number formula. It allows us to determine exactly what $g_{\mathfrak{m}}$ is. 
+\end{proof}
+
+\begin{cor}
+If $\chi$ is not the trivial character, the L-function $L(s, \chi)$ is analytic for $\Re(s) > 1 - \frac{1}{[K : \QQ]}$.
+\end{cor}
+
+\begin{proof}
+Near $s = 1$, $$L(s, \chi) = \sum_{\mathfrak{t} \in C_{\mathfrak{m}}} \chi(\mathfrak{t})\zeta(s, \mathfrak{t}) = \frac{\sum_{\mathfrak{t} \in C_{\mathfrak{m}}} \chi(\mathfrak{t})g_{\mathfrak{m}}}{s - 1} + \text{ holomorphic function}$$ and Proposition \ref{3.2} shows us that the numerator of the first term is $0$.
+\end{proof}
+
+
+\section{Polar Density}
+
+At last, we come across one type of density. For a set $T$ of prime ideals of $K$, we define $\zeta_{K, T}(s) = \prod_{\mathfrak{p} \in T} \frac{1}{1 - N\mathfrak{p}^{-s}}$. 
+
+\begin{defn}
+If some positive integral power $\zeta_{K, T}(s)^{n}$ of $\zeta_{K, T}(s)$ extends to a meromorphic function on a neighborhood of $1$ having a pole of order $m$ at $1$, we say that $T$ has polar density $\delta(T) = \frac{m}{n}$. 
+\end{defn}
+
+\begin{prop}[Properties of Polar Density]
+
+We have the following assertions:
+
+\begin{enumerate}
+    \item The set of all prime ideals of $K$ has polar density $1$.
+    \item The polar density of every set is nonnegative.
+    \item If $T$ is the disjoint union of $T_1$ and $T_2$, and two of the three polar densities exist, then so does the third, and we have $\delta(T) = \delta(T_1) + \delta(T_2)$.
+    \item If $T \subset T'$, then $\delta(T) \leq \delta(T')$.
+    \item A finite set has density zero. 
+\end{enumerate}
+
+\end{prop}
+
+\begin{proof}
+
+$ $\\ \vspace{-0.4cm}
+
+\begin{enumerate}
+
+    \item We know that $\zeta_{K, T}(s)$ extends to a neighborhood of $1$, where it has a simple pole. Thus $\frac{m}{n} = 1$, as desired.
+    \item Having a negative polar density means $m < 0$, i.e., $\zeta_{K, T}(s)$ is holomorphic in a neighborhood of $s = 1$ and zero there. However, $\zeta_{K, T}(1) = \prod_{\mathfrak{p} \in T} \frac{1}{1 - N\mathfrak{p}^{-1}} > 0$, meaning polar density is nonnegative.
+    \item Observe that $\zeta_{K, T}(s) = \zeta_{K, T_1}(s) \cdot \zeta_{K, T_2}(s)$. Suppose $\zeta_{K, T}(s)^{n}$ and $\zeta_{K, T_1}(s)^{n_1}$ extend to meromorphic functions with poles of order $m$ and $m_1$, respectively; the other two cases are identical. Then $$\zeta_{K, T_2}(s)^{nn_1} = \frac{\zeta_{K, T}(s)^{nn_1}}{\zeta_{K, T_1}(s)^{nn_1}}$$ extends to a meromorphic function in a neighborhood of $s = 1$ and has a pole there of order $mn_1 - m_1n$. Thus, $\delta(T_2) = \frac{mn_1 - m_1n}{nn_1} = \frac{m}{n} - \frac{m_1}{n_1} = \delta(T) - \delta(T_1)$, as desired.
+    \item This follows readily from 3. 
+    \item This is obvious; $m = 0$ because $\zeta_{K, T}(s)$ is finite and positive. Moreover, there is no pole at $s = 1$.
+\end{enumerate}
+
+\end{proof}
+
+\begin{prop} \label{4.3}
+If $T$ contains no primes $\mathfrak{p}$ for which $N\mathfrak{p}$ is prime (in $\ZZ$), then $\delta(T) = 0$. 
+\end{prop}
+
+\begin{proof}
+Let $\mathfrak{p}$ be a prime in $T$. Since $N\mathfrak{p} = p^{f}$ (where $p$ lies under $\mathfrak{p}$ in $\ZZ$ and $f$ denotes the inertial degree of $\mathfrak{p}$), we must have $f \geq 2$; if $f = 1$, $N\mathfrak{p}$ would be prime. Moreover, for any given prime $p \in \ZZ$, there are at most $[K : \QQ]$ primes of $K$ lying over $p$. Thus, $\zeta_{K, T}(s)$ can be decomposed into a product $\prod_{1 \leq i \leq [K : \QQ]} g_{i}(s)$ of $d$ infinite products over the prime numbers, with each factor of $g_i$ being either a $1$ or a $\frac{1}{1-p^{-fs}}$ (for every prime $p$). Thus, for any $i$, $g_{i}(1) \leq \prod_{p} \frac{1}{1-p^{-f_{p}}} \leq \prod_{p} \frac{1}{1-p^{-2}} = \zeta(2) = \frac{\pi^2}{6}$. Thus, $g_{i}(s)$ is holomorphic at $s = 1$, meaning that the order of the pole there must be $0$ (recall that polar density cannot be negative). We conclude that $\delta(T) = 0$. 
+\end{proof}
+
+\begin{cor} \label{4.4}
+Let $T_1$ and $T_2$ be sets of prime ideals in $K$. If the sets differ only by primes $\mathfrak{p}$ for which $N\mathfrak{p}$ is not prime and one of the two sets has polar density, then so does the other, and the densities are equal. 
+\end{cor}
+
+At last, the time has come to exploit the power of polar density. It turns out we can derive some important analytic results.
+
+\begin{thm} \label{4.5}
+Let $L \supset K$ be a field extension of finite degree and let $M$ be its Galois closure. Then the set of prime ideals of $K$ that split completely in $L$ has density $\frac{1}{[M : K]}$. 
+\end{thm}
+
+\begin{proof}
+The first thing to notice is that a prime ideal $\mathfrak{p}$ of $K$ splits completely in $L$ if and only if it splits completely in $M$. One direction is easy: if it splits completely in $M$, it must split completely in the subfield $L$. If it splits completely in $L$, then it also splits completely in every conjugate field $L'$. All of these conjugate fields must lie under the decomposition field (the fixed field of the decomposition group of $\Gal(M/K)$), and so their compositum is a field lying under the decomposition field as well. This field is just $M$! $\mathfrak{p}$ splits completely only up to and including the decomposition field, so we conclude that it splits completely in $M$ as well. 
+
+Thus, it suffices to prove this theorem with the assumption that $L$ is Galois over $K$. Let $S$ be the set of prime ideals of $K$ that split completely in $L$ and let $T$ be the primes of $L$ lying over a prime ideal in $S$. For each $\mathfrak{p} \in S$, there are exactly $[L : K]$ prime ideals $\mathfrak{P} \in T$, and for each of them, $N_{K}^{L}(\mathfrak{P}) = \mathfrak{p}$ (where $N_{K}^{L}$ denotes norm). Thus, $N\mathfrak{P} = N\mathfrak{p}$ (where $N$ denotes norm over $\QQ$). This tells us that $\zeta_{L, T}(s) = \zeta_{K, S}(s)^{[L : K]}$. Also, $T$ contains every prime ideal of $L$ that is unramified over $K$ and for which $N\mathfrak{P}$ is prime (in $\ZZ$). Thus, $T$ differs from the set of all prime ideals in $L$ by a set of polar density $0$ (using Corollary \ref{4.4}), and so $T$ has density $1$. Moreover, this shows that $\zeta_{K, S}$ has the property signifying that $S$ is a set of polar density $\frac{1}{[L : K]}$, as desired.
+\end{proof}
+
+\begin{cor}
+If $f(x) \in K[x]$ splits into linear factors modulo $\mathfrak{p}$ for all but finitely many prime ideals $\mathfrak{p}$ of $K$, then $f$ splits into linear factors in $K$.
+\end{cor}
+
+\begin{proof}
+If $L$ is the splitting field of $f$, then $L$ is Galois over $K$. Now, use Theorem \ref{4.5} on $L/K$. For more interesting details, see Bhandarkar\cite{bhandarkar2018hilbert}, Section 4. 
+\end{proof}
+
+\begin{cor}
+For every abelian extension $L/K$ and every finite set $S$ of primes of $K$ including those that ramify in $L$, let $I_{K}^{S}$ denote the fractional ideals that are prime to all ideals in $S$. Then, the Artin map $$\left(\frac{L/K}{.}\right) : I_{K}^{S} \longrightarrow \Gal(L/K)$$ is surjective. 
+\end{cor}
+
+\begin{proof}
+Let $H$ be the image of the Artin map; it is some subgroup of $\Gal(L/K)$. If its fixed field is $L^{H}$, then we see that $H = \Gal(L/L^{H})$ is the image. For all $\mathfrak{p} \not\in S$, $\left(\frac{L^{H}/K}{\mathfrak{p}}\right) = \left(\frac{L/K}{\mathfrak{p}}\right) \mid_{L^{H}} = 1$, which implies that $\mathfrak{p}$ splits completely in $L^{H}$. Thus, all but finitely many prime ideals of $\mathcal{O}_K$ split completely in $L^{H}$, so Theorem \ref{4.5} tells us that $[L^{H} : K] = 1$; in other words, the Artin map is surjective. 
+\end{proof}
+
+
+\section{Dirichlet Density}
+
+Define two functions $f(s)$ and $g(s)$ for $s > 1$ and real. We write $f(s) \sim g(s)$ as $s \to 1^{+}$ if $\lim_{s \to 1^{+}} \frac{f(s)}{g(s)} = 1$. Then, $f(s) \sim \delta\log\frac{1}{s - 1}$ as $s \to 1^{+}$ means $$\lim_{s \to 1^{+}} \frac{f(s)}{\log \frac{1}{s - 1}} = \delta.$$ When $f$ and $g$ are holomorphic in a neighborhood of $s = 1$ except for possibly poles at $s = 1$, then $ f \sim g$ if and only if $f$ and $g$ differ by a function that is holomorphic in a neighborhood of $s = 1$. 
+
+\begin{defn}
+Let $T$ be a set of primes of $K$. If there exists a $\delta$ such that $$\sum_{\mathfrak{p} \in T} \frac{1}{N\mathfrak{p}^{s}} \sim \delta\log\frac{1}{s - 1} \text{ as } s \to 1^{+}$$ then we say that $T$ has Dirichlet density $\delta$. 
+\end{defn}
+
+\begin{defn}
+If the limit $$\lim_{x \to \infty} \frac{\text{number of } \mathfrak{p} \in T \text{ with } N\mathfrak{p} \leq x}{\text{number of } \mathfrak{p} \text{ with } N\mathfrak{p} \leq x}$$ exists, then we call it the natural density of $T$. 
+\end{defn}
+
+Natural density is much more intuitive than the other types of density, and one might wonder if at all natural density is ever equal to Dirichlet density or polar density. The answer, though reassuring, is somewhat surprising:
+
+\begin{prop}
+
+$ $ \\ \vspace{-0.4cm} 
+
+
+\begin{enumerate}
+
+\item If polar density exists, then so does Dirichlet density, and the two are equal.
+
+\item If natural density exists, then so does Dirichlet density, and the two are equal. 
+
+\end{enumerate}
+
+\end{prop}
+
+\begin{proof}
+We only prove the first part. If $T$ has polar density $\frac{m}{n}$, then $$\zeta_{K, T}(s)^{n} = \frac{a}{(s-1)^{m}} + \frac{g(s)}{(s-1)^{m-1}}$$ where $g$ is holomorphic near $s = 1$. Furthermore, $a > 0$ because $\zeta_{K, T}(s) > 0$ for $s > 1$ and real. Taking logs and applying Lemma \ref{2.5} gives us $$n \sum_{\mathfrak{p} \in T} \frac{1}{N\mathfrak{p}^{s}} = m \log\frac{1}{s - 1}$$ In other words, $T$ has Dirichlet density $\frac{m}{n}$, as desired. 
+\end{proof}
+
+\begin{rem}
+A set can have a Dirichlet density without having a natural density. For example, let $T$ be the set of prime numbers with leading digit $1$. Then, $T$ does not have a natural density, but it has a Dirichlet density, namely $\log_{10} 2$. Thus, it is a stronger statement to say that a set has natural density. 
+
+Also, notice that polar densities are rational numbers. Thus, every set having a natural density that is irrational will not have a polar density!
+\end{rem}
+
+Now, we shall see that Dirichlet density has similar properties to those of polar density: 
+
+\begin{prop}[Properties of Dirichlet Density] 
+
+$ $ \\ \vspace{-0.5cm}
+
+
+
+\begin{enumerate}
+
+\item The set of all prime ideals of $K$ has Dirichlet density $1$. 
+
+\item The Dirichlet density of any set is nonnegative.
+
+\item If $T$ is the disjoint union of $T_1$ and $T_2$, and two of the three Dirichlet densities exist, then so does the third, and $\delta(T) = \delta(T_1) + \delta(T_2)$. 
+
+\item If $T \subset T'$, then $\delta(T) \leq \delta(T')$. 
+
+\item If $T$ is finite, then $\delta(T) = 0$.
+
+\end{enumerate}
+
+\end{prop}
+
+\begin{proof}
+
+$ $ \\ \vspace{-0.1cm}
+
+\begin{enumerate}
+
+\item The set of prime ideals of $K$ even has polar density $1$, which is stronger. 
+
+\item For $s > 0$ and real, $\frac{1}{N\mathfrak{p}^{s}} > 0$ and for $s \to 1^{+}$, $\log\frac{1}{s - 1} > 0$, so Dirichlet density must be nonnegative. 
+
+\item Clearly, $$\sum_{\mathfrak{p} \in T} \frac{1}{N\mathfrak{p}^{s}} = \sum_{\mathfrak{p} \in T_1} \frac{1}{N\mathfrak{p}^{s}} + \sum_{\mathfrak{p} \in T_2} \frac{1}{N\mathfrak{p}^{s}}$$ so long as $\Re(s) > 1$. Thus, if $$\sum_{\mathfrak{p} \in T_1} \frac{1}{N\mathfrak{p}^{s}} \sim \delta_{1}\log\frac{1}{s - 1} \text{ and } \sum_{\mathfrak{p} \in T_2} \frac{1}{N\mathfrak{p}^{s}} \sim \delta_{2}\log\frac{1}{s - 1}$$ then $$\sum_{\mathfrak{p} \in T} \frac{1}{N\mathfrak{p}^{s}} \sim (\delta_{1} + \delta_{2})\log\frac{1}{s - 1}$$ The other two cases are virtually identical to this one.
+
+\item This readily follows from 3. 
+
+\item When $T$ is finite, $\sum_{\mathfrak{p} \in T} \frac{1}{N\mathfrak{p}^{s}}$ is holomorphic for all $s$ and thus bounded near any point. In particular, as $s \to 1^{+}$, the Dirichlet density must go to $0$. 
+
+\end{enumerate}
+
+\end{proof}
+
+\begin{prop}
+Let $T$ be the set of prime ideals of $K$ having degree $1$ over $\QQ$, i.e., for which the inertial degree $f(\mathfrak{p} / p) = 1$. Then, $\delta(T) = 1$. 
+\end{prop}
+
+\begin{proof}
+Proposition \ref{4.3} tells us that the complement of $T$ has polar density equal to $0$, and thus, Dirichlet density equal to $0$ as well. 
+\end{proof}
+
+\begin{cor} \label{5.7}
+Let $T$ be as in the proposition. Then, for every set $S$ of primes in $K$ having Dirichlet density, $$\delta(T \cap S) = \delta(S)$$
+\end{cor}
+
+\begin{proof}
+The complement $T'$ of $T$ has Dirichlet density $0$, so $\delta(S) = \delta(S \cap T) + \delta(S \cap T') = \delta(S \cap T)$, since $\delta(S \cap T') \leq \delta(T') = 0$. 
+\end{proof}
+
+\section{Making Magic out of L-functions}
+
+At last, it is time to put together some of our basic results. We can do this by playing around with L-functions. The value of L-functions, especially as $s \to 1^{+}$ is crucial to our discussion surrounding the Čebotarev Density Theorem. 
+
+\begin{defn}
+Recall that for a number field $K$ and a modulus $\mathfrak{m}$, we say that a subgroup $H \subset I_{K}^{\mathfrak{m}}$ is a congruence subgroup for $\mathfrak{m}$ if it satisfies $P_{K, 1} \subset H \subset I_{K}^{\mathfrak{m}}$. In this case, the quotient $I_{K}^{\mathfrak{m}}/H$ is called a generalized ideal class group for $\mathfrak{m}$.  
+\end{defn}
+
+\begin{prop} \label{6.2}
+Let $\mathfrak{m}$ be a modulus for $K$ and let $H$ be a congruence subgroup for $\mathfrak{m}$: $$P_{K, 1} \subset H \subset I_{K}^{\mathfrak{m}}$$ Then, if $L(1, \chi)$ is nonzero for all nontrivial characters $\chi$ of the ray class group $I_{K}^{\mathfrak{m}}/H$, $\delta(\{\mathfrak{p} \in H\}) = \frac{1}{(I_{K}^{\mathfrak{m}} : H)}$; otherwise, it is $0$. 
+\end{prop}
+
+\begin{proof}
+Let $h = (I_{K}^{\mathfrak{m}} : H)$ and $\chi$ be a character of $I_{K}^{\mathfrak{m}}$ trivial on $H$, and as usual, let $$L(s, \chi) = \prod_{\mathfrak{p} \nmid \mathfrak{m}} \frac{1}{1 - \chi(\mathfrak{p})N\mathfrak{p}^{-s}}$$ Lemma \ref{2.5} tells us that $$\log L(s, \chi) \sim \sum_{\mathfrak{p} \nmid \mathfrak{m}} \frac{\chi(\mathfrak{p})}{N\mathfrak{p}^{s}} \text{ as } s \to 1^{+}$$ But Proposition \ref{3.3} (note that $I_{K}^{\mathfrak{m}}/H$ is abelian) gives us $$\sum_{\chi} \chi(\mathfrak{p}) = 
+\begin{cases}
+h \text{ if } \mathfrak{p} \in H \\
+0  \text { if } \mathfrak{p} \not\in H \\
+\end{cases}$$ Thus, summing over all $\chi$, we get $$\sum_{\chi} \log L(s, \chi) \sim h \sum_{\mathfrak{p} \in H} \frac{1}{N\mathfrak{p}^{s}} \text{ as } s \to 1^{+}$$ Now, if $\chi \neq \chi_{0}$, then $L(s, \chi)$ is holomorphic near $s = 1$, ie. $L(s, \chi) = (s - 1)^{m(\chi)} (g(s))$, where $m(\chi) \geq 0$ and $g(1) \neq 0$. Thus, $\log L(s, \chi) \sim m(\chi)\log(s-1) = -m(\chi)\log\frac{1}{s - 1}$. If $\chi = \chi_{0}$, then $$L(s, \chi) = \frac{\zeta_K(s)}{\prod_{\mathfrak{p} \mid \mathfrak{m}} \frac{1}{1 - N\mathfrak{p}^{-s}}}$$ which means that $$\log L(s, \chi_{0}) \sim \log \zeta_K(s) \sim \log\frac{1}{s - 1}$$ Thus, we find that $$h \sum_{\mathfrak{p} \in H} \frac{1}{N\mathfrak{p}^{s}} \sim (1 - \sum_{\chi \neq \chi_{0}} m(\chi))\log\frac{1}{s-1}$$ and hence $$\delta(\{\mathfrak{p} \in H\}) = \frac{1 - \sum_{\chi \neq \chi_{0}} m(\chi)}{h}$$ This shows that $\delta(\{\mathfrak{p} \in H\}) = \frac{1}{h}$ if $L(1, \chi) \neq 0$ for every $\chi \neq \chi_{0}$; otherwise, the density must be $0$ (i.e. exactly one of the $m(\chi)$ must be equal to $1$, meaning at most one $L(s,\chi)$ can have a zero at $s = 1$ since Dirichlet density is nonnegative, and it must be a simple zero). 
+\end{proof}
+
+Now, we visit an inequality that will give us useful information about L-functions:
+
+\begin{thm}[The Second Inequality]
+For every Galois extension $L$ of $K$ and modulus $\mathfrak{m}$ of $K$, $$(I_{K}^{\mathfrak{m}} : P_{K, 1} \cdot N_{K}^{L}(I_{L}^{\mathfrak{m}})) \leq [L : K]$$ Note that here, $I_{L}^{\mathfrak{m}}$ denotes the set of fractional ideals of $L$ (lying above ideals of $I_{K}^{\mathfrak{m}}$) prime to $\mathfrak{m}$. 
+\end{thm}
+
+\begin{proof}
+Let $H = P_{K, 1} \cdot N_{K}^{L}(I_{L}^{\mathfrak{m}})$. If $\mathfrak{p}$ splits in $L$, then $f(\mathfrak{P} / \mathfrak{p}) = 1$ for all $\mathfrak{P} \subset \mathcal{O}_L$ lying over $\mathfrak{p} \subset \mathcal{O}_K$, in which case $\mathfrak{p}$ is the norm of any prime ideal of $\mathcal{O}_L$ lying over it. Thus, $\{\mathfrak{p} \in H\}$ contains the set of prime ideals splitting completely in $L$. Then, Theorem \ref{4.5} tells us that $$\delta(\{\mathfrak{p} \in H\}) \geq [L : K]^{-1} > 0$$ Moreover, Proposition \ref{6.2} tells us that if $\delta(\{\mathfrak{p} \in H\}) > 0$, it must be equal to $(I_{K}^{\mathfrak{m}} : H)^{-1}$. This only occurs if for all nontrivial characters $\chi$ of $I_{K}^{\mathfrak{m}}/H$, $L(1, \chi) \neq 0$. Finally, we have $$(I_{K}^{\mathfrak{m}} : H) = \delta(\{\mathfrak{p} \in H\})^{-1} \leq [L : K]$$ 
+\end{proof}
+
+%\begin{cor}
+%Let $\chi$ be a nontrivial character of the ray class group $C_{m} = I^{\mathfrak{m}}/P_{K, 1}$ and suppose there is a Galois extension $L$ of $K$ such that $N_{K}^{L}(I_{L}^{\mathfrak{m}}) \subset Ker(\chi)$. Then, $L(1, \chi) \neq 0$.
+%\end{cor}
+
+This theorem is particularly important because it tells us that if $H$ is of the form as in Proposition \ref{6.2}, then $L(1, \chi) \neq 0$ for all nontrivial characters $\chi$ of $I_{K}^{\mathfrak{m}}/H$. But when we are given a Galois extension $L \supset K$, how do we know this hypothesis is satisfied? Lucky for us, Artin Reciprocity comes to the rescue!
+
+\begin{thm}[Reciprocity Law] \label{6.4}
+Let $L$ be a finite Abelian extension of $K$, and let $S$ be the set of primes of $K$ ramifying in $L$. Then, the Artin map $$\left(\frac{L/K}{.}\right) : I_{K}^{S} \longrightarrow \Gal(L/K)$$ admits a modulus $\mathfrak{m}$ such that a prime of $K$ (finite or infinite) ramifies if and only if it divides $\mathfrak{m}$ and induces the isomorphism $$I_{K}^{\mathfrak{m}}/(P_{K,1}\cdot N_{K}^{L}(I_{L}^{\mathfrak{m}})) \xrightarrow{\sim} \Gal(L/K)$$
+\end{thm}
+
+This theorem is literally the very foundation of class field theory. To use this theorem, we also introduce another important theorem of class field theory: the Existence Theorem.
+
+\begin{thm}[Existence Theorem]
+For every congruence subgroup $H$ modulo $\mathfrak{m}$, there exists a finite Abelian extension $L/K$ such that $H = P_{K, 1} \cdot N_{K}^{L}(I_{L}^{\mathfrak{m}})$.
+\end{thm}
+
+This theorem is nice because it complements Artin Reciprocity in a way that allows us to construct an important bijection. Notice that for $H$ and $L$ as in the theorem, Artin Reciprocity allows us to construct the isomorphism $$I_{K}^{\mathfrak{m}}/H \xrightarrow{\sim} \Gal(L/K)$$ In particular, there is a field $L_{\mathfrak{m}}$ known as the ray class field modulo $\mathfrak{m}$ for which the Artin map defines an isomorphism $$C_{\mathfrak{m}} = I_{K}^{\mathfrak{m}}/(P_{K,1}\cdot N_{K}^{L}(I_{L}^{\mathfrak{m}})) \xrightarrow{\sim} \Gal(L_{\mathfrak{m}}/K)$$ For a field $L \subset L_{\mathfrak{m}}$, set $$N_{K}^{L}(C_{\mathfrak{m}, L}) = (P_{K,1}\cdot N_{K}^{L}(I_{L}^{\mathfrak{m}}) \pmod{P_{K, 1}}$$
+
+Thus, the Existence Theorem provides the following beautiful corollary:
+
+\begin{cor}
+For a modulus $\mathfrak{m}$, the map $L \mapsto N_{K}^{L}(C_{\mathfrak{m}, L})$ is a bijection from the set of Abelian extensions of $K$ contained in $L_{\mathfrak{m}}$ to the set of subgroups of $C_{\mathfrak{m}}$.
+\end{cor}
+
+\begin{proof}
+This is a rather neat result of applying the Galois correspondence. 
+\end{proof}
+
+Thus, class field theory shows us that the hypothesis of Proposition \ref{6.2} is satisfied: every congruence subgroup $H$ is of the form $P_{K, 1} \cdot N_{K}^{L}(I_{L}^{\mathfrak{m}})$ for a unique Abelian extension $L \supset K$. For our particular discussion, we obtain the following corollary:
+
+\begin{cor} \label{6.7}
+For any modulus $\mathfrak{m}$ of $K$ and any nontrivial Dirichlet character $\chi : C_{\mathfrak{m}} \longrightarrow \CC^{\times}$, $L(1, \chi) \neq 0$.
+\end{cor}
+
+\section{Proof of the Cebotarev Density Theorem}
+
+At last, we have the tools necessary to prove our main theorem. We will start by handling the abelian case and cleverly use that to tackle the nonabelian case. 
+
+\begin{thm} \label{7.1}
+Let $\mathfrak{m}$ be a modulus for $K$, and let $H$ be a congruence subgroup for $\mathfrak{m}$. For any class $\mathfrak{t} \in I_{K}^{\mathfrak{m}}/H$, the set of prime ideals in $\mathfrak{t}$ has Dirichlet density $\frac{1}{(I_{K}^{\mathfrak{m}} : H)}$. 
+\end{thm}
+
+\begin{proof}
+It suffices to prove a more general version of Proposition \ref{6.2}. Consider some class $\mathfrak{t} \in I_{K}^{\mathfrak{m}}/H$ and let $\mathfrak{a}$ be a coset representative of this class. Also, let $h = (I_{K}^{\mathfrak{m}} : H)$. Much like we considered the sum $\sum_{\chi} \log L(s,\chi)$, we now consider the sum $$\sum_{\chi} \chi(\mathfrak{a})^{-1}\log L(s, \chi) \sim \sum_{\chi} \chi(\mathfrak{a})^{-1} \sum_{\mathfrak{p} \nmid \mathfrak{m}} \frac{\chi(\mathfrak{p})}{N\mathfrak{p}^{s}} = \sum_{\mathfrak{p} \nmid \mathfrak{m}} \sum_{\chi} \frac{\chi(\mathfrak{a}^{-1}\mathfrak{p})}{N\mathfrak{p}^{s}} = h \sum_{\mathfrak{p} \in \mathfrak{t}} \frac{1}{N\mathfrak{p}^{s}}$$ where we obtain the last equality by applying our character orthogonality relations. 
+
+Now, Corollary \ref{6.7} shows us that $L(1, \chi) \neq 0$ for any nontrivial $\chi$. Thus, using the terminology of Proposition \ref{6.2}, we see that if $L(s, \chi) = (s-1)^{m(\chi)}g(s)$ near $s = 1$, then in fact $m(\chi) = 0$. Thus, density-wise, $\log L(s, \chi) \sim -m(\chi)\log\frac{1}{s-1} = 0$ as $s \to 1^{+}$, so $L(s, \chi)$ for nontrivial characters $\chi$ do not contribute to the Dirichlet density. 
+
+However, if $\chi = \chi_{0}$, then as we found before, $\log L(s, \chi_{0}) \sim \log\frac{1}{s-1}$. Thus, by summing $\log L(s, \chi)$ across all $\chi$ in the character group, we see that $$h \sum_{\mathfrak{p} \in \mathfrak{t}} \frac{1}{N\mathfrak{p}^{s}} \sim \log\frac{1}{s-1} \text{ or } \delta(\{\mathfrak{p} \in \mathfrak{t}\}) = \frac{\sum_{\mathfrak{p} \in \mathfrak{t}} \frac{1}{N\mathfrak{p}^{s}}}{\log\frac{1}{s-1}} = \frac{1}{h}$$ as desired.
+\end{proof}
+
+\begin{cor} \label{7.2}
+Let $L \supset K$ be a finite Abelian extension and let $\sigma \in \Gal(L/K)$. Then, the set of prime ideals $\mathfrak{p}$ of $K$ that are unramified in $L$ and for which $\left(\frac{L/K}{\mathfrak{p}}\right) = \sigma$ has Dirichlet density $\frac{1}{[L : K]}$. 
+\end{cor}
+
+\begin{proof}
+Artin Reciprocity gives us the isomorphism $I_{K}^{\mathfrak{m}}/H \xrightarrow{\sim} \Gal(L/K)$ for some modulus $\mathfrak{m}$ and congruence subgroup $H$. Thus, the inverse image of $\sigma$ is one entire class $\mathfrak{t}$ of $I_{K}^{\mathfrak{m}}/H$. At this point, we may apply Theorem \ref{7.1} to obtain the result. 
+\end{proof}
+
+Voilà! We have just proven the Čebotarev Density Theorem for Abelian extensions $L \supset K$! At this point, we may extend to the general (not necessarily abelian) case:
+
+\begin{thm}[Čebotarev]
+Let $L$ be a finite Galois extension of the field $K$ and suppose $\sigma \in \Gal(L/K)$. Moreover, denote $C$ by the conjugacy class of $\sigma$ in $\Gal(L/K)$. Then, the set $$T = \{\mathfrak{p} \text{ a prime ideal in } \mathcal{O}_K \mid \mathfrak{p} \text{ unramified in } L, \left(\frac{L/K}{\mathfrak{p}}\right) = \sigma\}$$ has Dirichlet density $$ \delta(T) = \frac{|C|}{|\Gal(L/K)|} = \frac{|C|}{[L : K]}$$. 
+\end{thm}
+
+\begin{proof}
+Since $\Gal(L/K)$ is not necessarily abelian, we try to cleverly reduce to this case. Let $\sigma \in \Gal(L/K)$ have order $f$ and let $M = L^{\langle\sigma\rangle}$ be the fixed field of the set of automorphisms $\langle\sigma\rangle$ (subgroup of automorphisms generated by $\sigma$). Then, $L$ is a cyclic extension of $M$ of degree $f$, and the Artin map gives us an isomorphism $$C_{\mathfrak{m}}/H \xrightarrow{\sim} \langle\sigma\rangle$$ for some modulus $\mathfrak{m}$ of $M$ and $H = P_{M, 1} \cdot N_{M}^{L}(I_{L}^{\mathfrak{m}})$. 
+
+Now, let $\mathfrak{p}$ be a prime of $\mathcal{O}_K$, $\mathfrak{q}$ be prime lying above $\mathfrak{p}$ in $\mathcal{O}_M$, and $\mathfrak{P}$ be a prime lying above $\mathfrak{q}$ in $\mathcal{O}_L$. If we let $c = |C|$ and $d = [L : K]$, we must show that $\delta(T) = \frac{c}{d}$. Also, we must note that in this proof, we ignore the finitely many primes that are not prime to $\mathfrak{m}$ (i.e. primes that ramify). 
+
+Let $$T_{M, \sigma} = \{\mathfrak{q} \subset \mathcal{O}_M \mid \left(\frac{L/M}{\mathfrak{q}}\right) = \sigma, f(\mathfrak{q}, \mathfrak{p}) = 1\}$$ By Corollary \ref{7.2}, we know that the set of primes satisfying the first condition (i.e. $\left(\frac{L/M}{\mathfrak{q}}\right) = \sigma$) of $T_{M, \sigma}$ has density $\frac{1}{f}$, and thus, $T_{M, \sigma}$ has density $\frac{1}{f}$ (using Corollary \ref{5.7}). 
+
+Now, let $$T_{L, \sigma} = \{\mathfrak{P} \subset \mathcal{O}_L \mid \left(\frac{L/K}{\mathfrak{P}}\right) = \sigma\}$$ We aim to relate $T_{M, \sigma}$ and $T_{L, \sigma}$.
+
+\begin{lemma}
+We have the following two assertions:
+
+\begin{enumerate}
+
+    \item The map $\mathfrak{P} \mapsto \mathfrak{q} = \mathfrak{P} \cap \mathcal{O}_M$ defines a bijection $T_{L, \sigma} \to T_{M, \sigma}$. 
+    
+    \item The map $\mathfrak{P} \mapsto \mathfrak{p} = \mathfrak{P} \cap \mathcal{O}_K : T_{L, \sigma} \to T$ sends exactly $\frac{d}{cf}$ primes of $T_{L, \sigma}$ to each prime of $T$. 
+
+\end{enumerate}
+
+\end{lemma}
+
+\begin{proof}
+
+$ $ \\ \vspace{-0.4cm}
+
+
+
+\begin{enumerate}
+    \item Take some $\mathfrak{P} \in T_{L, \sigma}$ and let $\mathfrak{q} = \mathfrak{P} \cap \mathcal{O}_M$ and $\mathfrak{p} = \mathfrak{P} \cap \mathcal{O}_K$. Then, the Decomposition Group $D(\mathfrak{P}\mid\mathfrak{p}) \cong \Gal(\mathcal{O}_L/\mathfrak{P} \text{ } / \text{ } \mathcal{O}_K/\mathfrak{p})$ is generated by $\sigma$ but $\sigma$ fixes the residue field $\mathcal{O}_M/\mathfrak{q}$ (because it fixes $M$). Thus, $\mathcal{O}_M/\mathfrak{q} = \mathcal{O}_K/\mathfrak{p}$, meaning that $f(\mathfrak{q}/\mathfrak{p}) = 1$. This means that $\mathfrak{q} \in T_{M, \sigma}$, so we have a map $$\mathfrak{P} \mapsto \mathfrak{q} = \mathfrak{P} \cap \mathcal{O}_M : T_{L, \sigma} \to T_{M, \sigma}$$ This map is injective because $f(\mathfrak{P}/\mathfrak{q}) = f(\mathfrak{q}/\mathfrak{p})^{-1}f(\mathfrak{P}/\mathfrak{p}) = 1 \cdot f = f$, so $\mathfrak{P}$ is the only prime of $\mathcal{O}_L$ lying over $\mathfrak{q}$. Moreover, this map is surjective because for any prime $\mathfrak{P}$ lying over $\mathfrak{q} \in T_{M, \sigma}$, $$\left(\frac{L/K}{\mathfrak{P}}\right) = \left(\frac{L/K}{\mathfrak{P}}\right)^{f(\mathfrak{q}/\mathfrak{p})} = \left(\frac{L/M}{\mathfrak{q}}\right) = \sigma$$ and so $\mathfrak{P}$ lies in $T_{L, \sigma}$. Thus, our map is a bijection.
+
+    \item Fix a $\mathfrak{p}_{0} \in T$ and let $\mathfrak{P}_{0} \in T_{L, \sigma}$ lie over $\mathfrak{p}_{0}$. Then, for $\tau \in \Gal(L/K)$, $$\left(\frac{L/K}{\tau\mathfrak{P}_{0}}\right) = \tau\left(\frac{L/K}{\mathfrak{P}_{0}}\right)\tau^{-1}$$ and so $$\tau\left(\frac{L/K}{\mathfrak{P}_{0}}\right)\tau^{-1} = \sigma \Longleftrightarrow \tau \in C_{G}(\sigma)$$ where $C_{G}(\sigma)$ denotes the centralizer of $\sigma$ in $\Gal(L/K)$. Therefore, the map $\tau \mapsto \tau\mathfrak{P}_{0}$ gives us a bijection $$C(\sigma)/D(\mathfrak{P}_{0}/\mathfrak{p}_{0}) \longrightarrow \{\mathfrak{P}_{0} \in T_{L, \sigma} \mid \mathfrak{P}_{0} \cap \mathcal{O}_K = \mathfrak{p}_{0}\}$$ where $D(\mathfrak{P}_{0}/\mathfrak{p}_{0})$ denotes decomposition group. The decomposition group is $\langle\sigma\rangle$, which has order $f$ and $C_{G}(\sigma)$ has order $\frac{d}{c}$ because there is a bijection $$\tau \mapsto \tau\sigma\tau^{-1} : \Gal(L/K) / C_{G}(\sigma) \to C$$ Therefore, $(C_{G}(\sigma) : D(\mathfrak{P}_{0}/\mathfrak{p}_{0})) = \frac{d}{cf}$. Thus, we have shown that for each $\mathfrak{p} \in T$, there are exactly $\frac{d}{cf}$ primes $\mathfrak{P} \in T_{L, \sigma}$ lying over $\mathfrak{p}$. This completes part 2.  
+
+\end{enumerate}
+
+\end{proof}
+
+Returning to our proof, we can combine statements 1 and 2 to obtain the map $$\mathfrak{q} \mapsto \mathfrak{p} = \mathfrak{q} \cap \mathcal{O}_K$$ which is a $\frac{d}{cf} : 1$ map $T_{M, \sigma} \to T$. For such a $\mathfrak{q}$, $N_{K}^{M}(\mathfrak{q}) = \mathfrak{p}$, so $N\mathfrak{q} = N\mathfrak{p}$. Hence $$\sum_{\mathfrak{p} \in T} \frac{1}{N\mathfrak{p}^{s}} = \frac{cf}{d} \sum_{\mathfrak{q} \in T_{M, \sigma}} \frac{1}{N\mathfrak{q}^{s}} \sim \frac{cf}{d} \cdot \frac{1}{d} \log\frac{1}{s-1} = \frac{c}{d} \log\frac{1}{s-1}$$ which completes the proof of the Čebotarev Density Theorem. 
+\end{proof}
+
+\begin{rem}
+Interestingly enough, the prime number theorem generalizes nicely to general number fields; it is called the Landau Prime Ideal Theorem. Using this theorem and keeping the notation we used above, if we set $$\pi_{C}(x) = \{\mathfrak{p} \text{ is a finite, unramified prime ideal of } \mathcal{O}_{K} \mid \left(\frac{L/K}{\mathfrak{p}}\right) = C, N\mathfrak{p} \leq x\}$$ then we can obtain the following effective form of the Density Theorem: $$\pi_{C}(x) \sim \frac{c}{d} \frac{x}{\log x}.$$
+\end{rem}
+
+\section{Applications of the Density Theorem}
+
+The Density Theorem has many applications throughout number theory. By no means do we provide a full treatment of its applications; rather, we focus on a few rather elegant examples. We start by pointing out a simple yet special case: Dirichlet's Theorem on Primes in Arithmetic Progression. 
+
+\begin{cor}[Dirichlet]
+For any positive integers $a$ and $m$, with $\gcd(a, m) = 1$, there are infinitely many primes $p$ for which $p \equiv a \pmod{m}$. 
+\end{cor}
+
+\begin{proof}
+Using the Čebotarev Density Theorem, we will prove an even stronger result: that the set of primes $\equiv a \pmod{m}$ has Dirichlet density $\frac{1}{\phi(m)}$ in the set of primes (of $\ZZ$), where $\phi$ denotes the totient function.
+
+Now, let $\zeta_{m}$ be an $m^{\text{th}}$ root of unity. Let $K = \QQ$ and $L = \QQ(\zeta_{m})$ be a cyclotomic extension. We know that $L/K$ is Galois and that $\Gal(L/K) \cong (\ZZ/m\ZZ)^{\times}$. This isomorphism can be made explicit by taking some $a \in (\ZZ/m\ZZ)^{\times}$ and mapping it to the unique automorphism that takes $\zeta_{m}^{k}$ to $\zeta_{m}^{ak}$. 
+
+For a prime number $p \in \ZZ$, $N(p\ZZ) = p$. If $\mathfrak{P} \subset \mathcal{O}_L$ is a prime lying over $p$ such that $\sigma \in \Gal(L/K)$ satisfies $\sigma(\alpha) \equiv \alpha^{N(p\ZZ)} \pmod{\mathfrak{P}}$, we must have $\sigma(\zeta_{m}^{k}) = \zeta_{m}^{pk}$ for all $k$. As long as $p \nmid m$, $p\ZZ$ does not ramify in $L$, in which case $\left(\frac{L/K}{p\ZZ}\right) = \bar{p} \in \Gal(L/K)$, where $\bar{p}$ is the class of $p$ modulo $m$. Thus, $\left(\frac{L/K}{p\ZZ}\right) = a$ if and only if $p \equiv a \pmod{m}$. At this point, the Density Theorem states that the density of primes $p\ZZ$ of $\QQ$ such that $\left(\frac{L/K}{p\ZZ}\right) = a$ is $\frac{1}{|\Gal(L/K)|} = \frac{1}{\phi(m)}$, as desired. 
+\end{proof}
+
+So being able to prove Dirichlet's theorem with a snap of our fingers is a sign of just how powerful the Čebotarev Density Theorem is! Now, we move on to another interesting application, which explores primes that split completely in number fields. In particular, these primes can characterize a given extension $L \supset K$. First, we introduce some terminology.
+
+\begin{defn}
+Given two sets $\mathcal{S}$ and $\mathcal{T}$, we say $\mathcal{S} \dot{\subset} \mathcal{T}$ if $\mathcal{S} \subset \mathcal{T}$ up to a finite set of elements. We also say $\mathcal{S} \dot{=} \mathcal{T}$ if $\mathcal{S} \dot{\subset} \mathcal{T}$ and $\mathcal{T} \dot{\subset} \mathcal{S}$. 
+\end{defn}
+
+\begin{defn}
+Given an extension $L \supset K$, we set $$\mathcal{S}_{L/K} = \{\mathfrak{p} \text{ is a finite prime ideal of } K \mid \mathfrak{p} \text{ splits completely in } L\}$$.  
+
+Also, let $$\Tilde{\mathcal{S}}_{L/K} = \{\mathfrak{p} \text{ is a finite prime ideal of } \mathcal{O}_K \mid \mathfrak{p} \text{ unramified in } L, f(\mathfrak{P} \mid \mathfrak{p}) = 1 \text{ for some prime } \mathfrak{P} \text{ of } L \text{ lying over } \mathfrak{p}\}$$
+\end{defn}
+
+Using this terminology, we can effectively state the following powerful theorem:
+
+\begin{thm} \label{8.4}
+Let $L$ and $M$ be finite extensions of $K$. Then:
+
+\begin{enumerate}
+
+    \item If $M$ is Galois over $K$, then $L \subset M \Longleftrightarrow \mathcal{S}_{M/K} \dot{\subset} \mathcal{S}_{L/K}$.
+
+    \item If $L$ is Galois over $K$, then $L \subset M \Longleftrightarrow \Tilde{\mathcal{S}}_{M/K} \dot{\subset} \mathcal{S}_{L/K}$
+    
+\end{enumerate}
+
+\end{thm}
+
+\begin{proof}
+We begin with the proof of 2. When $L \subset M$, we easily have $\Tilde{\mathcal{S}}_{M/K} \dot{\subset} \mathcal{S}_{L/K}$; indeed, for $\mathfrak{p} \in \Tilde{\mathcal{S}}_{M/K}$, $f(\mathfrak{P} \mid \mathfrak{p}) = 1$ for some $\mathfrak{P}$ lying over $\mathfrak{p}$ in $\mathcal{O}_M$. Thus, if $\mathfrak{q}$ is a prime of $\mathcal{O}_L$ lying over $\mathfrak{p}$ and under $\mathfrak{P}$, then we must have $f(\mathfrak{q} \mid \mathfrak{p}) = 1$. But since inertial degrees of all conjugates of a prime ideal are the same in a Galois extension, we conclude that $\mathfrak{p}$ has inertial degree $f = 1$ in $L$. Moreover, since it is unramified, we conclude that $\mathfrak{p}$ splits completely in $L$, and thus $\mathfrak{p} \in \mathcal{S}_{L/K}$ as well. 
+
+Conversely, suppose that $\Tilde{\mathcal{S}}_{M/K} \dot{\subset} \mathcal{S}_{L/K}$, and let $N$ be a Galois extension of $K$ containing both $L$ and $M$; it suffices to show that $\Gal(N/M) \subset \Gal(N/L)$. Thus, given $\sigma \in \Gal(N/M)$, we need to prove that $\sigma\mid_{L} = 1$. By the Čebotarev Density Theorem, there is a prime $\mathfrak{p}$ in $K$, unramified in $N$ such that $\left(\frac{N/K}{\mathfrak{p}}\right)$ is the conjugacy class of $\sigma$. Thus, there is some prime $\mathfrak{P}$ of $N$ for which $\left(\frac{N/K}{\mathfrak{P}}\right) = \sigma$. We claim that $\mathfrak{p} \in \Tilde{\mathcal{S}}_{M/K}$. To see this, let $\mathfrak{P}' = \mathfrak{P} \cap \mathcal{O}_M$. Then, for $\alpha \in \mathcal{O}_M$, $$\alpha \equiv \sigma(\alpha) \equiv \alpha^{N(\mathfrak{p})} \pmod{\mathfrak{P}'}$$ where the first congruence follows from $\sigma\mid_{M} = 1$ and the second from the definition of the Artin symbol. Thus, the Artin symbol is trivial, meaning that $f(\mathfrak{P}' \mid \mathfrak{p}) = 1$ (since $f$ is the order of the decomposition group generated by the Artin symbol, which is trivial). This means $\mathfrak{p} \in \Tilde{\mathcal{S}}_{M/K}$, as desired. The Density Theorem implies that there are infinitely many such $\mathfrak{p}$'s. Thus, $\Tilde{\mathcal{S}}_{M/K} \dot{\subset} \mathcal{S}_{L/K}$ tells us that $\mathfrak{p} \in \mathcal{S}_{L/K}$, i.e., $\left(\frac{L/K}{\mathfrak{p}}\right) = 1$, meaning that $\sigma\mid_{L} = \left(\frac{N/K}{\mathfrak{P}}\right)\mid_{L} = \left(\frac{L/K}{\mathfrak{p}}\right) = 1$, as desired. 
+
+Now, to prove 1, note that $L \subset M$ easily implies $\mathcal{S}_{M/K} \dot{\subset} \mathcal{S}_{L/K}$ using the exact same reasoning as in the proof of part 2 above. To show the other direction, let $L'$ be the Galois closure of $L$ over $K$. Using the reasoning from Theorem \ref{4.5}, we see that a prime of $K$ splits completely in $L$ if and only if it splits completely in $L'$. Thus, $\mathcal{S}_{L/K} = \mathcal{S}_{L'/K}$. Thus, our hypothesis $\mathcal{S}_{M/K} \dot{\subset} \mathcal{S}_{L/K}$ may be rephrased as $\mathcal{S}_{M/K} \dot{\subset} \mathcal{S}_{L'/K}$. By part 2, we obtain $L' \subset M$, so $L \subset M$, and we are done. 
+\end{proof}
+
+Why did we bother to prove all of that? For one, it tells us about the relationship between field extension and the prime ideals contained in them. Moreover, it allows us to formulate the following corollary:
+
+\begin{cor}
+Let $L$ and $M$ be Galois extensions of $K$. Then:
+
+\begin{enumerate}
+
+    \item $L \subset M \Longleftrightarrow \mathcal{S}_{M/K} \dot{\subset} \mathcal{S}_{L/K}$.
+
+    \item $L = M \Longleftrightarrow \mathcal{S}_{M/K} \dot{=} \mathcal{S}_{L/K}$.
+
+\end{enumerate}
+
+\end{cor}
+
+\begin{proof}
+Notice first that 1 immediately implies 2, so it suffices to prove just 1. Now, observe that if $M$ is Galois over $K$, then $\Tilde{\mathcal{S}}_{M/K}$ reduces to $\mathcal{S}_{M/K}$, so applying Theorem \ref{8.4} immediately proves part 1 of this corollary. 
+\end{proof}
+
+Now, we introduce one last application, which is to the theory of binary quadratic forms. Although we do not prove it here, it points out a beautiful interplay between binary quadratic forms and ideals in number fields. 
+
+\begin{thm}
+Let $f(x, y) = ax^2 + bxy + cy^2$ be a primitive positive definite binary quadratic form of discriminant $D < 0$. Moreover, let $\mathcal{S}$ be the set of primes represented by $f$. Then, the Dirichlet density $\delta(\mathcal{S})$ exists and is equal to $$\delta(\mathcal{S}) = \begin{cases}
+\frac{1}{2h(D)} \text{ if } f \text{ is properly equivalent to its opposite} \\
+\frac{1}{h(D)}  \text { otherwise } \\
+\end{cases}$$ where $h(D)$ is the famous class number. In particular, $f$ represents infinitely many prime numbers!
+\end{thm}
+
+\begin{proof}
+We omit the proof because it relies on developing a theory of ideals in orders of imaginary quadratic fields. Still, we refer the reader to Cox\cite{ref_book1}. 
+\end{proof}
+
+
+\section{Some Parting Remarks}
+
+The Čebotarev Density Theorem is elegant and powerful. It is at a crossroads between algebraic and analytic number theory, and has various applications across number theory. We sincerely hope the reader has taken away something useful from this paper and is inclined
+to learn more about related topics.
+
+\bibliographystyle{unsrt}  
+%\bibliography{references}  %%% Remove comment to use the external .bib file (using bibtex).
+%%% and comment out the ``thebibliography'' section.
+
+
+%%% Comment out this section when you \bibliography{references} is enabled.
+\begin{thebibliography}{1}
+
+\bibitem{ref_book1}
+Cox, D.: Primes of the Form $x^2 + ny^2$. 2nd edn. Wiley-Interscience (1997)
+
+\bibitem{ref_book2}
+Marcus, D.: Number Fields. 2nd edn. Springer International Publishing (2018)
+
+\bibitem{ref_book3}
+Serre, Jean-Perre.: Linear Representations of Finite Groups. 1st edn. Springer-Verlag New York (1977)
+
+\bibitem{ref_book4}
+Artin, Michael.: Algebra. 2nd edn. Pearson (2010)
+
+\bibitem{ref_book5}
+Janusz, Gerald . 2nd edn. American Mathematical Society (2005)
+
+\bibitem{milne2013class}
+Milne, James. Class Field Theory. Retrieved from
+\href{http://www.jmilne.org/math/CourseNotes/CFT.pdf}{http://www.jmilne.org/math/CourseNotes/CFT.pdf}. Version 4.02. 2013.
+
+\bibitem{triantafillou2015chebotarev}
+Triantafillou, Nicholas. The Chebotarev Density Theorem. Retreived from \href{https://math.mit.edu/~ngtriant/notes/chebotarev.pdf}{https://math.mit.edu/~ngtriant/notes/chebotarev.pdf} (2015)
+
+\bibitem{bhandarkar2018hilbert}
+Bhandarkar, Shaunak. From Hilbert Class Field Theorey to Complex Multiplication. Retreived from \href{https://drive.google.com/file/d/1SE1GEhtP-UWMUOTcWtJOPLuPOkYjiRw3/view}{https://drive.google.com/file/d/1SE1GEhtP-UWMUOTcWtJOPLuPOkYjiRw3/view} (2018)
+
+\bibitem{yott2014frobenius}
+Yott, Dylan.: Frobenius Elements, the Chebotarev Density Theorem, and Reciprocity. Retreived from \href{https://math.berkeley.edu/~dyott/Frobenius\%20elements.pdf}{https://math.berkeley.edu/~dyott/Frobenius\%20elements.pdf} (2014)
+
+\bibitem{densitytheorem2002}
+Lenstra, Henrik. and Stevenhagen, Peter.: Chebotarëv and his Density Theorem. Retreived from \href{http://websites.math.leidenuniv.nl/algebra/chebotarev.pdf}{http://websites.math.leidenuniv.nl/algebra/chebotarev.pdf} (2002)
+
+\bibitem{conrad2004dirichlet}
+Conrad, Brian.: Dirichlet Density for Global Fields. Retreived from \href{http://math.stanford.edu/~conrad/676Page/handouts/dirdensity.pdf}{http://math.stanford.edu/~conrad/676Page/handouts/dirdensity.pdf} (2004)
+
+\end{thebibliography}
+
+
+\end{document}
