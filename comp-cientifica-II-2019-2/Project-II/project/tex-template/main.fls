@@ -1,0 +1,11 @@
+PWD /home/gil/repos/university-courses/analise-numerica-edo-2019-1/project/tex-template
+INPUT /usr/share/texmf-dist/web2c/texmf.cnf
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+INPUT main.tex
+OUTPUT main.log
+INPUT /usr/share/texmf-dist/tex/latex/base/article.cls
+INPUT /usr/share/texmf-dist/tex/latex/base/article.cls
+INPUT /usr/share/texmf-dist/tex/latex/base/size12.clo
+INPUT /usr/share/texmf-dist/tex/latex/base/size12.clo
+INPUT /usr/share/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr12.tfm

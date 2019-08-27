@@ -1,0 +1,3 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Light Frames}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Blind Text}{2}{0}{1}
