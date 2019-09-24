@@ -163,7 +163,9 @@
 \newtheorem{cor}{Corolário}
 \newtheorem{conj}{Conjectura}
 \newtheorem{prop}{Proposição}
+\newtheorem*{prop*}{Proposição}
 \newtheorem{lemma}{Lema}
+\newtheorem*{lemma*}{Lema}
 \newtheorem{heur}{Heuristica}
 \newtheorem{qn}{Questão}
 %\newtheorem{claim}[thm]{Claim}
@@ -290,171 +292,38 @@ Dado um objeto \(a\), então existe um conjunto  de apenas um elemento \(\{a\}\)
 \section{A construção dos números}
 \subsection{Números Naturais e Inteiros \(\NN, \ZZ\)}
 
-In this section, we list some analytic statements regarding the convergence of Dirichlet series. We omit the proof of most theorems in this section; they generally reduce to extensive computation. Still, they make good exercises for the reader. 
-
-\begin{prop} \label{2.1}
-Let $$f(n) = \sum_{n \ge 1} \frac{a(n)}{n^s}$$ be a Dirichlet series and let $S(x) = \sum_{n \le x} a(n)$, and suppose there exist constants $a$ and $b$ such that $|S(x)| \le ax^b$ for all large $x$. Then, $f(s)$ converges uniformly for $s$ in $$D(b, \delta, \epsilon) = \{\Re(s) \ge b + \delta, \arg(s-b) \le \pi/2 - \epsilon\}$$ for all $\delta, \epsilon \ge 0$, and it converges to an analytic function on the half plane $\Re(s) > b$. (Note that $\Re(s)$ denotes the real part of $s$.)
-\end{prop}
-
-\begin{lemma}
-The Riemann zeta function $\zeta(s)$ has a meromorphic continuation to the half plane $\Re(s) > 0$ with a simple pole at $s = 1$.
-\end{lemma}
-
-\begin{lemma}
-For $s$ real and $s > 1$, $$\frac{1}{s-1} \le \zeta(s) \le 1 + \frac{1}{s-1}$$ Hence, $\zeta(s)$ has a simple pole at $s = 1$ and $$\zeta(s) = \frac{1}{s-1} + \text{function holomorphic near } 1$$
-\end{lemma}
-
-\begin{proof}
-This is left as an exercise to the reader. (Hint: Look at the graph of $y = x^{-s}$ and relate $\zeta(s)$ to the area under the curve.)
-\end{proof}
-
-Armed with this fact, we can look at other interesting Dirichlet series. 
-
-\begin{prop}
-Let $f(n)$ be a Dirichlet series for which there exists constants $C$, $a$, and $b < 1$ such that $|S(n) - an| \le Cx^b$. Then, $f$ extends to a meromorphic function on $\Re(s) > b$ with a simple pole at $s = 1$ with residue $a$. 
-\end{prop}
-
-\begin{proof}
-For the Dirichlet series $f(s) - a\zeta(s)$, $|S(n)| \le Cx^b$, so by Proposition \ref{2.1}, this series converges for $\Re(s) > b$. The result readily follows.  
-\end{proof}
-
-Before we move on, we encounter one last lemma that will prove to be useful soon.
-
-\begin{lemma} \label{2.5}
-Let $u_1, u_2, \cdots$ be a sequence of real numbers $\ge 2$ for which $$f(s) = \prod_{j = 1}^{\infty} \frac{1}{1 - u_{j}^{-s}}$$ is uniformly convergent on each region $D(1, \delta, \epsilon)$ (with $\delta, \epsilon > 0$). Then, $$\log f(s) \sim \sum \frac{1}{u_{j}^{s}}$$ as $s \to 1^{+}$ (i.e., from the right side of the plane). 
-\end{lemma}
-
-\begin{proof}
-This is a simple exercise in manipulating sums. (Hint: use the Maclaurin series for $\log(1-x)$ and then break the double sum apart.)
-\end{proof}
-
-
 \subsection{Números Racionais \(\QQ\) }
-
-Now, we introduce some basic character theory. In particular, knowing certain statements about characters - namely, the orthogonality relations - will aid us in our study of L-functions.
-
-\begin{defn}
-A one-dimensional representation of a group $G$, i.e. $\chi: G \longrightarrow \CC^{\times}$ is a character of $G$. Note that this map is a homomorphism.
-\end{defn}
-
-\begin{prop} \label{3.2}
-For a character $\chi$ of $G$, we have that $\sum_{a \in G} \chi(a) = \begin{cases}
-|G| & \text{ if } \chi = \chi_{0} \text{ (the trivial character)} \\
-0 &  \text { otherwise } \\
-\end{cases}$  
-
-\end{prop}
-
-\begin{proof}
-The first part is obvious. If we have a nontrivial character $\chi$, then for some $g \in G$, $\chi(g) \neq 1$. Then, $$\chi(g)\sum_{a \in G} \chi(a) = \sum_{a \in G} \chi(ga) = \sum_{a \in G} \chi(a),$$ meaning $\sum_{a \in G} \chi(a) = 0$, as desired. 
-\end{proof}
-
-\begin{prop} \label{3.3}
-Suppose the group $G$ is abelian. Fix some $a \in G$. Then, $$\sum_{\chi \in \hat{G}} \chi(a) = \begin{cases}
-|G| & \text{ if } a = 1 \\
-0 & \text { otherwise } \\
-\end{cases}$$ Here, $\hat{G} = \Hom(G, C^{\times})$ is the character group of $G$. 
-\end{prop}
-
-\begin{proof}
-Using the fact that $G$ is noncanonically isomorphic to $\hat{G}$, this proof becomes identical to that of the previous proposition. 
-\end{proof}
-
-Before we introduce some new tools, let us provide some motivation to our treatment of L-functions. Let $K$ be a number field and $\mathfrak{m}$ be some modulus. Begin with the Dedekind zeta function, $\zeta_{K}(s)$. For some class $\mathfrak{t} \in C_{\mathfrak{m}}$ (i.e., the class group), define the partial zeta function to be $$\zeta(s, \mathfrak{t}) = \sum_{\mathfrak{a} \ge 0, \mathfrak{a} \in \mathfrak{t}} \frac{1}{N\mathfrak{a}^s}$$ Note that for every character $\chi$ of the class group, $$\zeta_{K}(s) = \sum_{\mathfrak{t} \in C_{\mathfrak{m}}} \zeta(s, \mathfrak{t}) \text{ and}$$ $$L(s, \chi) = \sum_{\mathfrak{t} \in C_{\mathfrak{m}}} \chi(\mathfrak{t})\zeta(s, \mathfrak{t})$$ In other words, knowing about $\zeta(s, \mathfrak{t})$ can tell us about the Dedekind zeta function as well as the corresponding L-function. 
-
-\begin{thm}
-The partial zeta function $\zeta(s, \mathfrak{t})$ is analytic for $\Re(s) > 1 - \frac{1}{[K : \QQ]}$ except for a simple pole at $s = 1$. If we let $g_{\mathfrak{m}}$ denote the residue at $s = 1$, then $g_{\mathfrak{m}}$ is independent of $\mathfrak{t}$.
-\end{thm}
-
-\begin{proof}
-We omit the proof of this theorem, mainly because it relies on the famous class number formula. It allows us to determine exactly what $g_{\mathfrak{m}}$ is. 
-\end{proof}
-
-\begin{cor}
-If $\chi$ is not the trivial character, the L-function $L(s, \chi)$ is analytic for $\Re(s) > 1 - \frac{1}{[K : \QQ]}$.
-\end{cor}
-
-\begin{proof}
-Near $s = 1$, $$L(s, \chi) = \sum_{\mathfrak{t} \in C_{\mathfrak{m}}} \chi(\mathfrak{t})\zeta(s, \mathfrak{t}) = \frac{\sum_{\mathfrak{t} \in C_{\mathfrak{m}}} \chi(\mathfrak{t})g_{\mathfrak{m}}}{s - 1} + \text{ holomorphic function}$$ and Proposition \ref{3.2} shows us that the numerator of the first term is $0$.
-\end{proof}
-
 
 \subsection{Números Reais \(\RR\)}
 
-At last, we come across one type of density. For a set $T$ of prime ideals of $K$, we define $\zeta_{K, T}(s) = \prod_{\mathfrak{p} \in T} \frac{1}{1 - N\mathfrak{p}^{-s}}$. 
-
-\begin{defn}
-If some positive integral power $\zeta_{K, T}(s)^{n}$ of $\zeta_{K, T}(s)$ extends to a meromorphic function on a neighborhood of $1$ having a pole of order $m$ at $1$, we say that $T$ has polar density $\delta(T) = \frac{m}{n}$. 
-\end{defn}
-
-\begin{prop}[Properties of Polar Density]
-
-We have the following assertions:
-
-\begin{enumerate}
-    \item The set of all prime ideals of $K$ has polar density $1$.
-    \item The polar density of every set is nonnegative.
-    \item If $T$ is the disjoint union of $T_1$ and $T_2$, and two of the three polar densities exist, then so does the third, and we have $\delta(T) = \delta(T_1) + \delta(T_2)$.
-    \item If $T \subset T'$, then $\delta(T) \leq \delta(T')$.
-    \item A finite set has density zero. 
-\end{enumerate}
-
-\end{prop}
-
-\begin{proof}
-
-$ $\\ \vspace{-0.4cm}
-
-\begin{enumerate}
-
-    \item We know that $\zeta_{K, T}(s)$ extends to a neighborhood of $1$, where it has a simple pole. Thus $\frac{m}{n} = 1$, as desired.
-    \item Having a negative polar density means $m < 0$, i.e., $\zeta_{K, T}(s)$ is holomorphic in a neighborhood of $s = 1$ and zero there. However, $\zeta_{K, T}(1) = \prod_{\mathfrak{p} \in T} \frac{1}{1 - N\mathfrak{p}^{-1}} > 0$, meaning polar density is nonnegative.
-    \item Observe that $\zeta_{K, T}(s) = \zeta_{K, T_1}(s) \cdot \zeta_{K, T_2}(s)$. Suppose $\zeta_{K, T}(s)^{n}$ and $\zeta_{K, T_1}(s)^{n_1}$ extend to meromorphic functions with poles of order $m$ and $m_1$, respectively; the other two cases are identical. Then $$\zeta_{K, T_2}(s)^{nn_1} = \frac{\zeta_{K, T}(s)^{nn_1}}{\zeta_{K, T_1}(s)^{nn_1}}$$ extends to a meromorphic function in a neighborhood of $s = 1$ and has a pole there of order $mn_1 - m_1n$. Thus, $\delta(T_2) = \frac{mn_1 - m_1n}{nn_1} = \frac{m}{n} - \frac{m_1}{n_1} = \delta(T) - \delta(T_1)$, as desired.
-    \item This follows readily from 3. 
-    \item This is obvious; $m = 0$ because $\zeta_{K, T}(s)$ is finite and positive. Moreover, there is no pole at $s = 1$.
-\end{enumerate}
-
+\section{Demonstrações sobre os Reais}
+\subsection{\(\sqrt{2} \notin \QQ\)}
+Vamos mostrar que a equação
+\[
+p^2 = 2 \tag{1} \label{eq}
+\]
+não tem solução nos racionais.\\
+Primeiro vamos provar uma pequena proposição 
+\begin{prop*}[\(n^2\) par \(\iff n\) é par].\\
+\begin{proof} \(\Leftarrow\)\\
+\(n\) par implica que podemos escrever \(n = 2m\) para um dado \(m\). Então
+\[n^2 = (2m)^2 = 4m^2\]
+e podemos reescrever \(4m^2 = 2\cdot(2m^2)\), logo \(n^2\) é par. \\
+\(\Rightarrow\)\\
+Vamos assumir que \(n\) seja ímpar, então podemos escrever \(n = 2m+1\), logo
+\[
+n^2 = (2m+1)^2 = (4m^2 + 4m + 1) = 2(2m^2 + 2m) +1
+\]
+O que nos daria que \(n^2\) é ímpar contrariando a hipótese, logo \(n\) é par.
 \end{proof}
+\end{prop*}
 
-\begin{prop} \label{4.3}
-If $T$ contains no primes $\mathfrak{p}$ for which $N\mathfrak{p}$ is prime (in $\ZZ$), then $\delta(T) = 0$. 
-\end{prop}
-
-\begin{proof}
-Let $\mathfrak{p}$ be a prime in $T$. Since $N\mathfrak{p} = p^{f}$ (where $p$ lies under $\mathfrak{p}$ in $\ZZ$ and $f$ denotes the inertial degree of $\mathfrak{p}$), we must have $f \geq 2$; if $f = 1$, $N\mathfrak{p}$ would be prime. Moreover, for any given prime $p \in \ZZ$, there are at most $[K : \QQ]$ primes of $K$ lying over $p$. Thus, $\zeta_{K, T}(s)$ can be decomposed into a product $\prod_{1 \leq i \leq [K : \QQ]} g_{i}(s)$ of $d$ infinite products over the prime numbers, with each factor of $g_i$ being either a $1$ or a $\frac{1}{1-p^{-fs}}$ (for every prime $p$). Thus, for any $i$, $g_{i}(1) \leq \prod_{p} \frac{1}{1-p^{-f_{p}}} \leq \prod_{p} \frac{1}{1-p^{-2}} = \zeta(2) = \frac{\pi^2}{6}$. Thus, $g_{i}(s)$ is holomorphic at $s = 1$, meaning that the order of the pole there must be $0$ (recall that polar density cannot be negative). We conclude that $\delta(T) = 0$. 
-\end{proof}
-
-\begin{cor} \label{4.4}
-Let $T_1$ and $T_2$ be sets of prime ideals in $K$. If the sets differ only by primes $\mathfrak{p}$ for which $N\mathfrak{p}$ is not prime and one of the two sets has polar density, then so does the other, and the densities are equal. 
-\end{cor}
-
-At last, the time has come to exploit the power of polar density. It turns out we can derive some important analytic results.
-
-\begin{thm} \label{4.5}
-Let $L \supset K$ be a field extension of finite degree and let $M$ be its Galois closure. Then the set of prime ideals of $K$ that split completely in $L$ has density $\frac{1}{[M : K]}$. 
-\end{thm}
-
-\begin{proof}
-The first thing to notice is that a prime ideal $\mathfrak{p}$ of $K$ splits completely in $L$ if and only if it splits completely in $M$. One direction is easy: if it splits completely in $M$, it must split completely in the subfield $L$. If it splits completely in $L$, then it also splits completely in every conjugate field $L'$. All of these conjugate fields must lie under the decomposition field (the fixed field of the decomposition group of $\Gal(M/K)$), and so their compositum is a field lying under the decomposition field as well. This field is just $M$! $\mathfrak{p}$ splits completely only up to and including the decomposition field, so we conclude that it splits completely in $M$ as well. 
-
-Thus, it suffices to prove this theorem with the assumption that $L$ is Galois over $K$. Let $S$ be the set of prime ideals of $K$ that split completely in $L$ and let $T$ be the primes of $L$ lying over a prime ideal in $S$. For each $\mathfrak{p} \in S$, there are exactly $[L : K]$ prime ideals $\mathfrak{P} \in T$, and for each of them, $N_{K}^{L}(\mathfrak{P}) = \mathfrak{p}$ (where $N_{K}^{L}$ denotes norm). Thus, $N\mathfrak{P} = N\mathfrak{p}$ (where $N$ denotes norm over $\QQ$). This tells us that $\zeta_{L, T}(s) = \zeta_{K, S}(s)^{[L : K]}$. Also, $T$ contains every prime ideal of $L$ that is unramified over $K$ and for which $N\mathfrak{P}$ is prime (in $\ZZ$). Thus, $T$ differs from the set of all prime ideals in $L$ by a set of polar density $0$ (using Corollary \ref{4.4}), and so $T$ has density $1$. Moreover, this shows that $\zeta_{K, S}$ has the property signifying that $S$ is a set of polar density $\frac{1}{[L : K]}$, as desired.
-\end{proof}
-
-\begin{cor}
-If $f(x) \in K[x]$ splits into linear factors modulo $\mathfrak{p}$ for all but finitely many prime ideals $\mathfrak{p}$ of $K$, then $f$ splits into linear factors in $K$.
-\end{cor}
-
-\begin{proof}
-If $L$ is the splitting field of $f$, then $L$ is Galois over $K$. Now, use Theorem \ref{4.5} on $L/K$. For more interesting details, see Bhandarkar\cite{bhandarkar2018hilbert}, Section 4. 
-\end{proof}
-
-\begin{cor}
-For every abelian extension $L/K$ and every finite set $S$ of primes of $K$ including those that ramify in $L$, let $I_{K}^{S}$ denote the fractional ideals that are prime to all ideals in $S$. Then, the Artin map $$\left(\frac{L/K}{.}\right) : I_{K}^{S} \longrightarrow \Gal(L/K)$$ is surjective. 
-\end{cor}
-
-\begin{proof}
-Let $H$ be the image of the Artin map; it is some subgroup of $\Gal(L/K)$. If its fixed field is $L^{H}$, then we see that $H = \Gal(L/L^{H})$ is the image. For all $\mathfrak{p} \not\in S$, $\left(\frac{L^{H}/K}{\mathfrak{p}}\right) = \left(\frac{L/K}{\mathfrak{p}}\right) \mid_{L^{H}} = 1$, which implies that $\mathfrak{p}$ splits completely in $L^{H}$. Thus, all but finitely many prime ideals of $\mathcal{O}_K$ split completely in $L^{H}$, so Theorem \ref{4.5} tells us that $[L^{H} : K] = 1$; in other words, the Artin map is surjective. 
-\end{proof}
+Assumindo por hipótese que \eqref{eq} tenha solução nos reais, podemos escrever \(p = \frac{m}{n}\) com \(mdc(m,n) = 1\) , temos então
+\begin{align*}
+\frac{m^2}{n^2} &= 2\\
+m^2 &= 2n^2
+\end{align*}
+Mas isso nos dá \(m^2\) que pela proposição implica em \(m\) par. Mas se \(m^2\) é par, então \(m^2 \geq 4\), o que nos diz que \(2n^2\) é divísivel por \(4\), com uma manipulação chegamos que \(n^2\) par implicando que \(n\) é par, então \(mdc(n,m) \neq 1\) o que contraria a hipótese, logo \(\sqrt{2} \notin \QQ\) 
 
 
 \section*{Bibliografia}
@@ -462,6 +331,15 @@ Let $H$ be the image of the Artin map; it is some subgroup of $\Gal(L/K)$. If it
 
 \bibitem{ref_tao1}
 Tao, T.: \textit{Analysis I}. 1st ed. Hindustan Book Agency (2006)
+
+\bibitem{ref_rudin1}
+Rudin, W.: \textit{Principles of Mathematical Analysis}. 3rd ed. McGraw-Hill (1976)
+
+\bibitem{ref_lima1}
+Lima, E.: \textit{Curso de Análise vol I}. 14ª ed. IMPA (2016)
+
+\bibitem{ref_cabral}
+Neri, C. \& Cabral, M.: \textit{Curso de Análise Real}. 2ª ed. (2011)
 \end{thebibliography}
 
 
