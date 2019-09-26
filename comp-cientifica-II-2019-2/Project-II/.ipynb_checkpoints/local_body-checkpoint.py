@@ -58,7 +58,7 @@ class Body:
             theta = atan2(d_y, d_x)
             a_x = acc * cos(theta)
             a_y = acc * sin(theta)
-            a_z = acc * sin(self.angle)
+            a_z = self.p_x * sin(self.angle)
             acc_x += a_x
             acc_y += a_y
             acc_z += a_z

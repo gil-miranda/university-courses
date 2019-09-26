@@ -281,6 +281,7 @@ def orbit_plotter3D(pos, bodies, title = 'Orbits', scale = False, color = False)
     plt.ylabel('Longitudinal distance in AU')
 
     plt.title(title)
+    ax.set_zlim(-5e12,5e12)
     plt.show()
     return ax
 

@@ -41,7 +41,9 @@ class Body:
                 raise ValueError('The bodies %r and %r collided' %(self.name, other.name))
 
             ## Compute acceleration OTHER causes on THIS
-            acc = G * other.mass / d**2
+            a_x = -G * other.mass * pos[0] / d**3
+            a_y = -G * other.mass * pos[1] / d**3
+            a_z = -G * other.mass * pos[2] / d**3
 
             if retm:
                 v = self.v_x**2 + self.v_y**2 #v^2
@@ -55,10 +57,10 @@ class Body:
             if retpe:
                 pe += G * other.mass * self.mass / d
             ## Decomposing the acceleration on x-axis and y-axis
-            theta = atan2(d_y, d_x)
-            a_x = acc * cos(theta)
-            a_y = acc * sin(theta)
-            a_z = self.p_x * sin(self.angle)
+            #theta = atan2(d_y, d_x)
+            ##a_x = acc * cos(theta)
+            #a_y = acc * sin(theta)
+            #a_z = self.p_x * sin(self.angle)
             acc_x += a_x
             acc_y += a_y
             acc_z += a_z
