@@ -56,15 +56,9 @@ class Body:
             ## Compute potential Energy
             if retpe:
                 pe += G * other.mass * self.mass / d
-            ## Decomposing the acceleration on x-axis and y-axis
-            #theta = atan2(d_y, d_x)
-            ##a_x = acc * cos(theta)
-            #a_y = acc * sin(theta)
-            #a_z = self.p_x * sin(self.angle)
             acc_x += a_x
             acc_y += a_y
             acc_z += a_z
-
 
         if retpe and retm:
             return acc_x, acc_y, acc_z, pe, m

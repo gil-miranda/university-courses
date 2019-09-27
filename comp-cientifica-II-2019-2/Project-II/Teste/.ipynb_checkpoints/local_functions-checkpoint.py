@@ -38,7 +38,6 @@ def simulate(bodies, step = 3600, period = 365, method = 'euler', G = 6.67428e-1
             pos[body.name].append((body.p_x,body.p_y, body.p_z))
             vel_sq[body.name].append((body.v_x**2 + body.v_y**2 + body.v_z**2))
             potential[body.name].append(body.potential)
-            #print(str(body.ang_mo) + ' - ' + body.name)
             ang_mo[body.name].append(body.ang_mo)
 
             a_x, a_y, a_z = acc[body]
@@ -52,6 +51,50 @@ def simulate(bodies, step = 3600, period = 365, method = 'euler', G = 6.67428e-1
                 body.p_x += body.v_x * step
                 body.p_y += body.v_y * step
                 body.p_z += body.v_z * step
+            elif method == 'rk4':
+            ## 4th Order Runge-Kutta
+                k1_x, k1_y, k1_z = body.acceleration(bodies, pos = [body.p_x, body.p_y, body.p_z])
+                
+                p2_x = body.p_x + step/2 * k1_x
+                p2_y = body.p_y + step/2 * k1_y
+                p2_z = body.p_y + step/2 * k1_z
+                k2_x, k2_y, k2_z = body.acceleration(bodies, pos = [p2_x, p2_y, p2_z])
+                
+                p3_x = body.p_x + step/2 * k2_x
+                p3_y = body.p_y + step/2 * k2_y
+                p3_z = body.p_y + step/2 * k2_z
+                k3_x, k3_y, k3_z = body.acceleration(bodies, pos = [p3_x, p3_y, p3_z])
+                
+                p4_x = body.p_x + step * k3_x
+                p4_y = body.p_y + step * k3_y
+                p4_z = body.p_y + step * k3_z
+                k4_x, k4_y, k4_z = body.acceleration(bodies, pos = [p4_x, p4_y, p4_z])
+                
+                body.p_x += step/6 * (k1_x + 2*k2_x + 2*k3_x + k4_x)
+                body.p_y += step/6 * (k1_y + 2*k2_y + 2*k3_y + k4_y)
+                body.p_z += step/6 * (k1_z + 2*k2_z + 2*k3_z + k4_z)
+                
+                k1_x, k1_y, k1_z = body.acceleration(bodies, pos = [body.p_x, body.p_y, body.p_z])
+                
+                v2_x = body.v_x + step/2 * k1_x
+                v2_y = body.v_y + step/2 * k1_y
+                v2_z = body.v_y + step/2 * k1_z
+                k2_x, k2_y, k2_z = body.acceleration(bodies, pos = [p2_x, p2_y, p2_z])
+                
+                v3_x = body.v_x + step/2 * k2_x
+                v3_y = body.v_y + step/2 * k2_y
+                v3_z = body.v_y + step/2 * k2_z
+                k3_x, k3_y, k3_z = body.acceleration(bodies, pos = [p3_x, p3_y, p3_z])
+                
+                v4_x = body.v_x + step * k3_x
+                v4_y = body.v_y + step * k3_y
+                v4_z = body.v_y + step * k3_z
+                k4_x, k4_y, k4_z = body.acceleration(bodies, pos = [p4_x, p4_y, p4_z])
+                
+                body.v_x += step/6 * (k1_x + 2*k2_x + 2*k3_x + k4_x)
+                body.v_y += step/6 * (k1_y + 2*k2_y + 2*k3_y + k4_y)
+                body.v_z += step/6 * (k1_z + 2*k2_z + 2*k3_z + k4_z)
+            
             elif method == 'velocity-verlet':
             ## Velocity Verlet / Leapfrog - Sympletic 2nd-order methods
                 vhalf_x = body.v_x + 0.5 * step * a_x
@@ -85,47 +128,56 @@ def simulate(bodies, step = 3600, period = 365, method = 'euler', G = 6.67428e-1
                 body.p_z = phalf_z + body.v_z * step/2
 
             elif method == 'leapfrog':
-                w = 2**(1./3.)
-                f = 2 - w
+                w = 1.2599210498948732 # 2**(1./3.)
+                f = 0.7400789501051268 # 2 - w
 
                 lf1 = (0.5 * step / f)
                 p1_x = body.p_x + lf1 * body.v_x
                 p1_y = body.p_y + lf1 * body.v_y
+                p1_z = body.p_z + lf1 * body.v_z
 
-                ax_new, ay_new = body.acceleration(bodies, pos = [p1_x, p1_y])
+                ax_new, ay_new, az_new = body.acceleration(bodies, pos = [p1_x, p1_y, p1_z])
 
                 lf2 = step / f
                 v2_x = body.v_x + lf2 * ax_new
                 v2_y = body.v_y + lf2 * ay_new
-
+                v2_z = body.v_z + lf2 * az_new
+                
                 lf3 = (1 - w) * step * 0.5 / f
                 p3_x = p1_x + lf3 * v2_x
                 p3_y = p1_y + lf3 * v2_y
+                p3_z = p1_z + lf3 * v2_z
 
-                ax_new, ay_new = body.acceleration(bodies, pos = [p3_x, p3_y])
+                ax_new, ay_new, az_new = body.acceleration(bodies, pos = [p3_x, p3_y, p3_z])
 
                 lf4 = -step * w / f
                 v4_x = v2_x + lf4 * ax_new
                 v4_y = v2_y + lf4 * ay_new
+                v4_z = v2_z + lf4 * az_new
 
                 p5_x = p3_x + lf3 * v4_x
                 p5_y = p3_y + lf3 * v4_y
+                p5_z = p3_z + lf3 * v4_z
 
-                ax_new, ay_new = body.acceleration(bodies, pos = [p5_x, p5_y])
+                ax_new, ay_new, az_new = body.acceleration(bodies, pos = [p5_x, p5_y, p5_z])
 
                 body.v_x = v4_x + lf2 * ax_new
                 body.v_y = v4_y + lf2 * ay_new
+                body.v_z = v4_z + lf2 * az_new
 
                 body.p_x = p5_x + lf1 * body.v_x
                 body.p_y = p5_y + lf1 * body.v_y
+                body.p_z = p5_z + lf1 * body.v_z 
 
             else:
             ## 1st-order Euler
                 body.p_x += body.v_x * step
                 body.p_y += body.v_y * step
+                body.p_z += body.v_z * step
 
                 body.v_x += a_x * step
                 body.v_y += a_y * step
+                body.v_z += a_z * step
         count += 1
     return pos, vel_sq, potential, ang_mo
 
@@ -260,13 +312,8 @@ def orbit_plotter3D(pos, bodies, title = 'Orbits', scale = False, color = False)
     ax = plt.axes(projection='3d')
     
     for b in bodies:
-        
         ax.plot3D(b.pos_x, b.pos_y, b.pos_z, label = b.name, color = b.color, linestyle=':')
-        #plt.title('Atrator de Lorenz', fontweight = 'bold')
-        #plt.show()
-        #plt.plot(b.pos_x, b.pos_y, label = b.name, color = b.color, linestyle=':' )
         ax.scatter3D(b.pos_x[-1],b.pos_y[-1], b.pos_z[-1], color = b.color)
-
     plt.legend()
     plt.grid(alpha=0.2)
 
@@ -281,7 +328,6 @@ def orbit_plotter3D(pos, bodies, title = 'Orbits', scale = False, color = False)
     plt.ylabel('Longitudinal distance in AU')
 
     plt.title(title)
-    ax.set_zlim(-5e12,5e12)
     plt.show()
     return ax
 
