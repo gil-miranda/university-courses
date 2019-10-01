@@ -9,9 +9,17 @@ so_file = "/home/gil/repos/university-courses/comp-cientifica-II-2019-2/Project-
 
 file_acc = ct.CDLL(so_file)
 
-c_acc = file_acc.acceleration
-c_acc.restype = ct.c_double
-c_acc.argtypes = [ct.c_double, ct.c_double, ct.c_double, ct.c_double, ct.c_double, ct.c_double, ct.c_double, ct.c_double]
+c_accx = file_acc.acceleration_x
+c_accx.restype = ct.c_double
+c_accx.argtypes = [ct.c_double, ct.c_double, ct.c_double, ct.c_double, ct.c_double, ct.c_double, ct.c_double]
+
+c_accy = file_acc.acceleration_y
+c_accy.restype = ct.c_double
+c_accy.argtypes = [ct.c_double, ct.c_double, ct.c_double, ct.c_double, ct.c_double, ct.c_double, ct.c_double]
+
+c_accz = file_acc.acceleration_z
+c_accz.restype = ct.c_double
+c_accz.argtypes = [ct.c_double, ct.c_double, ct.c_double, ct.c_double, ct.c_double, ct.c_double, ct.c_double]
 
 class Body:
     ## All vectors are decomposed in x-axis and y-axis
@@ -52,11 +60,14 @@ class Body:
                 raise ValueError('The bodies %r and %r collided' %(self.name, other.name))
 
             ## Compute acceleration OTHER causes on THIS
-            a_x = -G * other.mass * pos[0] / d**3
-            a_y = -G * other.mass * pos[1] / d**3
-            a_z = -G * other.mass * pos[2] / d**3
+            #a_x = -G * other.mass * pos[0] / d**3
+            #a_y = -G * other.mass * pos[1] / d**3
+            #a_z = -G * other.mass * pos[2] / d**3
 
-            #a_x = c_acc(other.mass, pos[0], pos[1], pos[2], other.p_x, other.p_y, other.p_z, 6.67428e-11)
+            a_x = c_accx(other.mass, pos[0], pos[1], pos[2], other.p_x, other.p_y, other.p_z)
+            a_y = c_accy(other.mass, pos[0], pos[1], pos[2], other.p_x, other.p_y, other.p_z)
+            a_z = c_accz(other.mass, pos[0], pos[1], pos[2], other.p_x, other.p_y, other.p_z)
+            
             acc_x += a_x
             acc_y += a_y
             acc_z += a_z
