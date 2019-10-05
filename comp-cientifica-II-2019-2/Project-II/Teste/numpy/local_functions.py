@@ -23,6 +23,8 @@ def simulate(bodies, step = 3600, period = 365, method = 'euler', G = 6.67428e-1
         body.v_x = body.v_x0
         body.v_y = body.v_y0
         body.v_z = body.v_z0
+        body.r = np.copy(body.r_0)
+        body.v = np.copy(body.v_0)
 
     while count < period:
         acc = {}
@@ -31,26 +33,24 @@ def simulate(bodies, step = 3600, period = 365, method = 'euler', G = 6.67428e-1
             for other in bodies:
                 if body is other:
                     continue
-                acc_x, acc_y, acc_z, body.potential, body.ang_mo = body.acceleration(bodies, pos = [body.p_x, body.p_y, body.p_z], retm = True, retpe = True)
+                acc_x, acc_y, acc_z, body.potential, body.ang_mo = body.acceleration(bodies, pos = body.r, retm = True, retpe = True)
                 acc[body] = (acc_x, acc_y, acc_z)
 
         for body in bodies:
-            pos[body.name].append((body.p_x,body.p_y, body.p_z))
+            pos[body.name].append(body.r)
             vel_sq[body.name].append((body.v_x**2 + body.v_y**2 + body.v_z**2))
             potential[body.name].append(body.potential)
             ang_mo[body.name].append(body.ang_mo)
 
             a_x, a_y, a_z = acc[body]
+            a_vec = [a_x, a_y, a_z]
+            print(body.v)
 
             if method == 'euler-cromer':
             ## Sympletic 1st-order Euler
-                body.v_x += a_x * step
-                body.v_y += a_y * step
-                body.v_z += a_z * step
+                body.v += a_vec * step
                 
-                body.p_x += body.v_x * step
-                body.p_y += body.v_y * step
-                body.p_z += body.v_z * step
+                body.r += body.v * step
             elif method == 'rk4':
             ## 4th Order Runge-Kutta
                 k1_x, k1_y, k1_z = body.acceleration(bodies, pos = [body.p_x, body.p_y, body.p_z])
@@ -136,7 +136,7 @@ def simulate(bodies, step = 3600, period = 365, method = 'euler', G = 6.67428e-1
                 p1_y = body.p_y + lf1 * body.v_y
                 p1_z = body.p_z + lf1 * body.v_z
 
-                ax_new, ay_new, az_new = body.acceleration(bodies, pos = [p1_x, p1_y, p1_z])
+                ax_new, ay_new, az_new = body.acceleration(bodies, pos = np.array([p1_x, p1_y, p1_z]))
 
                 lf2 = step / f
                 v2_x = body.v_x + lf2 * ax_new
@@ -148,7 +148,7 @@ def simulate(bodies, step = 3600, period = 365, method = 'euler', G = 6.67428e-1
                 p3_y = p1_y + lf3 * v2_y
                 p3_z = p1_z + lf3 * v2_z
 
-                ax_new, ay_new, az_new = body.acceleration(bodies, pos = [p3_x, p3_y, p3_z])
+                ax_new, ay_new, az_new = body.acceleration(bodies, pos = np.array([p3_x, p3_y, p3_z]))
 
                 lf4 = -step * w / f
                 v4_x = v2_x + lf4 * ax_new
@@ -159,7 +159,7 @@ def simulate(bodies, step = 3600, period = 365, method = 'euler', G = 6.67428e-1
                 p5_y = p3_y + lf3 * v4_y
                 p5_z = p3_z + lf3 * v4_z
 
-                ax_new, ay_new, az_new = body.acceleration(bodies, pos = [p5_x, p5_y, p5_z])
+                ax_new, ay_new, az_new = body.acceleration(bodies, pos = np.array([p5_x, p5_y, p5_z]))
 
                 body.v_x = v4_x + lf2 * ax_new
                 body.v_y = v4_y + lf2 * ay_new
