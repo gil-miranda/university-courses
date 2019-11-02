@@ -1,34 +1,13 @@
-function mass_center(bodies) {
-  this.rx = 0;
-  this.ry = 0;
-  this.m = 0;
-
-  this.draw() = function() {
-    context.beginPath();
-    context.arc(this.rx, this.ry, 5, 0, 2*Math.PI, false);
-    context.fillStyle = 'purple';
-    context.fill();
-  }
-
-  this.set_CM() = function() {
-    for(var i = 0; i < bodies.length; i++) {
-      this.rx += bodies[i].m*bodies[i].rx;
-      this.ry += bodies[i].m*bodies[i].ry;
-      this.m += bodies[i].m;
-    }
-    this.rx = this.rx/this.m;
-    this.ry = this.ry/this.m;
-    this.draw();
-  }
-}
-
 
 function animate() {
     requestAnimationFrame(animate);
     canv.clearRect(0,0,innerWidth,innerHeight);
     system.velocity_verlet();
+    cm.set_CM();
 }
 animate();
+
+
 
 
 var novosposx = [];

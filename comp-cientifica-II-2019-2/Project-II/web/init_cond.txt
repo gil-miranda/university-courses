@@ -4,3 +4,6 @@ sol = new body(10**15,120,50,-20,0,5,'yellow');
 terra = new body(10**15, 150,100,20,0,5,'blue');
 
 ////////////////////
+
+sol = new body(10**15,0,-30,-20,0,5,'yellow');
+terra = new body(10**15, 0,0,20,0,5,'blue');

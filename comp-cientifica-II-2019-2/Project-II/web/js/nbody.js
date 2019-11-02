@@ -1,27 +1,31 @@
 var canvas = document.querySelector('canvas');
 var canv = canvas.getContext('2d');
 const G = 6.67428e-11;
+var meterPerPixel = 100;
 
 function mass_center(bodies) {
   this.rx = 0;
   this.ry = 0;
   this.m = 0;
 
-  this.draw() = function() {
-    context.beginPath();
-    context.arc(this.rx, this.ry, 5, 0, 2*Math.PI, false);
-    context.fillStyle = 'purple';
-    context.fill();
+  this.draw = function() {
+    canv.beginPath();
+    canv.arc(this.rx, this.ry, 3, 0, 2*Math.PI, false);
+    canv.fillStyle = 'red';
+    canv.fill();
   }
 
-  this.set_CM() = function() {
+  this.set_CM = function() {
+    temp_x = 0;
+    temp_y = 0;
+    temp_m = 0;
     for(var i = 0; i < bodies.length; i++) {
-      this.rx += bodies[i].m*bodies[i].rx;
-      this.ry += bodies[i].m*bodies[i].ry;
-      this.m += bodies[i].m;
+      temp_x += bodies[i].m*bodies[i].rx;
+      temp_y += bodies[i].m*bodies[i].ry;
+      temp_m += bodies[i].m;
     }
-    this.rx = this.rx/this.m;
-    this.ry = this.ry/this.m;
+    this.rx = temp_x/temp_m;
+    this.ry = temp_y/temp_m;
     this.draw();
   }
 }
@@ -30,11 +34,11 @@ function body(m, rx, ry, vx, vy, ra,color) {
   this.m = m; // mass of the planet
 
   this.set_rx = function(x) {
-    return x + 0.5*canvas.width;
+    return x/meterPerPixel + 0.5*canvas.width;
   }
 
   this.set_ry = function(y) {
-    return y + 0.5*canvas.height;
+    return y/meterPerPixel + 0.5*canvas.height;
   }
 
   this.rx = this.set_rx(rx);
@@ -132,14 +136,16 @@ function simulate(h, bodies) {
 
 // (m, rx, ry, vx, vy, ra,color)
 //var planetas = [new body(10**15,20,20,-20,0,10,'yellow'), new body(10**15, 30,30,20,0,10,'blue'),new body(10**15, 120,120,0,-20,10,'green'), new body(10**15,50,30,0,20,10,'red')];
-sol = new body(10**15,0,-30,-20,0,5,'yellow');
-terra = new body(10**15, 30,20,20,0,5,'blue');
-jupiter = new body(10**15, -180, -100, 20, 0, 5, 'red');
+sol = new body(10**15,0,0,-20,0,5,'yellow');
+terra = new body(10**15, 3000,5000,20,0,5,'blue');
+jupiter = new body(1, -100, -25, 2, -1.5, 5, 'red');
 var planetas = [sol, terra];
 system = new simulate(0.1,planetas);
+cm = new mass_center(planetas);
 function animate() {
     requestAnimationFrame(animate);
     canv.clearRect(0,0,innerWidth,innerHeight);
     system.velocity_verlet();
+    cm.set_CM();
 }
 animate();
