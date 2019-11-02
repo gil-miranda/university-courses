@@ -1,0 +1,19 @@
+body {
+  background: #000;
+  max-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 95vh;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+#simulator{
+  margin: 0 auto;
+  width: 100vw;
+  height: 95vh;
+  background: url("../images/star_tile.jpg");
+}
