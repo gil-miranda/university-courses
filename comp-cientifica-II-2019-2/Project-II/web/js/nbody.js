@@ -168,7 +168,7 @@ function simulate(step, bodies) {
       // var vhalf_y = this.bodies[i].v_y + 0.5 * step * a_y;
 
       var new_x = this.bodies[i].r_x + this.bodies[i].v_x * step + 0.5 * a_x * step**2;
-      var new_y = this.bodies[i].r_y + this.bodies[i].v_y * step + 0.5 * a_y * step**2;;
+      var new_y = this.bodies[i].r_y + this.bodies[i].v_y * step + 0.5 * a_y * step**2;
 
       // pos_x.push(this.bodies[i].r_x + this.step*this.bodies[i].v_x + this.step*this.step*a_x/2);
       pos_x.push(new_x);
@@ -180,8 +180,8 @@ function simulate(step, bodies) {
       var ax_new = 0;
       var ay_new = 0;
       for (var j = 0; j < this.bodies.length; j++) {
-        ax_new += acceleration_x(this.bodies[i], this.bodies[j], i, j);
-        ay_new += acceleration_y(this.bodies[i], this.bodies[j], i, j);
+        ax_new += lf_acceleration_x(pos_x[i], pos_y[i], this.bodies[j], i, j);
+        ay_new += lf_acceleration_y(pos_x[i], pos_y[i], this.bodies[j], i, j);
       }
       new_vx = this.bodies[i].v_x + 0.5*(acc_x[i] + ax_new)*this.step;
       new_vy = this.bodies[i].v_y + 0.5*(acc_y[i] + ay_new)*this.step;
@@ -262,8 +262,8 @@ function simulate(step, bodies) {
         v6_x = v4_x + lf2 * ax_new3;
         v6_y = v4_y + lf2 * ay_new3;
 
-        p7_x = p5_x + lf1 * this.bodies[i].v_x;
-        p7_y = p5_y + lf1 * this.bodies[i].v_y;
+        p7_x = p5_x + lf1 * v6_x;
+        p7_y = p5_y + lf1 * v6_y;
 
         pos_x.push(p7_x);
         pos_y.push(p7_y);
@@ -284,7 +284,7 @@ function simulate(step, bodies) {
       // velocities
       this.bodies[i].v_x = vel_x[i];
       this.bodies[i].v_y = vel_y[i];
-      console.log(this.bodies[i].r_x + ' - ' + this.bodies[i].r_y + ' \n ' + this.bodies[i].plot_x + ' - ' + this.bodies[i].plot_y);
+      //console.log(this.bodies[i].r_x + ' - ' + this.bodies[i].r_y + ' \n ' + this.bodies[i].plot_x + ' - ' + this.bodies[i].plot_y);
      }
       this.draw();
       this.drawOrbitalLines();
@@ -293,7 +293,7 @@ function simulate(step, bodies) {
 } // End Simulate
 
 // (m, rx, ry, vx, vy, ra,color)
-//var planetas = [new body(10**15,20,20,-20,0,10,'yellow'), new body(10**15, 30,30,20,0,10,'blue'),new body(10**15, 120,120,0,-20,10,'green'), new body(10**15,50,30,0,20,10,'red')];
+//var bodies = [new body(10**15,20,20,-20,0,10,'yellow'), new body(10**15, 30,30,20,0,10,'blue'),new body(10**15, 120,120,0,-20,10,'green'), new body(10**15,50,30,0,20,10,'red')];
 sun = new body(1.98855e30,0,0,0,0,10,'yellow');
 earth = new body(5.9742e24, 147.1e9,0,0,-30.29e3,5,'blue');
 venus = new body(4.8685e24, 107.5e9, 0, 0, -35.26e3, 5, 'salmon');
