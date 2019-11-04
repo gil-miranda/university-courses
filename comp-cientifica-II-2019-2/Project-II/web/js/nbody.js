@@ -12,6 +12,17 @@ var AU = 149.6e7;
 var meterPerPixel = AU/2;
 var i, j;
 
+
+var set_UI = function(body_count, cm_x, cm_y) {
+  var body_counter = document.getElementById('body_counter');
+  body_counter.innerHTML = body_count;
+
+  var cm_posx = document.getElementById('cm_posx');
+  var cm_posy = document.getElementById('cm_posy');
+  cm_posx.innerHTML = cm_x;
+  cm_posy.innerHTML = cm_y;
+}
+
 var set_rx = function(x) {
   return x/meterPerPixel + 0.5*canvas.width;
 }
@@ -54,23 +65,24 @@ function mass_center(bodies) {
     this.r_y = temp_y/temp_m;
     this.plot_x = set_rx(this.r_x);
     this.plot_y = set_ry(this.r_y);
-    console.log('CM -> ' + this.plot_x + ' - ' + this.plot_y);
+    //console.log('CM -> ' + this.plot_x + ' - ' + this.plot_y);
     this.draw();
   }
 }
 
-function body(mass, r_x, r_y, v_x, v_y, ra,color) {
+function body(mass, r_x, r_y, v_x, v_y, ra,color, name) {
   this.mass = mass; // mass of the planet
   this.r_x = r_x;
   this.r_y = r_y;
   this.plot_x = set_rx(r_x);
   this.plot_y = set_rx(r_y);
-  this.lastpos_x = this.plot_x;
-  this.lastpos_y = this.plot_y;
+  this.lastpos_x = [this.plot_x];
+  this.lastpos_y = [this.plot_y];
   this.v_x = v_x;
   this.v_y = v_y;
   this.ra = ra;
   this.color = color;
+  this.name = name;
   this.draw = function() {
     context.beginPath();
     context.arc(this.plot_x, this.plot_y, this.ra,0,Math.PI*2, false);
@@ -145,6 +157,13 @@ function simulate(step, bodies) {
 
   this.drawOrbitalLines = function() {
     for (i = 0; i < this.bodies.length; i++) {
+      for(j = 10; j < this.bodies[i].lastpos_x.length; j++) {
+        context.beginPath();
+        context.strokeStyle = this.bodies[i].color;
+        context.moveTo(this.bodies[i].lastpos_x[j-1], this.bodies[i].lastpos_y[j-1]);
+        context.lineTo(this.bodies[i].lastpos_x[j], this.bodies[i].lastpos_y[j]);
+        context.stroke();
+      }
       this.drawLines(this.bodies[i].plot_x, this.bodies[i].lastpos_x, this.bodies[i].plot_y, this.bodies[i].lastpos_y, this.bodies[i].color);
     }
   }
@@ -273,14 +292,17 @@ function simulate(step, bodies) {
     for (i = 0; i < this.bodies.length; i++) {
       // x coordinate
       this.bodies[i].r_x = pos_x[i];
-      this.bodies[i].lastpos_x = this.bodies[i].plot_x;
+      this.bodies[i].lastpos_x.push(this.bodies[i].plot_x);
       this.bodies[i].plot_x = set_rx(this.bodies[i].r_x);
       
       // y coordinate
       this.bodies[i].r_y = pos_y[i];
-      this.bodies[i].lastpos_y = this.bodies[i].plot_y;
+      this.bodies[i].lastpos_y.push(this.bodies[i].plot_y);
       this.bodies[i].plot_y = set_ry(this.bodies[i].r_y);
-      
+      if (this.bodies[i].lastpos_x.length > 800) {
+        this.bodies[i].lastpos_y.splice(0, this.bodies[i].lastpos_y.length-50);
+        this.bodies[i].lastpos_x.splice(0, this.bodies[i].lastpos_x.length-50);
+      }
       // velocities
       this.bodies[i].v_x = vel_x[i];
       this.bodies[i].v_y = vel_y[i];
@@ -294,26 +316,81 @@ function simulate(step, bodies) {
 
 // (m, rx, ry, vx, vy, ra,color)
 //var bodies = [new body(10**15,20,20,-20,0,10,'yellow'), new body(10**15, 30,30,20,0,10,'blue'),new body(10**15, 120,120,0,-20,10,'green'), new body(10**15,50,30,0,20,10,'red')];
-sun = new body(1.98855e30,0,0,0,0,10,'yellow');
-earth = new body(5.9742e24, 147.1e9,0,0,-30.29e3,5,'blue');
-venus = new body(4.8685e24, 107.5e9, 0, 0, -35.26e3, 5, 'salmon');
-mercury = new body(0.3e24, 46e9, 0, 0, -58.98e3, 5, 'darkmagenta');
-mars = new body(0.642e24, 206.6e9, 0, 0, -26.5e3, 5, 'red');
-var planetas = [sun,earth, venus, mercury, mars];
 
-//// condições iniciais variaveis
+/// Initial conditions for real solar system simulation
 
-ball1 = new body(1, -100e9, 0, 5e3, 5e3, 10, 'green');
-ball2 = new body(1, 100e9, 0,5e3, 5e3, 10, 'gold');
-ball3 = new body(1, 0, 0, -10e3, -10e3, 5, 'blue');
-sim2 = [ball1, ball2, ball3];
-system = new simulate(6*3600,planetas);
-cm = new mass_center(planetas);
+sun = new body(1.98855e30,0,0,0,0,15,'yellow', 'Sun');
+earth = new body(5.9742e24, 147.1e9,0,0,-30.29e3,10,'blue', 'Earth');
+venus = new body(4.8685e24, 107.5e9, 0, 0, -35.26e3, 10, 'salmon', 'Venus');
+mercury = new body(0.3e24, 46e9, 0, 0, -58.98e3, 10, 'darkmagenta', 'Mercury');
+mars = new body(0.642e24, 206.6e9, 0, 0, -26.5e3, 10, 'red', 'Mars');
+jupiter = new body(1.898e27, 740.5e9, 0, 0, -13.72e3, 10, 'orange', 'Jupiter');
+saturn = new body(5.68e26, 1352.6e9, 0, 0, -10.18e3, 10, 'maroon', 'Saturn');
+uranus = new body(8.6e25, 2741.3e9, 0, 0, -7.11e3, 10, 'darkgreen', 'Uranus');
+neptune = new body(1.02e26, 4444.5e9, 0, 0, -5.5e3, 10, 'navy', 'Neptune');
+var solar_system = [sun, earth, venus, mercury, mars, jupiter, saturn, uranus, neptune];
+
+//// condições iniciais 2 planetas ao redor de 1 estrela
+
+sim_1_ball1 = new body(1, 80e9, 0, -15e3, 15e3, 7, 'green');
+sim_1_ball2 = new body(1, -90e9, 0,15e3, -15e3, 7, 'gold');
+sim_1_ball3 = new body(5e29, 0, 0, 0, 0, 15, 'red');
+sim1 = [sim_1_ball1, sim_1_ball2, sim_1_ball3];
+
+//// Cond iniciais
+sim_2_ball1 = new body(1, 80e9, 0, 0, -15e3, 7, 'green');
+sim_2_ball2 = new body(1, -80e9, 0,0, -15e3, 7, 'gold');
+sim_2_ball3 = new body(1, 0, 0, 0, 30e3, 7,'red');
+sim2 = [sim_2_ball1, sim_2_ball2, sim_2_ball3];
+
+
+pause = 0;
+
+to_simulate = solar_system;
+
+system = new simulate(24*3600,to_simulate);
+cm = new mass_center(to_simulate);
+
+
+document.body.onkeyup = function(e){
+  if(e.keyCode == 32){
+      if (pause == 0) {
+        pause = 1;
+      }
+      else {
+        pause = 0;
+        animate();
+      }
+  }
+  if (e.keyCode == 109 || e.keyCode == 173) {
+    for (i = 0; i < to_simulate.length; i++){
+      to_simulate[i].lastpos_y.splice(0, to_simulate[i].lastpos_y.length);
+      to_simulate[i].lastpos_x.splice(0, to_simulate[i].lastpos_x.length);
+    }
+    meterPerPixel += .5*meterPerPixel;
+    canvas.width += .5*window.innerWidth;
+    canvas.height += .5*window.innerHeight;
+  }
+  if (e.keyCode == 107 || e.keyCode == 61) {
+    for (i = 0; i < to_simulate.length; i++){
+      to_simulate[i].lastpos_y.splice(0, to_simulate[i].lastpos_y.length);
+      to_simulate[i].lastpos_x.splice(0, to_simulate[i].lastpos_x.length);
+    }
+    meterPerPixel -= .5*meterPerPixel;
+    canvas.width -= .5*window.innerWidth;
+    canvas.height -= .5*window.innerHeight;
+  }
+}
+
 function animate() {
+    if (pause == 0) {
     requestAnimationFrame(animate);
-    //context.clearRect(0,0,innerWidth,innerHeight);
+    context.clearRect(0,0,canvas.width,canvas.height);
     system.leapfrog();
     cm.set_CM();
+    set_UI(to_simulate.length, parseInt(cm.plot_x), parseInt(cm.plot_y));
     system.drawOrbitalLines();
+    } else {
+    }
 }
 animate();
